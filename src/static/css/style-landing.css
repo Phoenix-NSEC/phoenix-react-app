@@ -1,0 +1,263 @@
+#particles-js{
+    background-color: #00428a !important;
+    margin: 0%;
+    width: 100%;
+    height: 100vh;
+    
+}
+h1{
+    color: blanchedalmond ;
+    
+}
+.container{
+    
+    position: absolute;
+}
+.row{
+    margin-top: 250px;
+}
+nav{
+    position: absolute;
+    padding-left: 70% !important;
+    width: 100% !important;
+
+  
+
+}
+nav li{
+    align-content: flex-end;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    color: white;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 50px;
+    transition-delay: 0.1s;
+    
+    
+}
+nav li:hover {
+    background-color: white;
+    font-size: 20px;
+    color: black;
+    
+    box-shadow: 10px  white!important;
+}
+.discover{
+    margin-top:20px !important;
+    color: white !important;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 50px !important;
+    transition-delay: 0.1s;
+    padding:10px 30px;
+    background-color: transparent;
+    text-decoration: none !important;
+
+}
+.discover:hover {
+    background-color: white;
+    font-size: 20px;
+    color: black !important;
+    text-shadow: 5px;
+    text-emphasis: bold;
+    
+    box-shadow: 10px  white!important;
+}
+
+.typewriter h1 {
+    color: red;
+    font-family: monospace;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+  }
+
+  .grid{
+      margin:80px 100px;
+      
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: absolute;
+      grid-gap:15px;
+      height: 500px;
+  }
+  .grid div{
+      width: 500px !important;
+     
+  }
+  img{
+      max-height: 400px;
+      max-width: 400px;
+  }
+  .text{
+      padding: 100px;
+  }
+  .phoenix{
+    display: flex;
+    margin-top: 80px;
+    font-size: 60px;      
+    width: 300px !important;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .tag{
+    display: flex;
+    font-size: 30px; 
+    color: white;
+    margin-bottom:20px;
+      
+    width: 300px !important;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .icons{
+      position: fixed;
+      
+      top:40%;
+      right:0%;
+      align-items: flex-end !important;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      
+      
+
+  }
+
+.icons a{
+    text-decoration: none !important;
+    padding: 10px;
+    text-transform: uppercase;
+    margin: 2px;
+    width: 200px !important;
+    border-radius: 50px 0px 0px 50px;
+
+    transform: translate(140px,0px);
+    transition:0.5s;
+    
+
+}
+.icons a i{
+    margin-right:25px;
+    background-color: white;
+    color:#00428a;
+    height:40px;
+    width:40px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 40px;
+    
+    
+    
+    }
+
+.icons a:hover{
+    transform: translate(0px,0px);
+    border: solid 2px white;
+
+}
+.facebook{
+    color: white !important ;
+    background-color: #00428a;
+}
+.youtube{
+    color: white !important ;
+    background-color: #00428a;
+}
+.instagram{
+    color: white !important ;
+    background-color: #00428a;
+}
+.telegram{
+    color: white !important ;
+    background-color: #00428a;
+}
+.typewrite{
+      text-decoration: none !important;
+      color: white !important;
+  } 
+
+  @media(max-width:500px){
+    
+    .conatiner{
+        margin:200px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .ic{
+        display: inline-block;
+    }
+    .grid{
+       
+        margin: 40px 25px;
+        display: grid;
+        grid-template-columns: 1fr ;
+        position: absolute;
+        grid-gap:15px;
+        height: 500px;
+    }
+    .grid div{
+        width: 300px !important;
+       
+    }
+    img{
+        max-height: 200px;
+        max-width: 200px;
+    }
+
+.text{
+    padding: 0;
+}
+.icons{
+    display: none;
+}
+
+}
+.ic{
+    display: none;
+}
+.main .ic{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.main a{
+   
+    display:none;
+    font-size: 30px;
+    padding: 5px 20px;
+   
+    
+    
+
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

@@ -1,0 +1,611 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+canvas {
+    height: 100vh;
+    width: 100vw;
+    background-color: #00428a;
+}
+
+
+.login-signup {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 7%;
+    right: 8%;
+    z-index: 1;
+
+}
+
+.login-signup a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: white;
+    padding: 0.25rem 05.rem;
+    border: white 2px solid;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.login {
+    margin-right: 10px;
+}
+
+.login:hover {
+    color: rgb(211, 209, 209);
+    border: rgb(211, 209, 209) 2px solid;
+}
+
+.signup:hover {
+    color: rgb(211, 209, 209);
+    border: rgb(211, 209, 209) 2px solid;
+}
+
+/* ********************************
+MIDDLE LOGO
+******************************** */
+
+.logo {
+    position: absolute;
+    top: 22%;
+    left: 17%;
+}
+
+.logo img {
+    height: 400px;
+}
+
+
+
+/* ********************************
+MIDDLE CONTENT
+******************************** */
+
+.container {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+}
+
+.container .box {
+    width: 380px;
+    height: 250px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container .box .title {
+    width: 83%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 58px;
+}
+
+.container .box .title .block {
+    width: 0%;
+    height: inherit;
+    background: #fff;
+    position: absolute;
+    animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    display: flex;
+}
+
+.container .box .title h1 {
+    font-family: 'Poppins';
+    color: #fff;
+    font-size: 70px;
+    -webkit-animation: mainFadeIn 2s forwards;
+    -o-animation: mainFadeIn 2s forwards;
+    animation: mainFadeIn 2s forwards;
+    animation-delay: 1.6s;
+    opacity: 0;
+    display: flex;
+    align-items: baseline;
+    position: relative;
+}
+
+
+.container .box .role {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-top: 05px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box .role .block {
+    width: 0%;
+    height: inherit;
+    background: #fff;
+    position: absolute;
+    animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation-delay: 2s;
+    display: flex;
+}
+
+.container .box .role h5 {
+    /* margin-top: 10px; */
+    animation: secFadeIn 2s forwards;
+    animation-delay: 3.2s;
+    opacity: 0;
+    font-weight: 400;
+    font-family: 'Russo One';
+    color: #000000;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+@keyframes mainBlock {
+    0% {
+        width: 0%;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes secBlock {
+    0% {
+        width: 0%;
+        left: 0;
+        border: none;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+        border: 0.5px;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+        border: 0.5px;
+    }
+}
+
+@keyframes mainFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes secFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        font-weight: bolder;
+    }
+}
+
+.box a {
+    margin-top: 10px;
+    border: 2px solid white;
+    font-family: 'Abril Fatface';
+    padding: 10px 15px;
+    text-decoration: none;
+    width: 100px;
+    color: white;
+    border-radius: 30px;
+}
+
+.box a:hover {
+    border: 2px solid black;
+    color: black;
+}
+.icons{
+    position: fixed;
+    
+    top:40%;
+    right:0%;
+    align-items: flex-end !important;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+    
+
+}
+
+.icons a{
+  text-decoration: none !important;
+  padding: 10px;
+  text-transform: uppercase;
+  margin: 2px;
+  width: 200px !important;
+  border-radius: 50px 0px 0px 50px;
+
+  transform: translate(160px,0px);
+  transition:0.5s;
+  border: solid 2px white;
+  
+
+}
+.icons a i{
+  margin-right:25px;
+  background-color: white;
+  color:#00428a;
+  height:40px;
+  width:40px;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 40px;
+  
+  
+  
+  }
+
+.icons a:hover{
+  transform: translate(0px,0px);
+  border: solid 2px white;
+
+}
+.facebook{
+  color: white !important ;
+  background-color: #00428a;
+}
+.youtube{
+  color: white !important ;
+  background-color: #00428a;
+}
+.instagram{
+  color: white !important ;
+  background-color: #00428a;
+}
+@media (max-width: 575.98px) {
+    .container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 10%;
+        /* left: 10%; */
+    }
+
+    .contents {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* top: 10%;
+        left: 10%; */
+    }
+
+    .contents .text-container {
+        margin-top: 50px;
+        margin-right: 0%;
+    }
+
+    .logo {
+        margin: 0%;
+        padding: 0%;
+    }
+
+    .logo img {
+        height: 300px;
+    }
+
+    .container .box {
+        width: 380px;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container .box .role h5 {
+        animation: secFadeIn 2s forwards;
+        animation-delay: 3.2s;
+        opacity: 0;
+        font-weight: 400;
+        font-family: 'Russo One';
+        color: #bcdbcd;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    .container .box .role .block {
+        width: 0%;
+        height: inherit;
+        background: #e6630e;
+        position: absolute;
+        animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        display: flex;
+    }
+
+    .container .box .role {
+        width: 90%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 90%;
+        flex-direction: column;
+        /* margin-top: px; */
+        justify-content: center;
+        align-items: center;
+    }
+    .icons {
+        position: fixed;
+        top: 5%;
+        right: 0%;
+        align-items: flex-end !important;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .icons a {
+        text-decoration: none !important;
+        padding: 10px;
+        text-transform: uppercase;
+        margin: 2px;
+        width: 200px !important;
+        border-radius: 10px;
+        transform: translate(130px, 0px);
+        transition: 0.5s;
+    }
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 797.98px) {
+    .container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 10%;
+        left: 10%;
+    }
+
+    .contents {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* top: 10%;
+        left: 10%; */
+    }
+
+    .contents .text-container {
+        margin-left: 40px;
+        margin-top: 50px;
+    }
+
+    .logo img {
+        height: 300px;
+    }
+
+    .container .box .role h5 {
+        animation: secFadeIn 2s forwards;
+        animation-delay: 3.2s;
+        opacity: 0;
+        font-weight: 400;
+        font-family: 'Russo One';
+        color: #bcdbcd;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+
+    .container .box .role .block {
+        width: 0%;
+        height: inherit;
+        background: #e6630e;
+        position: absolute;
+        animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        display: flex;
+    }
+
+    .container .box .role {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        /* margin-top: px; */
+        justify-content: center;
+        align-items: center;
+    }
+    .icons {
+        position: fixed;
+        top: 40%;
+        right: 0%;
+        align-items: flex-end !important;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .icons a {
+        text-decoration: none !important;
+        padding: 10px;
+        text-transform: uppercase;
+        margin: 2px;
+        width: 200px !important;
+        border-radius: 10px;
+        transform: translate(130px, 0px);
+        transition: 0.5s;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 798px) and (max-width: 991.98px) {
+    .contents {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        top: 25%;
+        left: 10%;
+    }
+
+    .contents .text-container {
+        margin-left: 40px;
+        margin-top: 50px;
+    }
+
+    .logo img {
+        height: 300px;
+    }
+
+    .container .box .role h5 {
+        animation: secFadeIn 2s forwards;
+        animation-delay: 3.2s;
+        opacity: 0;
+        font-weight: 400;
+        font-family: 'Russo One';
+        color: #bcdbcd;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+
+    .container .box .role .block {
+        width: 0%;
+        height: inherit;
+        background: #e6630e;
+        position: absolute;
+        animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        display: flex;
+    }
+
+    .container .box .role {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        /* margin-top: px; */
+        justify-content: center;
+        align-items: center;
+    }
+    .icons {
+        position: fixed;
+        top: 40%;
+        right: 0%;
+        align-items: flex-end !important;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .icons a {
+        text-decoration: none !important;
+        padding: 10px;
+        text-transform: uppercase;
+        margin: 2px;
+        width: 200px !important;
+        border-radius: 10px;
+        transform: translate(130px, 0px);
+        transition: 0.5s;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .contents {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        top: 25%;
+        left: 15%;
+    }
+
+    .contents .text-container {
+        margin-left: 40px;
+        margin-top: 50px;
+    }
+
+    .logo img {
+        height: 320px;
+    }
+
+    .container .box .role h5 {
+        animation: secFadeIn 2s forwards;
+        animation-delay: 3.2s;
+        opacity: 0;
+        font-weight: 400;
+        font-family: 'Russo One';
+        color: #bcdbcd;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+
+    .container .box .role .block {
+        width: 0%;
+        height: inherit;
+        background: #e6630e;
+        position: absolute;
+        animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+        animation-delay: 2s;
+        display: flex;
+    }
+
+    .container .box .role {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 40px;
+        /* margin-top: px; */
+        justify-content: center;
+        align-items: center;
+    }
+    .icons {
+        position: fixed;
+        top: 40%;
+        right: 0%;
+        align-items: flex-end !important;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .icons a {
+        text-decoration: none !important;
+        padding: 10px;
+        text-transform: uppercase;
+        margin: 2px;
+        width: 200px !important;
+        border-radius: 10px;
+        transform: translate(135px, 0px);
+        transition: 0.5s;
+    }
+}
