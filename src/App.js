@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import logo from './logo.svg';
+import { ChakraProvider } from '@chakra-ui/react'
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -14,22 +15,25 @@ import Coreteam from "./components/Coreteam/Coreteam";
 import Gallary from "./components/Imagegallary/Gallary";
 import Blogs from "./components/Blogs/Blogs";
 import Webteam from "./components/Webteam/Webteam";
+import MemberRegistration from "./pages/MemberRegistration";
 
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Landing />}/>
-      <Route path="/home" element={<Home />}/>
-      <Route path="/events" element={<Events />}/>
-      <Route path="/clubs" element={<Clubs />}/>
-      <Route path="/contact" element={<Contact />}/>
-      <Route path="/core" element={<Coreteam />}/>
-      <Route path="/gallary" element={<Gallary />}/>
-      <Route path="/blogs" element={<Blogs />}/>
-      <Route path="/webteam" element={<Webteam />}/>
-
-    </Routes>
+    <ChakraProvider>
+      <Routes>
+        <Route path="/" element={<Landing />}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/events" element={<Events />}/>
+        <Route path="/clubs" element={<Clubs />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/core" element={<Coreteam />}/>
+        <Route path="/gallary" element={<Gallary />}/>
+        <Route path="/blogs" element={<Blogs />}/>
+        <Route path="/webteam" element={<Webteam />}/>
+        <Route path="/member-registration" element={<MemberRegistration />}/>
+      </Routes>
+    </ChakraProvider>
   );
 }
 
