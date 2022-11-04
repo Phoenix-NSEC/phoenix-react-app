@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, Flex, FormControl, FormErrorMessage, Image, Input, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, FormControl, FormErrorMessage, Image, Input, Select, Text } from '@chakra-ui/react';
 import phoenixBanner from "../../static/img/phoenixBanner.png"
 import { Field, Formik } from 'formik';
 import axios from 'axios';
@@ -7,6 +7,84 @@ import axios from 'axios';
 const MemberRegistration = () => {
     const [profilePic, setProfilePic] = useState();
     const [transactionPic, setTransactionPic] = useState();
+
+    const deptChoices = [
+        {
+            "value": "CSE",
+            "display_name": "Computer Science and Engineering"
+        },
+        {
+            "value": "ECE",
+            "display_name": "Electronics and Communication Engineering"
+        },
+        {
+            "value": "EE",
+            "display_name": "Electrical Engineering"
+        },
+        {
+            "value": "ME",
+            "display_name": "Mechanical Engineering"
+        },
+        {
+            "value": "CE",
+            "display_name": "Civil Engineering"
+        },
+        {
+            "value": "IT",
+            "display_name": "Information Technology"
+        },
+        {
+            "value": "BME",
+            "display_name": "Biomedical Engineering"
+        },
+        {
+            "value": "AIML",
+            "display_name": "Artificial Intelligence and Machine Learning"
+        },
+        {
+            "value": "BCA",
+            "display_name": "Bachelor of Computer Applications"
+        },
+        {
+            "value": "MCA",
+            "display_name": "Master of Computer Applications"
+        },
+        {
+            "value": "MBA",
+            "display_name": "Master of Business Administration"
+        },
+        {
+            "value": "MTECH",
+            "display_name": "Master of Technology"
+        },
+        {
+            "value": "BBA",
+            "display_name": "Bachelor of Business Administration"
+        },
+        {
+            "value": "BSCCS",
+            "display_name": "Bachelor of Science in Computer Science & Cyber Security"
+        },
+        {
+            "value": "CSBS",
+            "display_name": "Computer Science and Business Systems"
+        }
+    ]
+
+    const genderOptions = [
+        {
+            "value": "M",
+            "display_name": "Male"
+        },
+        {
+            "value": "F",
+            "display_name": "Female"
+        },
+        {
+            "value": "O",
+            "display_name": "Other"
+        }
+    ]
 
     return (
         <Formik
@@ -24,7 +102,11 @@ const MemberRegistration = () => {
                 transactionPicUploaded: false,
             }}
             onSubmit={async (values) => {
-                if (values.profilePicUploaded && values.transactionPicUploaded) {
+                if (!values.profilePicUploaded) {
+                    return alert("Please upload your picture");
+                }   else if (!values.transactionPicUploaded) {
+                    return alert("Please upload the transaction proof screenshot");
+                }   else {
                     const formData = new FormData();
                     formData.append("name", values.name)
                     formData.append("email", values.email)
@@ -39,12 +121,12 @@ const MemberRegistration = () => {
                     formData.append("is_verified", false)
                     formData.append("payment_image", transactionPic)
                     console.log(formData);
-
+    
                     await axios.post("https://api.phoenixnsec.in/api/v1/member/", formData)
                     .then(res => {
                         console.log("successful")
                     }).catch(err => {
-                        console.log(err.message);
+                        console.log(err);
                     })
                     console.log(values, profilePic, transactionPic)
                 }
@@ -129,6 +211,39 @@ const MemberRegistration = () => {
                             borderRadius="10px"
                             boxShadow="1px 2px 5px #00000021"
                         >
+                            <Text mb="10px" color="black">Gender</Text>
+                            <FormControl isInvalid={!values.gender && touched.gender}>
+                                <Field
+                                    as={Select}
+                                    id={"gender"}
+                                    name={"gender"}
+                                    type={"text"}
+                                    validate={val => {
+                                        let error;
+                                        if (!val) {
+                                            error = "This must be filled";
+                                        }
+                                        return error;
+                                    }}
+                                    placeholder={"Choose Your Gender"}
+                                    variant="flushed"
+                                >
+                                    {genderOptions.map((each, index) => (
+                                        <option key={index} value={each.value}>{each.display_name}</option>
+                                    ))}
+                                </Field>
+                                <FormErrorMessage>This field must be filled</FormErrorMessage>
+                            </FormControl>
+                        </Box>
+                        <Box
+                            bg="white"
+                            p="20px"
+                            w="80vw"
+                            mb="10px"
+                            maxW="650px"
+                            borderRadius="10px"
+                            boxShadow="1px 2px 5px #00000021"
+                        >
                             <Text mb="10px" color="black">WhatsApp No.</Text>
                             <FormControl isInvalid={!values.whatsapp && touched.whatsapp}>
                                 <Field
@@ -190,7 +305,7 @@ const MemberRegistration = () => {
                             <Text mb="10px" color="black">Department</Text>
                             <FormControl isInvalid={!values.department && touched.department}>
                                 <Field
-                                    as={Input}
+                                    as={Select}
                                     id={"department"}
                                     name={"department"}
                                     type={"text"}
@@ -201,9 +316,13 @@ const MemberRegistration = () => {
                                         }
                                         return error;
                                     }}
-                                    placeholder={"Your Department"}
+                                    placeholder={"Choose Your Department"}
                                     variant="flushed"
-                                />
+                                >
+                                    {deptChoices.map((each, index) => (
+                                        <option key={index} value={each.value}>{each.display_name}</option>
+                                    ))}
+                                </Field>
                                 <FormErrorMessage>This field must be filled</FormErrorMessage>
                             </FormControl>
                         </Box>
@@ -230,6 +349,8 @@ const MemberRegistration = () => {
                                         }
                                         return error;
                                     }}
+                                    maxLength="1"
+                                    textTransform="uppercase"
                                     placeholder={"Your section"}
                                     variant="flushed"
                                 />
