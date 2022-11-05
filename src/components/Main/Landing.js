@@ -1,35 +1,15 @@
 import React from 'react'
-import "../../static/css/style-landing.css"
-import img1 from "../../static/images/phoenix_white.png"
+
 import Typewriter from 'typewriter-effect';
 
 function Main() {
   return (
     <>
-  <meta charSet="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {/* <link rel="stylesheet" href="./style-landing.css" /> */}
-  <link rel="icon" href="{% static '/favicon/favicon.png' %}" />
-  <meta
-    name="description"
-    content="Phoenix has always strived for overall development of an individual, from technical to communication skills of a person by conducting domain-specific forums to interpersonal development by working in a team and taking leadership roles."
-  />
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossOrigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
-  <title>PHOENIX</title>
   <div id='particles-js'>
   <nav className="navbar-nav ml-auto"></nav>
   <div className="grid">
     <div className="main">
-      <img src={img1} />
+      {/* <img src={img1} /> */}
       <div className="ic">
         <a
           target="_blank"
@@ -115,8 +95,6 @@ function Main() {
       Telegram
     </a>
   </div>
-  {/* <script>{particles.min.js}</script> */}
-  {/* Global site tag (gtag.js) - Google Analytics */}
   </div>
 </>
 
