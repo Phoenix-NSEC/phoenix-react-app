@@ -4,20 +4,19 @@ import { BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const config = {
+const theme = {
   initialColorMode: 'light',
   useSystemColorMode: false,
 }
 
-// 3. extend the theme
-const theme = extendTheme({ config })
 root.render(
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
+    <ChakraProvider >
       <BrowserRouter>
+      <ColorModeScript initialColorMode={theme.initialColorMode} />
         <App />
       </BrowserRouter>
     </ChakraProvider>

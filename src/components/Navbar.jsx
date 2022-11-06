@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../static/img/logo1.png"
 function Navbar() {
   return (
-    <div className="navbar flex w-full bg-white text fixed top-0 left-0">
+    <div className="navbar flex z-50 w-full bg-white text fixed top-0 left-0">
       <div className="icon w-30  py-3 flex justify-center">
         <img src={logo} alt=""  width="100px" />
       </div>

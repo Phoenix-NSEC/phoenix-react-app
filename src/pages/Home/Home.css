@@ -1,0 +1,8 @@
+.intro {
+    width: 100%;
+    position: relative;
+    background: url("http://localhost:3000/intro-bg.png") center bottom no-repeat;
+    background-size: cover;
+    padding: 200px 0 120px 0;
+    height: 85vh;
+}
