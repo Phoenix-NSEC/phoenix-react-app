@@ -14,9 +14,8 @@ const theme = {
 
 root.render(
   <React.StrictMode>
-    <ChakraProvider >
+    <ChakraProvider>
       <BrowserRouter>
-      <ColorModeScript initialColorMode={theme.initialColorMode} />
         <App />
       </BrowserRouter>
     </ChakraProvider>
