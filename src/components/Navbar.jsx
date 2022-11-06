@@ -24,7 +24,7 @@ function Navbar() {
           <NavLink to="webteam">
             <li>Web Team</li>
           </NavLink>
-          <NavLink to="contactus">
+          <NavLink to="contact">
             <li>Contact Us</li>
           </NavLink>
         </ul>
