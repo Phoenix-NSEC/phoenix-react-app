@@ -2,8 +2,11 @@ import React from "react";
 import Introbg from "../../static/img/intro-bg.png";
 import IntroGroupImage from "../../static/images/avenir-14.JPG";
 import "./Home.css";
-import { Button } from "@chakra-ui/react";
+import { Button, useColorMode } from "@chakra-ui/react";
 function Home() {
+
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <div className="flex">
       <div className="intro flex gap-12 justify-center z-1">
@@ -14,6 +17,9 @@ function Home() {
           <p className="text-[3em] font-[800]">Come Let's Rise</p>
           <Button className="bg-blue-600 mt-[2.5rem]" px="10" borderRadius="3xl" variant="outline">
             Read More
+          </Button>
+          <Button onClick={() => toggleColorMode()}  className="bg-blue-600 mt-[2.5rem]" px="10" borderRadius="3xl" variant="outline">
+            {colorMode === "dark" ? <p>Light</p> : <p>Dark</p>}
           </Button>
         </div>
       </div>
