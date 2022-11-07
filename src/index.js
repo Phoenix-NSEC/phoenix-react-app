@@ -5,13 +5,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
-//import { extendTheme } from '@chakra-ui/react';
 import theme from './styles/theme';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// const theme = {
-//   initialColorMode: 'light',
-//   useSystemColorMode: false,
-// }
 
 root.render(
   <React.StrictMode>
