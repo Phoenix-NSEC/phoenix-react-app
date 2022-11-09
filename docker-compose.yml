@@ -1,0 +1,8 @@
+version: '3'
+services:
+  apps: 
+    build: ./
+    image: tiotobing/nodejs
+    container_name: web
+    ports:
+      - "3000:3000"
