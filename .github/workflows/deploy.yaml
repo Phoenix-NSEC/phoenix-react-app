@@ -5,6 +5,16 @@ on:
       - prod
   workflow_dispatch:
 jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: macbre/push-to-ghcr@master
+      with:
+          image_name: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
   publish-phoenix-website-image:
     runs-on: ubuntu-latest
     steps:
