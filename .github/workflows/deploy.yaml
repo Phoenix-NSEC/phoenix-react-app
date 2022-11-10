@@ -1,5 +1,4 @@
 name: deploy
-description: Deploy to GitHub Container Registry
 on:
   push:
     branches:
