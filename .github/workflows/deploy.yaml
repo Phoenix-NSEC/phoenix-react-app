@@ -17,6 +17,6 @@ jobs:
           password: ${{ secrets.TOKEN }}
       - name: Build the phoenix-website Docker image
         run: |
-          docker build . --tag ghcr.io/Phoenix-NSEC/phoenix-website:latest
-          docker run ghcr.io/Phoenix-NSEC/phoenix-website:latest
-          docker push ghcr.io/Phoenix-NSEC/phoenix-website:latest
+          docker build . --tag ghcr.io/phoenix-nsec/phoenix-website:latest
+          docker run ghcr.io/phoenix-nsec/phoenix-website:latest
+          docker push ghcr.io/phoenix-nsec/phoenix-website:latest
