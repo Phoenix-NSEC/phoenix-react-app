@@ -2,7 +2,7 @@ name: deploy
 on:
   push:
     branches:
-      - main
+      - prod
   workflow_dispatch:
 jobs:
   publish-phoenix-website-image:
