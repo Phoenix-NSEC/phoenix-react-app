@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+[![deploy](https://github.com/Phoenix-NSEC/phoenix-react-app/actions/workflows/deploy.yaml/badge.svg?branch=prod)](https://github.com/Phoenix-NSEC/phoenix-react-app/actions/workflows/deploy.yaml)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -13,7 +13,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: phoenix-nsec
           password: ${{ secrets.TOKEN }}
       - name: Build the phoenix-website Docker image
         run: |
