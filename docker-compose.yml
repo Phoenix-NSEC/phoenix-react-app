@@ -1,8 +1,10 @@
 version: '3'
 services:
-  apps: 
-    build: ./
-    image: tiotobing/nodejs
+  apps:
+    build: .
+    command: nginx -g 'daemon off;'
     container_name: web
     ports:
-      - "80:80"
+      - ${PORT}:${PORT}
+    env_file:
+      - .env
