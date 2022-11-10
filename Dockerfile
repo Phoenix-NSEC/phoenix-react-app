@@ -12,6 +12,7 @@ COPY --from=build /app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf.template
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 EXPOSE $PORT
 
 ENTRYPOINT ["/entrypoint.sh"]
