@@ -1,0 +1,10 @@
+version: '3'
+services:
+  apps:
+    build: .
+    command: nginx -g 'daemon off;'
+    container_name: web
+    ports:
+      - ${PORT}:${PORT}
+    env_file:
+      - .env

@@ -1,0 +1,22 @@
+name: deploy
+on:
+  push:
+    branches:
+      - prod
+  workflow_dispatch:
+jobs:
+
+  publish-phoenix-website-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: phoenix-nsec
+          password: ${{ secrets.TOKEN }}
+      - name: Build the phoenix-website Docker image
+        run: |
+          docker build . --tag ghcr.io/phoenix-nsec/phoenix-website:latest
+          docker push ghcr.io/phoenix-nsec/phoenix-website:latest
