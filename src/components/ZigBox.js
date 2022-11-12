@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function ZigBox({ title, description, data }) {
+  const navigate = useNavigate()
   return (
     <div className="flex flex-col w-full items-center justify-center">
       <div className="header text-center">
@@ -12,7 +14,7 @@ function ZigBox({ title, description, data }) {
         )}
       </div>
       <div className="zigBody w-full md:w-70 ">
-        {data.map(({ question, answer, image }, index) => {
+        {data.map(({ title, description, image ,extraButton }, index) => {
           return (
             <div
               className={`flex ${
@@ -20,9 +22,9 @@ function ZigBox({ title, description, data }) {
               } justify-evenly my-5 items-center`}
             >
               <div className="text w-80 md:w-50">
-                <h2 className="text-[1.2rem] md:text-[1.5rem] font-[700]">{question}</h2>
-                <p className="text-[.8rem] md:text-[1rem] font-[500] mt-3 text-slate-500">{answer}</p>
-                <button className="border-2 rounded-full px-3 my-3  hover:bg-[#1d50c3] hover:border-white hover:text-white">Read More</button>
+                <h2 className="text-[1.2rem] md:text-[1.5rem] font-[700]">{title}</h2>
+                <p className="text-[.8rem] md:text-[1rem] font-[500] mt-3 text-slate-500">{description}</p>
+                {extraButton && <button className="border-2 rounded-full px-3 my-3  hover:bg-[#1d50c3] hover:border-white hover:text-white" onClick={()=>navigate(extraButton.link)}>{extraButton.name}</button>}
               </div>
               <div className="image mb-4 md:mb-0">
                 <img
