@@ -13,6 +13,7 @@ import Blogs from "./pages/Blogs/Blogs";
 import Webteam from "./pages/Webteam/Webteam";
 import Layout from "./pages/layout";
 import Member from "./pages/member/Member";
+import MemberRegistration from "./pages/Registration/Registration";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="member" element={<Navigate to="/home" />} />
         <Route path="member/:MemId" element={<Member />} />
 
+        <Route path="register" element={<MemberRegistration />} />
       </Route>
     </Routes>
   );

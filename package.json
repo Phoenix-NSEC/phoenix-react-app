@@ -10,6 +10,10 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.1.3",
+<<<<<<< HEAD
+=======
+    "formik": "^2.2.9",
+>>>>>>> c9c01eea1006ce689ef06656ad070599298c7cf3
     "framer-motion": "^7.6.4",
     "qrcode.react": "^3.1.0",
     "react": "^18.2.0",

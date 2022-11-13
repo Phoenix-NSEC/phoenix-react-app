@@ -1,7 +1,6 @@
-import React,{useState} from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import React,{useState,useEffect} from "react";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import logo from "../static/img/logo1.png";
-
 import {HiMenuAlt1,HiX} from "react-icons/hi";
 function Navbar() {
   const [navState,setNaState]= useState(false)
@@ -9,6 +8,11 @@ function Navbar() {
   const handleNav = ()=>{
     setNaState(!navState)
   }
+  const location = useLocation()
+
+  useEffect(() => {
+        setNaState(false) 
+  },[location]) 
   return (
     <div className="navbar flex  z-50 w-full bg-white text fixed top-0 left-0">
       <div className="absolute md:hidden top-50 left-3 z-[1000]" onClick={handleNav}>
