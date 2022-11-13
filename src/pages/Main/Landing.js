@@ -19,7 +19,7 @@ function Main() {
         className="h-full w-full"
       />
       <div className=" absolute bottom-0 w-full h-20 flex justify-center items-start">
-        <button className="animate-bounce text-xl font-[500] duration-500 shadow-md bg-yellow-500  px-5 py-2 rounded-md" onClick={()=>navigate('/home')}> Let's Start</button>
+        <button className="animate-bounce text-xl font-[500] duration-500 shadow-md bg-yellow-500  px-5 py-2 rounded-md" onClick={()=>navigate('/home')}> Launch </button>
       </div>
   </div>;
 }
