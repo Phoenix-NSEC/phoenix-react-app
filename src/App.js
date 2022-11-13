@@ -1,4 +1,4 @@
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
 
@@ -12,6 +12,7 @@ import Gallary from "./pages/Imagegallary/Gallary";
 import Blogs from "./pages/Blogs/Blogs";
 import Webteam from "./pages/Webteam/Webteam";
 import Layout from "./pages/layout";
+import Member from "./pages/member/Member";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         <Route path="gallary" element={<Gallary />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="webteam" element={<Webteam />} />
+        <Route path="member" element={<Navigate to="/home" />} />
+        <Route path="member/:MemId" element={<Member />} />
+
       </Route>
     </Routes>
   );
