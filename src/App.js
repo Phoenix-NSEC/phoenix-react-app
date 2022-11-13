@@ -23,7 +23,7 @@ function App() {
         <Route index path="home" element={<Home />} />
         <Route path="events" element={<Events />} />
         <Route path="clubs" element={<Clubs />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="contactus" element={<Contact />} />
         <Route path="core" element={<Coreteam />} />
         <Route path="gallary" element={<Gallary />} />
         <Route path="blogs" element={<Blogs />} />

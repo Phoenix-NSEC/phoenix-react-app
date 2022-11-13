@@ -31,13 +31,13 @@ function Home() {
   ]
   return (
     <div className="flex flex-col">
-      <div className="intro flex gap-12 justify-center items-center  z-1 flex-col md:flex-row px-5 ">
+      <div className="intro flex gap-12 justify-center items-center  z-1 flex-col md:flex-row px-5 overflow-hidden">
         {/* <img src={Introbg} alt="" className='w-full h-90'/> */}
-        <img src={IntroGroupImage} alt="" className="md:w-30 md:h-90 order-3 md:order-none" />
-        <div className="w-full md:w-40 text-white">
-          <p className="text-[1rem] md:text-[3rem] font-[800]">PHOENIX</p>
-          <p className="text-[1rem] md:text-[3rem]">Come Let's Rise</p>
-          <Button className="bg-blue-600 mt-[2.5rem] mx-2" px="10" borderRadius="3xl" variant="outline">
+        <img src={IntroGroupImage} alt="" className=" md:w-[400px] md:h-[300px] order-3 md:order-none" />
+        <div className="w-full md:w-40 text-white flex justify-center flex-col">
+          <p className="text-[3rem] md:text-[3rem] font-[800] text-center">PHOENIX</p>
+          <p className="text-[1rem] md:text-[3rem] text-center">Come Let's Rise</p>
+          <Button className="bg-blue-600 mt-[2.5rem] max-w-[300px] mx-auto" px="10" borderRadius="3xl" variant="outline">
             Read More
           </Button>
           {/* <Button onClick={() => toggleColorMode()}  className="bg-blue-600 mt-[2.5rem] mx-2" px="10" borderRadius="3xl" variant="outline">

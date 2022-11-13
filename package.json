@@ -1,6 +1,7 @@
 {
   "name": "phoenix-react-app",
   "version": "0.1.0",
+  "homepage": "/home",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.3.7",

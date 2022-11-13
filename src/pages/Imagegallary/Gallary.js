@@ -1,8 +1,11 @@
 import React from 'react'
+import Comingsoon from '../../components/Comingsoon'
 
 function Imagegallary() {
   return (
-    <div>Image gallary</div>
+    <>
+    <Comingsoon/>
+    </>
   )
 }
 

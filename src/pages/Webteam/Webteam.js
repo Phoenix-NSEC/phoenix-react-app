@@ -1,8 +1,11 @@
 import React from 'react'
+import Comingsoon from '../../components/Comingsoon'
 
 function Webteam() {
   return (
-    <div>Web team</div>
+    <>
+    <Comingsoon/>
+    </>
   )
 }
 

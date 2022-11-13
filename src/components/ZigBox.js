@@ -32,7 +32,7 @@ function ZigBox({ title, description, data }) {
                   alt=""
                   height="200px"
                   width="300px"
-                  className="bg-red-600"
+                  className="bg-blue-600"
                 />
               </div>
             </div>
