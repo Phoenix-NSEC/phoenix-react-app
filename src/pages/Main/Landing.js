@@ -13,7 +13,7 @@ function Main() {
       preserveAspectRatio: "xMidYMid slice"
     }
   };
-  return <div className="flex items-center bg-[#EEEEEF] h-[100vh]">
+  return <div className="flex items-start bg-[#EEEEEF] h-[100vh] w-[100vw]">
    <Lottie 
 	    options={defaultOptions}
         className="h-full w-full"

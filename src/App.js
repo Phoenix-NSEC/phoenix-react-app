@@ -12,6 +12,7 @@ import Gallary from "./pages/Imagegallary/Gallary";
 import Blogs from "./pages/Blogs/Blogs";
 import Webteam from "./pages/Webteam/Webteam";
 import Layout from "./pages/layout";
+import MemberRegistration from "./pages/Registration/Registration";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="gallary" element={<Gallary />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="webteam" element={<Webteam />} />
+        <Route path="register" element={<MemberRegistration />} />
       </Route>
     </Routes>
   );
