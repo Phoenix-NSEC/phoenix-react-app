@@ -39,7 +39,7 @@ function Clubs() {
       description: 'Imagine a world without buildings ,bridges, skyscrapers or monuments? Not possible right!. Nirmaan comes with an opportunity for the Builders of tomorrow to show and sharpen their skills under the guidance of best mentors and experience the best Platform to showcase their talents.',
       extraButton:{
         name:'Learn More',
-        link: '#'
+        link: '/nirman'
     }
     }
   ]
