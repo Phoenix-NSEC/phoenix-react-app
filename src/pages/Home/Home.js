@@ -1,8 +1,8 @@
 import React from "react";
 import img1 from "../../static/images/home1.jpg";
-import img2 from "../../static/images/phoenix-pic2.JPG";
+import img2 from "../../static/images/phoenix-pic2.jpg";
 import img3 from "../../static/images/avenir-21.jpg";
-import IntroGroupImage from "../../static/images/avenir-14.JPG";
+import IntroGroupImage from "../../static/images/avenir-14.jpg";
 import "./Home.css";
 import { Button } from "@chakra-ui/react";
 import ZigBox from "../../components/ZigBox";
@@ -51,7 +51,10 @@ function Home() {
             borderRadius="3xl"
             variant="outline"
           >
-            <a href="#readmore" className="no-underline"> Read More</a>
+            <a href="#readmore" className="no-underline">
+              {" "}
+              Read More
+            </a>
           </Button>
         </div>
       </div>

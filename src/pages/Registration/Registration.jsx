@@ -13,6 +13,7 @@ import {
 import phoenixBanner from "../../static/img/phoenixBanner.png";
 import { Field, Formik } from "formik";
 import axios from "axios";
+import { addMember } from "../../firebase/member";
 
 const MemberRegistration = () => {
   const [profilePic, setProfilePic] = useState();
@@ -117,30 +118,13 @@ const MemberRegistration = () => {
         } else if (!values.transactionPicUploaded) {
           return alert("Please upload the transaction proof screenshot");
         } else {
-          const formData = new FormData();
-          formData.append("name", values.name);
-          formData.append("email", values.email);
-          formData.append("sex", values.gender);
-          formData.append("whatsapp", values.whatsapp);
-          formData.append("contact", values.contact);
-          formData.append("department", values.department);
-          formData.append("graduation", values.graduation);
-          formData.append("section", values.section);
-          formData.append("student_id", values.studentId);
-          formData.append("avatar", profilePic);
-          formData.append("is_verified", false);
-          formData.append("payment_image", transactionPic);
-          console.log(formData);
-
-          await axios
-            .post("https://api.phoenixnsec.in/api/v1/member/", formData)
-            .then((res) => {
-              console.log("successful");
-            })
+          await addMember(values, profilePic, transactionPic)
             .catch((err) => {
-              console.log(err);
+              alert(err);
+            })
+            .then(() => {
+              alert("Successfully registered");
             });
-          console.log(values, profilePic, transactionPic);
         }
       }}
     >
@@ -174,13 +158,7 @@ const MemberRegistration = () => {
                     id={"name"}
                     name={"name"}
                     type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    validate={defaultValidator}
                     placeholder={"Enter your full name"}
                     variant="flushed"
                   />
@@ -202,16 +180,10 @@ const MemberRegistration = () => {
                 <FormControl isInvalid={!values.email && touched.email}>
                   <Field
                     as={Input}
-                    id={"email"}
-                    name={"email"}
-                    type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    id="email"
+                    name="email"
+                    type="email"
+                    validate={emailValidator}
                     placeholder={"Your personal email id"}
                     variant="flushed"
                   />
@@ -236,13 +208,7 @@ const MemberRegistration = () => {
                     id={"gender"}
                     name={"gender"}
                     type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    validate={defaultValidator}
                     placeholder={"Choose Your Gender"}
                     variant="flushed"
                   >
@@ -272,14 +238,8 @@ const MemberRegistration = () => {
                     as={Input}
                     id={"whatsapp"}
                     name={"whatsapp"}
-                    type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    type={"number"}
+                    validate={defaultValidator}
                     placeholder={"Your Whatsapp Number"}
                     variant="flushed"
                   />
@@ -303,14 +263,8 @@ const MemberRegistration = () => {
                     as={Input}
                     id={"contact"}
                     name={"contact"}
-                    type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    type={"number"}
+                    validate={defaultValidator}
                     placeholder={"Your Contact Number"}
                     variant="flushed"
                   />
@@ -337,13 +291,7 @@ const MemberRegistration = () => {
                     id={"department"}
                     name={"department"}
                     type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    validate={defaultValidator}
                     placeholder={"Choose Your Department"}
                     variant="flushed"
                   >
@@ -374,13 +322,7 @@ const MemberRegistration = () => {
                     id={"section"}
                     name={"section"}
                     type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    validate={defaultValidator}
                     maxLength="1"
                     textTransform="uppercase"
                     placeholder={"Your section"}
@@ -409,13 +351,7 @@ const MemberRegistration = () => {
                     id={"graduation"}
                     name={"graduation"}
                     type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    validate={defaultValidator}
                     placeholder={"Your graduation year"}
                     variant="flushed"
                   />
@@ -440,13 +376,7 @@ const MemberRegistration = () => {
                     id={"studentId"}
                     name={"studentId"}
                     type={"text"}
-                    validate={(val) => {
-                      let error;
-                      if (!val) {
-                        error = "This must be filled";
-                      }
-                      return error;
-                    }}
+                    validate={defaultValidator}
                     placeholder={"Your Student Id"}
                     variant="flushed"
                   />
@@ -535,5 +465,23 @@ const MemberRegistration = () => {
     </Formik>
   );
 };
+
+function defaultValidator(val) {
+  let error;
+  if (!val) {
+    error = "This must be filled";
+  }
+  return error;
+}
+
+function emailValidator(val) {
+  let error;
+  if (!val) {
+    error = "This must be filled";
+  } else if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val)) {
+    error = "Invalid email address";
+  }
+  return error;
+}
 
 export default MemberRegistration;
