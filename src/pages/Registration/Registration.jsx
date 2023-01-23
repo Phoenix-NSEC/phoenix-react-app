@@ -112,13 +112,13 @@ const MemberRegistration = () => {
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent mx={'10px'}>
+        <ModalContent mx={'10px'} bgColor='#FAFBF8'>
           <ModalCloseButton onClick={onClose} />
           <ModalBody textAlign={"center"} margin="auto">
             <Image
               src={GreenTick}
               alt={"GreenTick"}
-              width="150px"
+              width="120px"
               mx="auto"
               my={"10px"}
             />
@@ -179,10 +179,10 @@ const MemberRegistration = () => {
               })
               .catch((err) => {
                 // console.log(err);
-                onOpen();
+                // onOpen();
                 toast({
                   title: "Error Occured",
-                  description: "Registration Unsuccessful",
+                  description: "Registration Failed...Try Again",
                   status: "error",
                   duration: 3000,
                   isClosable: true,
