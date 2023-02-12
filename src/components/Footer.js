@@ -4,7 +4,7 @@ import { BsTelegram,BsFacebook,BsInstagram,BsYoutube } from "react-icons/bs";
 
 function Footer() {
   return (
-    <div className="text-white font-[500] text-sm pt-3">
+    <div className="text-white font-[500] text-sm">
       <div className="bg-[#00428A] top p-4 grid-col-12 lg:flex base:flex-col md:flex">
         <div className="col-lg-4 col-md-3 footer-info">
           <h3 className="font-[1000] text-3xl text-left py-2">Phoenix</h3>
