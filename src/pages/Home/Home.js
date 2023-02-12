@@ -11,7 +11,8 @@ import { db } from "../../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Cards_1 from "../../components/Cards_1";
+import CardHome from "../../components/CardHome";
+
 
 function Home() {
   const responsive = {
@@ -164,7 +165,7 @@ function Home() {
               infinite={true}
               className="gd-carousel"
               dotListClass="custom-dot-list-style"
-              autoPlay={false}
+              autoPlay={true}
               focusOnSelect={true}
               autoPlaySpeed={2000}
             >
@@ -172,7 +173,7 @@ function Home() {
                 return element.members.map((e, index) => {
                   // console.log(element.year);
                   return (
-                    <Cards_1
+                    <CardHome
                       name={e.name}
                       designation={e.designation}
                       photo={e.photo}
