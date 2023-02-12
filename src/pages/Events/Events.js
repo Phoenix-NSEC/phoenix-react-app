@@ -90,7 +90,7 @@ function Events() {
         <h2 className="text-[1.5rem] md:text-[2rem] font-[800]">Upcoming events</h2>
         <div className='gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 md:w-[650px] w-[300px]' >
           <Carousel responsive={responsive}
-            showDots={true}
+            showDots={false}
             containerClass={`w-full`}
             itemClass={`flex justify-center items-center px-2`}
             infinite={true}
