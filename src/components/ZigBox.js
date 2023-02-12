@@ -26,7 +26,7 @@ function ZigBox({ title, description, data }) {
                   {wing && <p className="text-[10px] md:text-[14px] gap-6 px-[8px]  mx-3 text-white bg-[#1d50c3] rounded-full">{wing}</p>}
                 </div>
                 {date && <div className="flex flex-row items-center justify-start mt-3 text-gray-700">
-                  <i class="fa-solid fa-calendar-days"></i>
+                  <i className="fa-solid fa-calendar-days"></i>
                   <p className="ml-2 text-[0.8rem] font-medium">{date}</p>
                 </div>}
                 <p className="text-[.8rem] md:text-[1rem] font-[500] mt-4 text-slate-500">{description}</p>

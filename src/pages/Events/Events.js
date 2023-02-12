@@ -1,19 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import ZigBox from '../../components/ZigBox'
 import { db } from '../../firebase-config'
-import Carousel from 'react-elastic-carousel'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import {
   getDocs,
   collection
 } from 'firebase/firestore'
 import moment from 'moment/moment'
 
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 900, itemsToShow: 4 },
-];
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 2
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
 
 function Events() {
   const [eventList, setEventList] = useState([])
@@ -32,10 +45,6 @@ function Events() {
       console.error(err)
     }
   }
-  var day = moment('10-02-2023');
-  console.log(day)
-
-  // console.log(day);
 
   useEffect(() => {
     getEventList();
@@ -45,33 +54,29 @@ function Events() {
     <>
       <style>
         {`
-            .rec-dot_active {
-              background-color: var(--blue) !important;
-              box-shadow: 0 0 1px 3px var(--blue) !important;
+          .gd-carousel-wrapper {
+            position:unset;
           }
-          .rec-dot:focus,
-          .rec-dot:hover {
-              box-shadow: 0 0 1px 3px var(--blue) !important;
-          }
-          .rec-dot_active:focus,
-          .rec-dot_active:hover {
-              background-color: var(--blue) !important;
-              box-shadow: 0 0 1px 3px var(--blue) !important;
-          }
-          
-          .rec-arrow {
-              background-color: var(--blue) !important;
-              transition: all 0.3s ease;
-              font-size: 1.1rem !important;
-              color: white !important;
-              width: 1.7rem !important;
-              height: 1.7rem !important;
-              min-width: 1.7rem !important;
-              line-height: 1.7rem !important;
-          }
-          
-          .rec-arrow:hover:not(:disabled) {
-              transform: scale(1.2);
+        
+          .gd-carousel {
+            position:unset;
+            width: 100%;
+
+            .react-multi-carousel-list{
+              position: unset !important;
+            }
+
+            .react-multiple-carousel__arrow {
+                position:absolute;
+            }
+            
+            .react-multiple-carousel__arrow--left {
+              left: calc(2% + 1px)
+            }
+        
+            .react-multiple-carousel__arrow--right {
+                right: calc(2% + 1px)
+            }
           }
         `}
       </style>
@@ -83,18 +88,31 @@ function Events() {
       <ZigBox data={eventList} />
       <div className="flex flex-col justify-center items-center">
         <h2 className="text-[1.5rem] md:text-[2rem] font-[800]">Upcoming events</h2>
-        <div className='mt-5 mb-5 flex justify-center space-x-9 md:w-[600px] w-[300px]' >
-          <Carousel breakPoints={breakPoints} enableAutoPlay={true} infinite >
+        <div className='gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 md:w-[650px] w-[300px]' >
+          <Carousel responsive={responsive}
+            showDots={true}
+            containerClass={`w-full`}
+            itemClass={`flex justify-center items-center px-2`}
+            infinite={true}
+            className="gd-carousel"
+            dotListClass="custom-dot-list-style"
+            autoPlay={true}
+            focusOnSelect={true}
+            autoPlaySpeed={2000}
+          >
             {eventList.map((event) => {
               if (event.isUpcoming)
-                return (<div className="bg-gradient-to-r from-cyan-500 to-blue-500 md:w-[400px] w-[200px] h-[196px] rounded-xl flex flex-col justify-center content-start p-3" >
+                return (<div className="bg-gradient-to-r from-cyan-500 to-blue-500 shadow shadow-black md:w-[300px] w-[200px] h-[196px] rounded-xl flex flex-col justify-center content-start p-3" >
                   <div>
                     <h1 className='text-[1.2rem] md:text-[1.5rem] font-[700] text-white'>{event.title}</h1>
-                    <p className='text-white'>{event.description.slice(0, 25)}</p>
+                    <p className='text-white'>{event.description.slice(0, 25)}...</p>
                   </div>
                   <div className='mt-9'>
-                    <p className='font-[800] text-white'>{event.date}</p>
-                    <p className='font-[500] text-sm font-light'><span className='text-white text-transparent bg-clip-text'>{moment(event.date, "DDMMYYYY").fromNow()}</span></p>
+                    <div className="flex flex-row items-center justify-start mt-3 text-gray-700">
+                      <i className="fa-light fa-solid fa-calendar-days text-white"></i>
+                      <p className='ml-2 font-[800] text-white'>{event.date}</p>
+                    </div>
+                    <p className='text-sm font-light'><span className='text-white text-transparent bg-clip-text'>{moment(event.date, "DDMMYYYY").fromNow()}</span></p>
                   </div>
                 </div>)
             })}
