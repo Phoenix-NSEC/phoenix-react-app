@@ -22,6 +22,7 @@ import phoenixBanner from "../../static/img/phoenixBanner.png";
 import GreenTick from "../../static/images/check-green.gif";
 import { Field, Formik } from "formik";
 import axios from "axios";
+import { addMember } from "../../utils/member";
 
 const MemberRegistration = () => {
   const [profilePic, setProfilePic] = useState();
@@ -155,42 +156,42 @@ const MemberRegistration = () => {
           } else if (!values.transactionPicUploaded) {
             return alert("Please upload the transaction proof screenshot");
           } else {
-            const formData = new FormData();
-            formData.append("name", values.name);
-            formData.append("email", values.email);
-            formData.append("sex", values.gender);
-            formData.append("whatsapp", values.whatsapp);
-            formData.append("contact", values.contact);
-            formData.append("department", values.department);
-            formData.append("graduation", values.graduation);
-            formData.append("section", values.section);
-            formData.append("student_id", values.studentId);
-            formData.append("avatar", profilePic);
-            formData.append("is_verified", false);
-            formData.append("payment_image", transactionPic);
-            console.log(formData);
+            // const formData = new FormData();
+            // formData.append("name", values.name);
+            // formData.append("email", values.email);
+            // formData.append("sex", values.gender);
+            // formData.append("whatsapp", values.whatsapp);
+            // formData.append("contact", values.contact);
+            // formData.append("department", values.department);
+            // formData.append("graduation", values.graduation);
+            // formData.append("section", values.section);
+            // formData.append("student_id", values.studentId);
+            // formData.append("avatar", profilePic);
+            // formData.append("is_verified", false);
+            // formData.append("payment_image", transactionPic);
+            // console.log(formData);
 
             setLoading(true);
-            await axios
-              .post("https://api.phoenixnsec.in/api/v1/member/", formData)
-              .then((res) => {
-                // console.log("successful");
-                onOpen();
-              })
-              .catch((err) => {
-                // console.log(err);
-                // onOpen();
-                toast({
-                  title: "Error Occured",
-                  description: "Registration Failed...Try Again",
-                  status: "error",
-                  duration: 3000,
-                  isClosable: true,
-                  position: "bottom",
-                });
+            await addMember(values, profilePic, transactionPic)
+            .then(() => {
+              onOpen();
+              // alert("Successfully registered");
+            })
+            .catch((err) => {
+              console.log(err)
+              toast({
+                title: "Error Occured",
+                description: "Registration Failed...Try Again",
+                status: "error",
+                duration: 3000,
+                isClosable: true,
+                position: "bottom",
               });
+              // alert(err);
+            })
+            
             setLoading(false);
-            console.log(values, profilePic, transactionPic);
+            // console.log(values, profilePic, transactionPic);
           }
         }}
       >

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-
+import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -12,6 +12,8 @@ const firebaseConfig = {
     measurementId: "G-XGRM7GLEXT"
   };
 
-  const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 
-  export const db = getFirestore(app);
+// export const db = getFirestore(app);
+// export const firestore = getFirestore(app);
+// export const storage = getStorage(app);
