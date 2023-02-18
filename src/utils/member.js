@@ -37,6 +37,7 @@ const ImageUploader = async (loc, file) => {
 // Adds members
 export const addMember = async (memberValue, profilePic, transactionPic) => {
   try {
+    console.log("trying to add member");
     const eId = ulid();
     const rgistrationRef = doc(db, "registrations", eId);
     var q = query(

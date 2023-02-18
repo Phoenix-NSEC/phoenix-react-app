@@ -173,9 +173,12 @@ const MemberRegistration = () => {
 
             setLoading(true);
             await addMember(values, profilePic, transactionPic)
-            .then(() => {
-              onOpen();
-              // alert("Successfully registered");
+            .then((d) => {
+              if(d){
+                onOpen();
+              }else{
+                return alert("Already submitted once");
+              }
             })
             .catch((err) => {
               console.log(err)
