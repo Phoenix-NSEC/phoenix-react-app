@@ -13,11 +13,9 @@ function Webteam() {
       const docSnap = await getDoc(docRef);
       
       if (docSnap.exists()) {
-      // console.log("Document data:", docSnap.data());
       setWebTeams([...docSnap.data().members])
       
     } else {
-      // doc.data() will be undefined in this case
       console.log("No such document!");
     }
     }
@@ -30,7 +28,7 @@ function Webteam() {
   <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
       <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our team</h2>
-          <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">Teamwork is the secret that makes common people achieve uncommon results - Ifeanyi Enoch Onuoha</p>
+          <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">Teamwork is the secret that makes common people achieve uncommon results</p>
       </div> 
       <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {
