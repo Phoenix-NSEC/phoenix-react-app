@@ -8,7 +8,7 @@ const CardHome = (props) => {
                 .card{
                     border-radius: 25px;
                     background-color: #FFF;
-                    width:700px;
+                    width:200px;
 
                     
                   }
