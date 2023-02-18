@@ -33,7 +33,7 @@ function Navbar() {
             <li className="text-center">Events</li>
           </NavLink>
           <NavLink to="core">
-            <li className="text-center">Core 2022-2023</li>
+            <li className="text-center">Core Team</li>
           </NavLink>
           <NavLink to="webteam">
             <li className="text-center">Web Team</li>
