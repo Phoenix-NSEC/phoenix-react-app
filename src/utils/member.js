@@ -1,18 +1,6 @@
 import { storage, db } from "../firebase-config";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-} from "firebase/firestore";
-import {
-  Timestamp,
-  doc,
-  setDoc,
-  collection,
-  query,
-  where,
-  getDocs,
-} from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getFirestore, Timestamp, doc, setDoc,collection, query, where,getDocs } from "firebase/firestore";
 import { ulid } from "ulid";
 
 //upload image
