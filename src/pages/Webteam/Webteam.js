@@ -36,9 +36,9 @@ function Webteam() {
         {
           webTeam.map((member)=>{
             return <div key={member.name} className="text-center text-gray-500 dark:text-gray-400">
-            <img className="mx-auto mb-4 w-36 h-36 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="Bonnie Avatar"/>
+            <img className="mx-auto mb-4  rounded-full h-fit w-fit" src={member.avatar} alt={`${member.name}'s avatar`}/>
             <h3 className="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                <a href="#">{member.name}</a>
+                <a href={member.portfolio}>{member.name}</a>
             </h3>
             <p>{member.designation}</p>
             <ul className="flex justify-center mt-4 space-x-4">
