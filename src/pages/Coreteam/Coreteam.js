@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cards from "../../components/Cards";
-import { db } from "../../config/firebase";
+import { db } from "../../firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 
 function Coreteam() {

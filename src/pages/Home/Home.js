@@ -7,7 +7,7 @@ import "./Home.css";
 import { Button } from "@chakra-ui/react";
 import ZigBox from "../../components/ZigBox";
 import { useNavigate } from "react-router-dom";
-import { db } from "../../config/firebase";
+import { db } from "../../firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
