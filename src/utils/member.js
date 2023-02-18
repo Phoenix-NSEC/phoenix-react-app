@@ -25,14 +25,13 @@ const ImageUploader = async (loc, file) => {
 // Adds members
 export const addMember = async (memberValue, profilePic, transactionPic) => {
   try {
-    console.log("trying to add member");
     const eId = ulid();
     const rgistrationRef = doc(db, "registrations", eId);
     var q = query(
       collection(db, "registrations"),
       where("email", "==", memberValue.email)
     );
-    await getDocs(q)
+    return await getDocs(q)
       .then(async (snapshot) => {
         if (snapshot.empty) {
           var profileUrl = await ImageUploader("images", profilePic);
@@ -54,9 +53,10 @@ export const addMember = async (memberValue, profilePic, transactionPic) => {
             { capital: true },
             { merge: true }
           );
+          console.log("Form submitted successfully");
           return true;
         } else {
-          console.log("Document with the same email exists");
+          console.log("user with the same email exists");
           return false;
         }
       })
@@ -64,7 +64,6 @@ export const addMember = async (memberValue, profilePic, transactionPic) => {
         console.log("Error getting documents", err);
         return false;
       });
-      return true;
   } catch (error) {
     return false;
   }

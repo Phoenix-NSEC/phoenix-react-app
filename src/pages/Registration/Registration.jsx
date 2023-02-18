@@ -23,6 +23,7 @@ import GreenTick from "../../static/images/check-green.gif";
 import { Field, Formik } from "formik";
 import axios from "axios";
 import { addMember } from "../../utils/member";
+import { useNavigate } from "react-router-dom";
 
 const MemberRegistration = () => {
   const [profilePic, setProfilePic] = useState();
@@ -109,12 +110,19 @@ const MemberRegistration = () => {
     },
   ];
 
+  const navigate = useNavigate;
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isOpen} onClose={()=>{
+        onClose();
+        navigate("/home", { replace: true });
+      }}>
         <ModalOverlay />
         <ModalContent mx={'10px'} bgColor='#FAFBF8'>
-          <ModalCloseButton onClick={onClose} />
+          <ModalCloseButton onClick={()=>{
+        onClose();
+        navigate("/home", { replace: true });
+      }} />
           <ModalBody textAlign={"center"} margin="auto">
             <Image
               src={GreenTick}
@@ -124,12 +132,15 @@ const MemberRegistration = () => {
               my={"10px"}
             />
             <Text fontSize="md" as="b">
-              Form data has been successfully submitted
+              Registration form successfully submitted!
             </Text>
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="blue" mr={3} onClick={()=>{
+        onClose();
+        navigate("/home", { replace: true });
+      }}>
               Close
             </Button>
           </ModalFooter>
@@ -175,9 +186,20 @@ const MemberRegistration = () => {
             await addMember(values, profilePic, transactionPic)
             .then((d) => {
               if(d){
+                values.profilePicUploaded = false;
+                values.transactionPicUploaded = false;
+                values.name = "";
+                values.email = "";
+                values.gender = "";
+                values.contact = "";
+                values.whatsapp = "";
+                values.department = "";
+                values.section = "";
+                values.graduation = "";
+                values.studentId = "";
                 onOpen();
               }else{
-                return alert("Already submitted once");
+                return alert("Already submitted once with this email");
               }
             })
             .catch((err) => {
