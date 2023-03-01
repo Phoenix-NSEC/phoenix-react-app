@@ -110,7 +110,7 @@ const MemberRegistration = () => {
     },
   ];
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   return (
     <>
       <Modal isOpen={isOpen} onClose={()=>{
