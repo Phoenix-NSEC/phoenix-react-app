@@ -11,7 +11,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { ulid } from "ulid";
-import { createContact } from "./sendinblue";
+// import { createContact } from "./sendinblue";
 
 //upload image
 const ImageUploader = async (loc, file) => {
@@ -39,12 +39,12 @@ export const addMember = async (memberValue, profilePic, transactionPic) => {
     const rgistrationRef = doc(db, "registrations", eId);
 
     // Create contact in sendinblue
-    createContact(
-      memberValue.email,
-      memberValue.name,
-      memberValue.whatsapp,
-      memberValue.contact
-    );
+    // createContact(
+    //   memberValue.email,
+    //   memberValue.name,
+    //   memberValue.whatsapp,
+    //   memberValue.contact
+    // );
     var q = query(
       collection(db, "registrations"),
       where("email", "==", memberValue.email)

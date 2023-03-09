@@ -26,8 +26,8 @@ function Navbar() {
           <NavLink to="home">
             <li className="text-center">Home</li>
           </NavLink>
-          <NavLink to="clubs">
-            <li className="text-center">Club</li>
+          <NavLink to="wings">
+            <li className="text-center">Wings</li>
           </NavLink>
           <NavLink to="events">
             <li className="text-center">Events</li>

@@ -27,8 +27,8 @@ function Footer() {
               </Link>
             </li>
             <li className="py-1">
-              <Link className="hover:text-slate-50" to="/clubs">
-                Clubs
+              <Link className="hover:text-slate-50" to="/wings">
+                Wings
               </Link>
             </li>
             <li className="py-1">
@@ -97,7 +97,7 @@ function Footer() {
 
       </div>
       <p className="text-[.8rem] md:text-[1rem] bg-[#013a77] p-3 text-center">
-        &copy; Copyright Phoenix 2021-22. All Rights Reserved
+        &copy; Copyright Phoenix 2022-23. All Rights Reserved
       </p>
     </div>
   );
