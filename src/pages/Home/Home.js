@@ -26,8 +26,28 @@ function Home() {
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1000, min: 464 },
       items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
+  const responsive2 = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+    },
+    tablet: {
+      breakpoint: { max: 1000, min: 464 },
+      items: 1,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -92,12 +112,19 @@ function Home() {
       <style>
         {`
           .gd-carousel-wrapper {
-            position:unset;
+            position:relative;
           }
         
           .gd-carousel {
             position:unset;
             width: 100%;
+          }
+
+          .gd-carousel2 {
+            position:unset;
+            height: 400px;
+            width: 884px;
+          }
 
             .react-multi-carousel-list{
               position: unset !important;
@@ -105,27 +132,75 @@ function Home() {
 
             .react-multiple-carousel__arrow {
                 position:absolute;
+                font-size: 14px;
+                min-width: 40px;
+                min-height: 40px;
             }
             
             .react-multiple-carousel__arrow--left {
-              left: calc(2% + 1px)
+              left: calc(-3% + 1px) !important;
             }
         
             .react-multiple-carousel__arrow--right {
-                right: calc(2% + 1px)
+                right: calc(-3% + 1px) !important;
             }
-          }
+            .custom-dot-list{
+              position: absolute !important;
+              bottom: -30px !important;
+              display: flex;
+              justify-content: center;
+            }
+          @media screen and (max-width: 500px){
+              .react-multiple-carousel__arrow {
+                min-width: 30px;
+                min-height: 30px;
+            }
+            .react-multiple-carousel__arrow--left {
+              left: calc(-16% + 1px) !important;
+            }
+        
+            .react-multiple-carousel__arrow--right {
+                right: calc(-16% + 1px) !important;
+            }
+          
         `}
       </style>
       <div className="flex flex-col justify-center items-center">
-        <div className="intro flex gap-12 justify-center items-center  z-1 flex-col md:flex-row px-5 overflow-hidden">
-          {/* <img src={Introbg} alt="" className='w-full h-90'/> */}
-          <img
-            src={IntroGroupImage}
-            alt=""
-            className=" md:w-[400px] md:h-[300px] order-3 md:order-none"
-          />
-          <div className="w-full md:w-40 text-white flex justify-center flex-col">
+        <div className="intro flex gap-7 justify-center md:justify-evenly items-center  z-1 flex-col md:flex-row px-3 overflow-hidden">
+            <Carousel
+              responsive={responsive2}
+              showDots={false}
+              arrows={false}
+              containerClass={`w-full`}
+              itemClass={`flex justify-center items-center px-2`}
+              infinite={true}
+              className="gd-carousel2 w-2/3"
+              autoPlay={true}
+              focusOnSelect={true}
+              autoPlaySpeed={3000}
+              customTransition={'transform 300ms ease-in-out'}
+            >
+              <img
+                src={IntroGroupImage}
+                alt=""
+                // className=" md:w-[400px] md:h-[300px] "
+                className=" md:w-[884px] md:h-[400px] "
+              />
+              <img
+                src={IntroGroupImage}
+                alt=""
+                // className=" md:w-[400px] md:h-[300px] "
+                className=" md:w-[884px] md:h-[400px] "
+              />
+              <img
+                src={IntroGroupImage}
+                alt=""
+                // className=" md:w-[400px] md:h-[300px] "
+                className=" md:w-[884px] md:h-[400px] "
+              />
+            </Carousel>
+
+          <div className="md:w-1/3 text-white flex justify-center flex-col">
             <p className="text-[3rem] md:text-[3rem] font-[800] text-center">
               PHOENIX
             </p>
@@ -156,22 +231,22 @@ function Home() {
 
         <div className="flex flex-column justify-center items-center  w-full bg-[#bde0fe] h-full ">
           <h1 className="text-[20px] text-blue-900 font-normal text-center mt-5 md:text-[40px] md:font-light">OUR CORE MEMBERS</h1>
-          <div className="gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 w-[200px] md:w-[650px]">
+          <div className="gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 w-[200px] md:w-[969px]">
             <Carousel
               responsive={responsive}
               showDots={true}
-              containerClass={`w-full`}
+              containerClass={`w-90`}
+              renderButtonGroupOutside={true}
               itemClass={`flex justify-center items-center px-2`}
               infinite={true}
               className="gd-carousel"
-              dotListClass="custom-dot-list-style"
+              dotListClass="custom-dot-list"
               autoPlay={true}
               focusOnSelect={true}
               autoPlaySpeed={2000}
             >
               {yearList.map((element) => {
                 return element.members.map((e, index) => {
-                  // console.log(element.year);
                   return (
                     <CardHome
                       name={e.name}
