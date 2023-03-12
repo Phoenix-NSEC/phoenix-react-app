@@ -121,9 +121,10 @@ function Home() {
           }
 
           .gd-carousel2 {
-            position:unset;
+            position:static;
             height: 400px;
             width: 884px;
+            margin-left: 35px;
           }
 
             .react-multi-carousel-list{
@@ -166,7 +167,7 @@ function Home() {
         `}
       </style>
       <div className="flex flex-col justify-center items-center">
-        <div className="intro flex gap-7 justify-center md:justify-evenly items-center  z-1 flex-col md:flex-row px-3 overflow-hidden">
+        <div className="intro flex gap-7 justify-center md:justify-evenly items-center  z-1 flex-col md:flex-row px-5 overflow-hidden">
             <Carousel
               responsive={responsive2}
               showDots={false}

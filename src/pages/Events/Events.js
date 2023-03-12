@@ -107,7 +107,7 @@ function Events() {
         </div>
       </div>
       <ZigBox data={mainEvents} />
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex p-4 flex-col justify-center items-center bg-[#bde0fe]">
         <h2 className="mt-5 text-[1.5rem] md:text-[2rem] font-[800]">Upcoming events</h2>
         <div className='gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 md:w-[650px] w-[300px]' >
           <Carousel responsive={responsive}
