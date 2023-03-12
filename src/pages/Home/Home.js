@@ -111,6 +111,9 @@ function Home() {
     <>
       <style>
         {`
+          .intro{
+            height: 95vh;
+          }
           .gd-carousel-wrapper {
             position:relative;
           }
@@ -185,19 +188,19 @@ function Home() {
                 src={IntroGroupImage}
                 alt=""
                 // className=" md:w-[400px] md:h-[300px] "
-                className=" md:w-[884px] md:h-[400px] "
+                className=" md:w-[884px] md:h-[400px] rounded-lg "
               />
               <img
                 src={IntroGroupImage}
                 alt=""
                 // className=" md:w-[400px] md:h-[300px] "
-                className=" md:w-[884px] md:h-[400px] "
+                className=" md:w-[884px] md:h-[400px] rounded-lg "
               />
               <img
                 src={IntroGroupImage}
                 alt=""
                 // className=" md:w-[400px] md:h-[300px] "
-                className=" md:w-[884px] md:h-[400px] "
+                className=" md:w-[884px] md:h-[400px] rounded-lg "
               />
             </Carousel>
 
@@ -205,7 +208,10 @@ function Home() {
             <p className="text-[3rem] md:text-[3rem] font-[800] text-center">
               PHOENIX
             </p>
-            <p className="text-[1rem] md:text-[3rem] text-center">
+            <p className="text-[2rem] md:text-[2rem] font-[400] text-center">
+              NSEC
+            </p>
+            <p className="text-[1rem] md:text-[3rem] text-center mt-4">
               Come Let's Rise
             </p>
             <Button
