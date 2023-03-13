@@ -39,12 +39,7 @@ export const addMember = async (memberValue, profilePic, transactionPic) => {
     const rgistrationRef = doc(db, "registrations", eId);
 
     // Create contact in sendinblue
-    createContact(
-      memberValue.email,
-      memberValue.name,
-      memberValue.whatsapp,
-      memberValue.contact
-    );
+    createContact(memberValue.email, memberValue.name, memberValue.contact);
     var q = query(
       collection(db, "registrations"),
       where("email", "==", memberValue.email)
