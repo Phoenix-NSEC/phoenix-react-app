@@ -3,6 +3,9 @@ import ZigBox from '../../components/ZigBox'
 import { db } from '../../firebase-config'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import img1 from '../../static/img/avenir.jpeg'
+import img2 from '../../static/img/brainstormer.jpeg'
+import img3 from '../../static/img/aavahan.jpeg'
 import {
   getDocs,
   collection
@@ -50,6 +53,24 @@ function Events() {
     getEventList();
   }, []);
 
+  const mainEvents = [
+    {
+      image: img1,
+      title: 'Avenir',
+      description: 'Avenir,the Annual Tech Fest of NSEC, stands amongst the top technical fests in the city with enthusiastic participation from students of premier institutes in and around the state. The three day spectacular event yeilds a football of more than 5000 students , thus making it a perfect platform to explore the realm of technical innovation and to witness the best minds striving for excellence. The idea of Avenir unravels the big aspirations hidden inside a creative mind and promises the ultimate platform to showcase talent.',
+    },
+    {
+      image: img2,
+      title: 'Brainstormer',
+      description: 'Nobody and nothing can deter you from achieving the goal if you try your best .By crossing all the snag with grit and perseverance .Brain, intellect and wit are the three fundamental of a quiz warrior and to bring out these abilities from talented PHOENIX organises BRAINSTORMER an inter college/school QUIZ competition inorder to help you to chase your dreams.',
+    },
+    {
+      image: img3,
+      title: 'Aavahan',
+      description: 'Avaahan stands with the society and intends to establish a broader platform for our technology and innovations with the younger generation acting as the tower of strength. Avaahan is intra college tech fest Organised by PHOENIX inorder to encourage our juiniors and enthusiast to help them upgrade and implement their knowledge to match with best in future. ',
+    },
+  ]
+
   return (
     <>
       <style>
@@ -85,9 +106,9 @@ function Events() {
           <p className="text-[2rem] md:text-[3rem] font-[800]">Our Events</p>
         </div>
       </div>
-      <ZigBox data={eventList} />
-      <div className="flex flex-col justify-center items-center">
-        <h2 className="text-[1.5rem] md:text-[2rem] font-[800]">Upcoming events</h2>
+      <ZigBox data={mainEvents} />
+      <div className="flex p-4 flex-col justify-center items-center bg-[#bde0fe]">
+        <h2 className="mt-5 text-[1.5rem] md:text-[2rem] font-[800]">Upcoming events</h2>
         <div className='gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 md:w-[650px] w-[300px]' >
           <Carousel responsive={responsive}
             showDots={false}
@@ -119,6 +140,10 @@ function Events() {
           </Carousel>
         </div>
       </div >
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="mt-[90px] mb-4 text-[1.5rem] md:text-[2rem] font-[800]">Other events</h2>
+        <ZigBox data={eventList} />
+      </div>
     </>
   )
 }
