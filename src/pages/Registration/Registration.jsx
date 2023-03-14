@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -24,13 +24,30 @@ import { Field, Formik } from "formik";
 import axios from "axios";
 import { addMember } from "../../utils/member";
 import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase-config";
 
 const MemberRegistration = () => {
   const [profilePic, setProfilePic] = useState();
   const [transactionPic, setTransactionPic] = useState();
   const [loading, setLoading] = useState(false);
+  const [contact, setContact] = useState([]);
+  const [refID, setRefID] = useState("");
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    async function getContact() {
+      const docRef = collection(db, "contact");
+      const docSnap = await getDocs(docRef);
+
+      docSnap.forEach((d) => {
+        setContact(d.data());
+      });
+    }
+    getContact();
+  }, []);
+  // console.log(contact);
 
   const deptChoices = [
     {
@@ -113,16 +130,21 @@ const MemberRegistration = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Modal isOpen={isOpen} onClose={()=>{
-        onClose();
-        navigate("/home", { replace: true });
-      }}>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => {
+          onClose();
+          navigate("/home", { replace: true });
+        }}
+      >
         <ModalOverlay />
-        <ModalContent mx={'10px'} bgColor='#FAFBF8'>
-          <ModalCloseButton onClick={()=>{
-        onClose();
-        navigate("/home", { replace: true });
-      }} />
+        <ModalContent mx={"10px"} bgColor="#FAFBF8">
+          <ModalCloseButton
+            onClick={() => {
+              onClose();
+              navigate("/home", { replace: true });
+            }}
+          />
           <ModalBody textAlign={"center"} margin="auto">
             <Image
               src={GreenTick}
@@ -134,13 +156,26 @@ const MemberRegistration = () => {
             <Text fontSize="md" as="b">
               Registration form successfully submitted!
             </Text>
+            <br />
+            <Text fontSize="md" as="b">
+              Reference ID: {refID}
+            </Text>
+            <br />
+            <Text fontSize="sm" as="i" fontWeight={500} textColor="#343434">
+              Note: Take a screenshot of the successful submission of this
+              registration form for further communication
+            </Text>
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button colorScheme="blue" mr={3} onClick={()=>{
-        onClose();
-        navigate("/home", { replace: true });
-      }}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={() => {
+                onClose();
+                navigate("/home", { replace: true });
+              }}
+            >
               Close
             </Button>
           </ModalFooter>
@@ -184,37 +219,38 @@ const MemberRegistration = () => {
 
             setLoading(true);
             await addMember(values, profilePic, transactionPic)
-            .then((d) => {
-              if(d){
-                values.profilePicUploaded = false;
-                values.transactionPicUploaded = false;
-                values.name = "";
-                values.email = "";
-                values.gender = "";
-                values.contact = "";
-                values.whatsapp = "";
-                values.department = "";
-                values.section = "";
-                values.graduation = "";
-                values.studentId = "";
-                onOpen();
-              }else{
-                return alert("Already submitted once with this email");
-              }
-            })
-            .catch((err) => {
-              console.log(err)
-              toast({
-                title: "Error Occured",
-                description: "Registration Failed...Try Again",
-                status: "error",
-                duration: 3000,
-                isClosable: true,
-                position: "bottom",
+              .then((d) => {
+                setRefID(d);
+                if (d) {
+                  values.profilePicUploaded = false;
+                  values.transactionPicUploaded = false;
+                  values.name = "";
+                  values.email = "";
+                  values.gender = "";
+                  values.contact = "";
+                  values.whatsapp = "";
+                  values.department = "";
+                  values.section = "";
+                  values.graduation = "";
+                  values.studentId = "";
+                  onOpen();
+                } else {
+                  return alert("Already submitted once with this email");
+                }
+              })
+              .catch((err) => {
+                console.log(err);
+                toast({
+                  title: "Error Occured",
+                  description: "Registration Failed...Try Again",
+                  status: "error",
+                  duration: 3000,
+                  isClosable: true,
+                  position: "bottom",
+                });
+                // alert(err);
               });
-              // alert(err);
-            })
-            
+
             setLoading(false);
             // console.log(values, profilePic, transactionPic);
           }
@@ -232,6 +268,62 @@ const MemberRegistration = () => {
                   borderRadius="10px"
                   mb="20px"
                 />
+                <Box
+                  bg="white"
+                  p="20px"
+                  w="80vw"
+                  mb="10px"
+                  fontWeight={500}
+                  maxW="650px"
+                  borderRadius="10px"
+                  boxShadow="1px 2px 5px #00000021"
+                >
+                  <Box
+                    display={"flex"}
+                    flexDirection={{ base: "column", md: "row" }}
+                    justifyContent="space-between"
+                    alignItems="center"
+                    maxW="100%"
+                  >
+                    <Box>
+                      <Text fontSize="md">
+                        Please Pay the fees of ₹200 on this QR code. <br />
+                        For any issues contact: <br />
+                        {contact.name}
+                        <Text
+                          fontSize="sm"
+                          as="b"
+                          mx={1}
+                          fontWeight={500}
+                          textColor="#343434"
+                        >
+                          ({contact.designation})
+                        </Text>
+                        <br />
+                        {contact.phone}
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Image
+                        src={
+                          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
+                        }
+                        w={"120px"}
+                      />
+                    </Box>
+                  </Box>
+                  <Box p={6} alignSelf="center" maxW="100%" textAlign="center">
+                    <Text
+                      fontSize="sm"
+                      as="i"
+                      fontWeight={500}
+                      textColor="#343434"
+                    >
+                      Note: Take a screenshot of the successful submission of
+                      this registration form for further communication
+                    </Text>
+                  </Box>
+                </Box>
                 <Box
                   bg="white"
                   p="20px"
