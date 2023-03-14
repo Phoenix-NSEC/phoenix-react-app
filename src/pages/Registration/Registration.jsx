@@ -305,9 +305,7 @@ const MemberRegistration = () => {
                     </Box>
                     <Box>
                       <Image
-                        src={
-                          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
-                        }
+                        src={contact.QR}
                         w={"120px"}
                       />
                     </Box>
