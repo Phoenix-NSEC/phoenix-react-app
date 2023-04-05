@@ -17,6 +17,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Spinner,
 } from "@chakra-ui/react";
 import phoenixBanner from "../../static/img/phoenixBanner.png";
 import GreenTick from "../../static/images/check-green.gif";
@@ -31,23 +32,31 @@ const MemberRegistration = () => {
   const [profilePic, setProfilePic] = useState();
   const [transactionPic, setTransactionPic] = useState();
   const [loading, setLoading] = useState(false);
+  const [contactLoading, setContactLoading] = useState(false);
   const [contact, setContact] = useState([]);
   const [refID, setRefID] = useState("");
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  useEffect(() => {
-    async function getContact() {
-      const docRef = collection(db, "contact");
-      const docSnap = await getDocs(docRef);
+  async function getContact() {
+    const docRef = collection(db, "contact");
+    const docSnap = await getDocs(docRef);
 
-      docSnap.forEach((d) => {
-        setContact(d.data());
-      });
-    }
+    let temp = [];
+
+    docSnap.forEach((d) => {
+      temp.push(d.data());
+    });
+
+    setContact(temp);
+    setContactLoading(false);
+  }
+
+  useEffect(() => {
+    setContactLoading(true);
     getContact();
   }, []);
-  // console.log(contact);
+  console.log(contact);
 
   const deptChoices = [
     {
@@ -293,18 +302,31 @@ const MemberRegistration = () => {
                       <Text fontSize="md">
                         Please Pay the fees of ₹200. <br />
                         For any issues contact: <br />
-                        {contact.name}
-                        <Text
-                          fontSize="sm"
-                          as="b"
-                          mx={1}
-                          fontWeight={500}
-                          textColor="#343434"
+                        <Box
+                          my={2}
+                          display={"flex"}
+                          gap={2}
+                          flexDirection={{ base: "column", md: "row" }}
                         >
-                          ({contact.designation})
-                        </Text>
-                        <br />
-                        {contact.phone}
+                          {contact &&
+                            contact.map((c) => {
+                              return (
+                                <Text as="b" mx={1} fontWeight={500}>
+                                  {c.name}
+                                  <Text
+                                    as="b"
+                                    mx={1}
+                                    fontWeight={500}
+                                    fontSize={"sm"}
+                                    textColor="#343434"
+                                  >
+                                    ({c.designation}) <br />
+                                  </Text>
+                                  {c.phone}
+                                </Text>
+                              );
+                            })}
+                        </Box>
                       </Text>
                     </Box>
                     {/* <Box>
