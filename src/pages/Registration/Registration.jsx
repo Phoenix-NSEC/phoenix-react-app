@@ -291,7 +291,7 @@ const MemberRegistration = () => {
                   >
                     <Box>
                       <Text fontSize="md">
-                        Please Pay the fees of ₹200 on this QR code. <br />
+                        Please Pay the fees of ₹200. <br />
                         For any issues contact: <br />
                         {contact.name}
                         <Text
@@ -307,12 +307,12 @@ const MemberRegistration = () => {
                         {contact.phone}
                       </Text>
                     </Box>
-                    <Box>
+                    {/* <Box>
                       <Image
                         src={contact.QR}
                         w={"120px"}
                       />
-                    </Box>
+                    </Box> */}
                   </Box>
                   <Box p={6} alignSelf="center" maxW="100%" textAlign="center">
                     <Text
