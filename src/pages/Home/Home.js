@@ -208,10 +208,7 @@ function Home() {
             <p className="text-[3rem] md:text-[3rem] font-[800] text-center">
               PHOENIX
             </p>
-            <p className="text-[2rem] md:text-[2rem] font-[400] text-center">
-              NSEC
-            </p>
-            <p className="text-[1rem] md:text-[3rem] text-center mt-4">
+            <p className="text-[1rem] md:text-[3rem] text-center">
               Come Let's Rise
             </p>
             <Button
@@ -231,7 +228,7 @@ function Home() {
           <ZigBox
             title="Phoenix"
             id="readmore"
-            description="The official Tech club of nsec"
+            description="The official Tech club of NSEC"
             data={data}
           />
         </div>

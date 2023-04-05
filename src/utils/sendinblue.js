@@ -1,23 +1,39 @@
-// import SibApiV3Sdk from "sib-api-v3-typescript";
-// import defaultClient from "../sendinblue-config";
+import axios from "axios";
 
-// export const createContact = (email, name, whatsapp_number, contact_number) => {
-//   let createContact = new SibApiV3Sdk.CreateContact();
+const SB_API_KEY =
+  "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";
 
-//   createContact.email = email;
-//   createContact.attributes = {
-//     NAME: name,
-//     WHATSAPP: whatsapp_number,
-//     CONTACT_NO: contact_number,
-//   };
-//   defaultClient.createContact(createContact).then(
-//     function (data) {
-//       console.log(
-//         "API called successfully. Returned data: " + JSON.stringify(data)
-//       );
-//     },
-//     function (error) {
-//       console.error(error);
-//     }
-//   );
-// };
+// Create a contact in SendinBlue
+export const createContact = async (email, name, contact_number) => {
+  let [firstName, lastName] = name.split(" ");
+  const contactValue = {
+    email: email,
+    attributes: {
+      FIRSTNAME: firstName,
+      LASTNAME: lastName,
+      SMS: contact_number,
+    },
+    updateEnabled: false,
+  };
+  return await callSendinBlue("contacts", contactValue);
+};
+
+export const addContactToList = (emails, listId) => {
+  let data = {
+    emails: emails,
+  };
+  return callSendinBlue(`contacts/lists/${listId}/contacts/add`, data);
+};
+
+const callSendinBlue = async (endpoint, data) => {
+  return await axios({
+    method: "POST",
+    url: `https://api.sendinblue.com/v3/${endpoint}`,
+    headers: {
+      "Content-Type": "application/json",
+      accept: "application/json",
+      "api-key": SB_API_KEY,
+    },
+    data: data,
+  });
+};
