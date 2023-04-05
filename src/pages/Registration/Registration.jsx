@@ -93,6 +93,10 @@ const MemberRegistration = () => {
       value: "CSBS",
       display_name: "Computer Science and Business Systems",
     },
+    {
+      value: "AEIE",
+      display_name: "Applied Electronics & Instrumentation Engineering",
+    },
   ];
 
   const genderOptions = [
