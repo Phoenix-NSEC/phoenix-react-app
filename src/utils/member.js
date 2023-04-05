@@ -67,10 +67,10 @@ export const addMember = async (memberValue, profilePic, transactionPic) => {
             { merge: true }
           );
           console.log("Form submitted successfully");
-          return true;
+          return eId;
         } else {
           console.log("user with the same email exists");
-          return false;
+          return "";
         }
       })
       .catch((err) => {
