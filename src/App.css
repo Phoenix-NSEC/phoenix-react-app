@@ -21,6 +21,6 @@ html {
   padding: 8px 12px;
 }
 
-*:focus {
-  outline: none;
+:focus {
+  outline: none !important;
 }

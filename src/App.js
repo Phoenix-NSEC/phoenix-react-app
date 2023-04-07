@@ -8,7 +8,7 @@ import Clubs from "./pages/Clubs/Clubs";
 import Home from "./pages/Home/Home";
 import Contact from "./pages/Contactus/Contact";
 import Coreteam from "./pages/Coreteam/Coreteam";
-import Gallary from "./pages/Imagegallary/Gallary";
+import Gallery from "./pages/Imagegallery/Gallery";
 import Blogs from "./pages/Blogs/Blogs";
 import Webteam from "./pages/Webteam/Webteam";
 import Layout from "./pages/layout";
@@ -25,7 +25,7 @@ function App() {
         <Route path="wings" element={<Clubs />} />
         <Route path="contactus" element={<Contact />} />
         <Route path="core" element={<Coreteam />} />
-        <Route path="gallary" element={<Gallary />} />
+        <Route path="gallery" element={<Gallery />} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="webteam" element={<Webteam />} />
         <Route path="member" element={<Navigate to="/home" />} />
