@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -17,19 +17,46 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Spinner,
 } from "@chakra-ui/react";
 import phoenixBanner from "../../static/img/phoenixBanner.png";
 import GreenTick from "../../static/images/check-green.gif";
 import { Field, Formik } from "formik";
 import axios from "axios";
 import { addMember } from "../../utils/member";
+import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase-config";
 
 const MemberRegistration = () => {
   const [profilePic, setProfilePic] = useState();
   const [transactionPic, setTransactionPic] = useState();
   const [loading, setLoading] = useState(false);
+  const [contactLoading, setContactLoading] = useState(false);
+  const [contact, setContact] = useState([]);
+  const [refID, setRefID] = useState("");
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  async function getContact() {
+    const docRef = collection(db, "contact");
+    const docSnap = await getDocs(docRef);
+
+    let temp = [];
+
+    docSnap.forEach((d) => {
+      temp.push(d.data());
+    });
+
+    setContact(temp);
+    setContactLoading(false);
+  }
+
+  useEffect(() => {
+    setContactLoading(true);
+    getContact();
+  }, []);
+  console.log(contact);
 
   const deptChoices = [
     {
@@ -92,6 +119,10 @@ const MemberRegistration = () => {
       value: "CSBS",
       display_name: "Computer Science and Business Systems",
     },
+    {
+      value: "AEIE",
+      display_name: "Applied Electronics & Instrumentation Engineering",
+    },
   ];
 
   const genderOptions = [
@@ -109,12 +140,24 @@ const MemberRegistration = () => {
     },
   ];
 
+  const navigate = useNavigate();
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal
+        isOpen={isOpen}
+        onClose={() => {
+          onClose();
+          navigate("/home", { replace: true });
+        }}
+      >
         <ModalOverlay />
-        <ModalContent mx={'10px'} bgColor='#FAFBF8'>
-          <ModalCloseButton onClick={onClose} />
+        <ModalContent mx={"10px"} bgColor="#FAFBF8">
+          <ModalCloseButton
+            onClick={() => {
+              onClose();
+              navigate("/home", { replace: true });
+            }}
+          />
           <ModalBody textAlign={"center"} margin="auto">
             <Image
               src={GreenTick}
@@ -124,12 +167,28 @@ const MemberRegistration = () => {
               my={"10px"}
             />
             <Text fontSize="md" as="b">
-              Form data has been successfully submitted
+              Registration form successfully submitted!
+            </Text>
+            <br />
+            <Text fontSize="md" as="b">
+              Reference ID: {refID}
+            </Text>
+            <br />
+            <Text fontSize="sm" as="i" fontWeight={500} textColor="#343434">
+              Note: Take a screenshot of the successful submission of this
+              registration form for further communication
             </Text>
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={() => {
+                onClose();
+                navigate("/home", { replace: true });
+              }}
+            >
               Close
             </Button>
           </ModalFooter>
@@ -173,23 +232,38 @@ const MemberRegistration = () => {
 
             setLoading(true);
             await addMember(values, profilePic, transactionPic)
-            .then(() => {
-              onOpen();
-              // alert("Successfully registered");
-            })
-            .catch((err) => {
-              console.log(err)
-              toast({
-                title: "Error Occured",
-                description: "Registration Failed...Try Again",
-                status: "error",
-                duration: 3000,
-                isClosable: true,
-                position: "bottom",
+              .then((d) => {
+                setRefID(d);
+                if (d) {
+                  values.profilePicUploaded = false;
+                  values.transactionPicUploaded = false;
+                  values.name = "";
+                  values.email = "";
+                  values.gender = "";
+                  values.contact = "";
+                  values.whatsapp = "";
+                  values.department = "";
+                  values.section = "";
+                  values.graduation = "";
+                  values.studentId = "";
+                  onOpen();
+                } else {
+                  return alert("Already submitted once with this email");
+                }
+              })
+              .catch((err) => {
+                console.log(err);
+                toast({
+                  title: "Error Occured",
+                  description: "Registration Failed...Try Again",
+                  status: "error",
+                  duration: 3000,
+                  isClosable: true,
+                  position: "bottom",
+                });
+                // alert(err);
               });
-              // alert(err);
-            })
-            
+
             setLoading(false);
             // console.log(values, profilePic, transactionPic);
           }
@@ -207,6 +281,73 @@ const MemberRegistration = () => {
                   borderRadius="10px"
                   mb="20px"
                 />
+                <Box
+                  bg="white"
+                  p="20px"
+                  w="80vw"
+                  mb="10px"
+                  fontWeight={500}
+                  maxW="650px"
+                  borderRadius="10px"
+                  boxShadow="1px 2px 5px #00000021"
+                >
+                  <Box
+                    display={"flex"}
+                    flexDirection={{ base: "column", md: "row" }}
+                    justifyContent="space-between"
+                    alignItems="center"
+                    maxW="100%"
+                  >
+                    <Box>
+                      <Text fontSize="md">
+                        Please Pay the fees of ₹200. <br />
+                        For any issues contact: <br />
+                        <Box
+                          my={2}
+                          display={"flex"}
+                          gap={2}
+                          flexDirection={{ base: "column", md: "row" }}
+                        >
+                          {contact &&
+                            contact.map((c) => {
+                              return (
+                                <Text as="b" mx={1} fontWeight={500}>
+                                  {c.name}
+                                  <Text
+                                    as="b"
+                                    mx={1}
+                                    fontWeight={500}
+                                    fontSize={"sm"}
+                                    textColor="#343434"
+                                  >
+                                    ({c.designation}) <br />
+                                  </Text>
+                                  {c.phone}
+                                </Text>
+                              );
+                            })}
+                        </Box>
+                      </Text>
+                    </Box>
+                    {/* <Box>
+                      <Image
+                        src={contact.QR}
+                        w={"120px"}
+                      />
+                    </Box> */}
+                  </Box>
+                  <Box p={6} alignSelf="center" maxW="100%" textAlign="center">
+                    <Text
+                      fontSize="sm"
+                      as="i"
+                      fontWeight={500}
+                      textColor="#343434"
+                    >
+                      Note: Take a screenshot of the successful submission of
+                      this registration form for further communication
+                    </Text>
+                  </Box>
+                </Box>
                 <Box
                   bg="white"
                   p="20px"

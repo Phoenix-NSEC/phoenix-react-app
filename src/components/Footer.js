@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="text-white font-[500] text-sm">
       <div className="bg-[#00428A] top p-4 grid-col-12 lg:flex base:flex-col md:flex">
-        <div className="col-lg-4 col-md-3 footer-info">
+        <div className="col-lg-5 col-md-4 footer-info">
           <h3 className="font-[1000] text-3xl text-left py-2">Phoenix</h3>
           <p className="lg:text-justify base:text-justify md:text-left">
             Phoenix has always strived for overall development of an individual,
@@ -18,7 +18,7 @@ function Footer() {
           </p>
         </div>
 
-        <div className="col-lg-2 col-md-2 text-left footer-links">
+        <div className="col-lg-3 col-md-4 text-left justify-center footer-links">
           <h4 className="font-[700] text-xl py-2">Useful Links</h4>
           <ul>
             <li className="py-1">
@@ -27,8 +27,8 @@ function Footer() {
               </Link>
             </li>
             <li className="py-1">
-              <Link className="hover:text-slate-50" to="/clubs">
-                Clubs
+              <Link className="hover:text-slate-50" to="/wings">
+                Wings
               </Link>
             </li>
             <li className="py-1">
@@ -54,7 +54,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="col-lg-3 col-md-3 leading-relaxed footer-contact">
+        <div className="col-lg-4 col-md-4 footer-contact">
           <h4 className="font-[700] text-xl py-2">Contact Us</h4>
           <p>
             Netaji Subhash Engineering College, Garia, Panchpota, Kolkata, West
@@ -95,32 +95,9 @@ function Footer() {
           </div>
         </div>
 
-        <div className="col-lg-3 col-md-3 footer-newsletter">
-          <h4 className="font-[700] text-xl py-2">Feedback</h4>
-          <p>
-            We would love to have feedbacks from anyone who want to suggest any
-            improvements in our work.
-          </p>
-          <form action="/review" method="POST" className="py-3">
-            <input
-              type="text"
-              name="review"
-              required
-              className="bg-[#1545B3] px-2 py-1 rounded shadow-xl"
-            />{" "}
-            <br />
-            <button
-              type="submit"
-              value="Submit"
-              className="mt-2 px-4 py-1 rounded font-[600] text-base bg-[#2563EB] text-slate-50 hover:bg-white hover:text-[#2563EB]"
-            >
-              Submit
-            </button>
-          </form>
-        </div>
       </div>
       <p className="text-[.8rem] md:text-[1rem] bg-[#013a77] p-3 text-center">
-        &copy; Copyright Phoenix 2021-22. All Rights Reserved
+        &copy; Copyright Phoenix 2022-23. All Rights Reserved
       </p>
     </div>
   );

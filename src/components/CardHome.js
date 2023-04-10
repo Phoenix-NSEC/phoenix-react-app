@@ -8,9 +8,7 @@ const CardHome = (props) => {
                 .card{
                     border-radius: 25px;
                     background-color: #FFF;
-                    width:700px;
-
-                    
+                    // width: 300px;
                   }
                   .image-content,
                   .card-content{
@@ -123,16 +121,16 @@ const CardHome = (props) => {
                    
             `}
             </style>
-            <div className="card swiper-slide  ">
+            <div className="card swiper-slide  w-[170px] md:w-[250px]">
                 <div className="image-content">
                     <span className="overlay"></span>
                     <div className="card-image">
-                        <img src={props.photo} alt="" className="card-img rounded-full h-[120px]" />
+                        <img src={props.photo} alt="" className="card-img rounded-full" />
                     </div>
                 </div>
 
                 <div className="card-content flex flex-col mt-2">
-                    <h2 className="name">{props.name}</h2>
+                    <h2 className="name text-center">{props.name}</h2>
                     <p className="description mt-2 font-semibold">{props.designation.toUpperCase()}</p>
 
                     
