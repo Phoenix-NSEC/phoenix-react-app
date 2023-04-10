@@ -35,7 +35,7 @@ function Webteam() {
           webTeam.map((member)=>{
             return <div key={member.name} className="text-center text-gray-500 dark:text-gray-400  flex flex-col p-3 items-center justify-center">
               <div className="h-[12rem] w-[12rem] rounded-full overflow-hidden border-[.01rem] border-[black]">
-            <img className=" mb-4   h-fit w-fit " src={member.avatar} alt={`${member.name}'s avatar`}/>
+            <img className="object-contain" src={member.avatar} alt={`${member.name}'s avatar`}/>
               </div>
             <div className="mb-1 text-2xl font-bold tracking-tight text-gray-900">
                 <a href={member.portfolio}>{member.name}</a>
