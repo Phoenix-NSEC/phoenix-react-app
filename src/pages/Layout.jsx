@@ -1,9 +1,18 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React,{useEffect} from 'react'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-function layout() {
-
+function Layout() {
+  const navigate = useNavigate()
+  const location = useLocation();
+  const currentPath = location.pathname;
+  useEffect(()=>{
+    console.log(currentPath)
+  if(currentPath==="/")
+  {
+    navigate("/home")
+  }
+  },[])
   return (
 
     <div className='flex flex-col text-black font-Montserrat min-h-[100vh] justify-between'>
@@ -17,4 +26,4 @@ function layout() {
   )
 }
 
-export default layout
+export default Layout
