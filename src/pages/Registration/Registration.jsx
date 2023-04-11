@@ -16,7 +16,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import phoenixBanner from "../../static/img/phoenixBanner.png";
 import GreenTick from "../../static/images/check-green.gif";
@@ -675,6 +675,15 @@ const MemberRegistration = () => {
                 >
                   <Text mb="10px" color="black">
                     Your Picture
+                    <Text
+                      as="b"
+                      mx={1}
+                      fontWeight={500}
+                      fontSize={"sm"}
+                      textColor="#343434"
+                    >
+                      (Upload only images[.jpg, .png, .jpeg])
+                    </Text>
                   </Text>
                   <FormControl
                     isInvalid={
@@ -684,6 +693,7 @@ const MemberRegistration = () => {
                     <Field
                       p="1"
                       as={Input}
+                      accept={"image/jpg, image/jpeg, image/png"}
                       id={"profilePic"}
                       name={"profilePic"}
                       type={"file"}
@@ -708,6 +718,15 @@ const MemberRegistration = () => {
                 >
                   <Text mb="10px" color="black">
                     Transaction Proof Screenshot
+                    <Text
+                      as="b"
+                      mx={1}
+                      fontWeight={500}
+                      fontSize={"sm"}
+                      textColor="#343434"
+                    >
+                      (Upload only images[.jpg, .png, .jpeg])
+                    </Text>
                   </Text>
                   <FormControl
                     isInvalid={
@@ -718,6 +737,7 @@ const MemberRegistration = () => {
                     <Field
                       p="1"
                       as={Input}
+                      accept={"image/jpg, image/jpeg, image/png"}
                       id={"transactionPic"}
                       name={"transactionPic"}
                       type={"file"}
