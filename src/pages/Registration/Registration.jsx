@@ -16,8 +16,7 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
-  Spinner,
+  useDisclosure
 } from "@chakra-ui/react";
 import phoenixBanner from "../../static/img/phoenixBanner.png";
 import GreenTick from "../../static/images/check-green.gif";
@@ -56,7 +55,7 @@ const MemberRegistration = () => {
     setContactLoading(true);
     getContact();
   }, []);
-  console.log(contact);
+  // console.log(contact);
 
   const deptChoices = [
     {

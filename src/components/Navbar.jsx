@@ -32,6 +32,9 @@ function Navbar() {
           <NavLink to="events">
             <li className="text-center">Events</li>
           </NavLink>
+          <NavLink to="gallery">
+            <li className="text-center">Gallery</li>
+          </NavLink>
           <NavLink to="core">
             <li className="text-center">Core Team</li>
           </NavLink>
