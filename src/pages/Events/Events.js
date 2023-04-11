@@ -57,7 +57,7 @@ function Events() {
     {
       image: img1,
       title: 'Avenir',
-      description: 'Avenir,the Annual Tech Fest of NSEC, stands amongst the top technical fests in the city with enthusiastic participation from students of premier institutes in and around the state. The three day spectacular event yields a footfall of more than 7000+ students , thus making it a perfect platform to explore the realm of technical innovation and to witness the best minds striving for excellence. The idea of Avenir unravels the big aspirations hidden inside a creative mind and promises the ultimate platform to showcase talent.',
+      description: 'Avenir - The Annual Techno-Management Fest of NSEC, stands amongst the top technical fests in the city with enthusiastic participation from students of premier institutes in and around the state. The three day spectacular event yields a footfall of more than 7000+ students , thus making it a perfect platform to explore the realm of technical innovation and to witness the best minds striving for excellence. The idea of Avenir unravels the big aspirations hidden inside a creative mind and promises the ultimate platform to showcase talent.',
     },
     {
       image: img2,
