@@ -35,7 +35,7 @@ function ZigBox({ title, description, data }) {
               <div className="image mb-5 md:mb-0">
                 <img
                   src={image}
-                  alt=""
+                  alt={title}
                   height="200px"
                   width="300px"
                   className="bg-blue-600"

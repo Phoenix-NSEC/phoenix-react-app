@@ -76,7 +76,7 @@ function Home() {
       );
       setYearList(lastYearData);
 
-      console.log(lastYearData);
+      // console.log(lastYearData);
     } catch (error) {
       console.error(error);
     }
