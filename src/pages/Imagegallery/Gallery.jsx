@@ -128,6 +128,7 @@ function Imagegallary() {
               alignItems={"center"}
               gap={7}
               flexDirection={{ base: "column", md: "row" }}
+              flexWrap={"wrap"}
             >
               {image.map((img) => {
                 return (
@@ -135,8 +136,9 @@ function Imagegallary() {
                     <Image
                       src={img.url}
                       alt={img.tag}
-                      objectFit={"cover"}
-                      width={"250px"}
+                      objectFit={"contain"}
+                      height="200px"
+                      width="300px"
                     />
                     <Box
                       position={"absolute"}
