@@ -181,6 +181,7 @@ function Imagegallary() {
                   alignItems={"center"}
                   gap={7}
                   flexDirection={{ base: "column", md: "row" }}
+                  flexWrap={"wrap"}
                 >
                   {image
                     .filter((img) => {
@@ -193,7 +194,8 @@ function Imagegallary() {
                             src={img.url}
                             alt={img.tag}
                             objectFit={"cover"}
-                            width={"250px"}
+                            height="200px"
+                            width="300px"
                           />
                           <Box
                             position={"absolute"}
