@@ -91,7 +91,7 @@ function Imagegallary() {
       </div>
 
       <Tabs align="center" variant="soft-rounded" colorScheme="blue" my={6}>
-        <TabList my={3}>
+        <TabList my={3} display={'flex'} flexWrap={'wrap'}>
           <Tab
             _selected={{ color: "white", bg: "blue.500" }}
             transition={"0.5s"}
