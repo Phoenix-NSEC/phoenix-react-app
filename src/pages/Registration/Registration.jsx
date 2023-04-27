@@ -293,9 +293,10 @@ const MemberRegistration = () => {
                   <Box
                     display={"flex"}
                     flexDirection={{ base: "column", md: "row" }}
-                    justifyContent="space-around"
+                    justifyContent="space-evenly"
                     alignItems="center"
                     maxW="100%"
+                    gap={4}
                   >
                     <Box>
                       <Text fontSize="md">
