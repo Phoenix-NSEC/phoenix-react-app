@@ -293,19 +293,20 @@ const MemberRegistration = () => {
                   <Box
                     display={"flex"}
                     flexDirection={{ base: "column", md: "row" }}
-                    justifyContent="space-between"
+                    justifyContent="space-evenly"
                     alignItems="center"
                     maxW="100%"
+                    gap={4}
                   >
                     <Box>
                       <Text fontSize="md">
-                        Please Pay the fees of ₹200. <br />
+                        Please Pay the fees of ₹200 on this QR code. <br />
                         For any issues contact: <br />
                         <Box
                           my={2}
                           display={"flex"}
                           gap={2}
-                          flexDirection={{ base: "column", md: "row" }}
+                          flexDirection="column"
                         >
                           {contact &&
                             contact.map((c) => {
@@ -328,12 +329,17 @@ const MemberRegistration = () => {
                         </Box>
                       </Text>
                     </Box>
-                    {/* <Box>
-                      <Image
-                        src={contact.QR}
-                        w={"120px"}
-                      />
-                    </Box> */}
+                    {contact && (
+                      <Box>
+                        <Image
+                          src={contact[0]?.QR}
+                          w={"120px"}
+                          h={"120px"}
+                          objectFit={"contain"}
+                          alt="Image can't be loaded"
+                        />
+                      </Box>
+                    )}
                   </Box>
                   <Box p={6} alignSelf="center" maxW="100%" textAlign="center">
                     <Text
