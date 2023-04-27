@@ -44,11 +44,11 @@ function Navbar() {
           <NavLink to="contactus">
             <li className="text-center">Contact Us</li>
           </NavLink>
-          {/* <Link to="register">
+          <Link to="register">
             <li className="text-center bg-red-500  px-4 py-2 text-white hover:bg-red-500/80 font-bold">
               Join Us
             </li>
-          </Link> */}
+          </Link>
         </ul>
       </div>
     </div>
