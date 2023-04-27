@@ -299,7 +299,7 @@ const MemberRegistration = () => {
                   >
                     <Box>
                       <Text fontSize="md">
-                        Please Pay the fees of ₹200. <br />
+                        Please Pay the fees of ₹200 on this QR code. <br />
                         For any issues contact: <br />
                         <Box
                           my={2}
