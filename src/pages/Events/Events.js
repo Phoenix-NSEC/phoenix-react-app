@@ -34,11 +34,12 @@ function Events() {
   const getEventList = async () => {
     try {
       const eventsRef = collection(db, "events");
-      const data = await query(eventsRef, orderBy("date", "desc"));
+      const q = await query(eventsRef, orderBy("date", "desc"));
+      const querySnapshot = await getDocs(q);
 
       let temp = [];
 
-      data.docs.forEach((d) => {
+      querySnapshot.forEach((d) => {
         temp.push(d.data());
       });
 
