@@ -6,7 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 import img1 from "../../static/img/avenir.jpeg";
 import img2 from "../../static/img/brainstormer.jpeg";
 import img3 from "../../static/img/aavahan.jpeg";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection,query,orderBy } from "firebase/firestore";
 import moment from "moment/moment";
 
 const responsive = {
@@ -34,7 +34,7 @@ function Events() {
   const getEventList = async () => {
     try {
       const eventsRef = collection(db, "events");
-      const data = await getDocs(eventsRef);
+      const data = await query(eventsRef, orderBy("date", "desc"));
 
       let temp = [];
 
@@ -148,7 +148,7 @@ function Events() {
                       </div>
                       <p className="text-sm font-light">
                         <span className="text-white text-transparent bg-clip-text">
-                          {moment(event.date, "DDMMYYYY").fromNow()}
+                        {moment(event.date.toDate()).fromNow()}
                         </span>
                       </p>
                     </div>
