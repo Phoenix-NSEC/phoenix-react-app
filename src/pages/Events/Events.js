@@ -38,7 +38,7 @@ function Events() {
 
       let temp = [];
 
-      data.forEach((d) => {
+      data.docs.forEach((d) => {
         temp.push(d.data());
       });
 
