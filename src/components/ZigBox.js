@@ -14,7 +14,7 @@ function ZigBox({ title, description, data }) {
         )}
       </div>
       <div className="zigBody w-full md:w-70 ">
-        {data.map(({ title, description, image, extraButton, date, wing, isUpcoming, isClub }, index) => {
+        {data?.map(({ title, description, image, extraButton, date, wing, isUpcoming, isClub }, index) => {
           {if(!isUpcoming || isClub){return (
             <div
               className={`flex ${index % 2 ? "flex-col-reverse md:flex-row" : "flex-col-reverse md:flex-row-reverse"
@@ -27,7 +27,13 @@ function ZigBox({ title, description, data }) {
                 </div>
                 {date && <div className="flex flex-row items-center justify-start mt-3 text-gray-700">
                   <i className="fa-solid fa-calendar-days"></i>
-                  <p className="ml-2 text-[0.8rem] font-medium">{date}</p>
+                  <p className="ml-2 text-[0.8rem] font-medium">
+                    {typeof date === "string" ? date : 
+                      <>
+                        {date.toDate().getDate()}.{date.toDate().getMonth()+1}.{date.toDate().getFullYear()}
+                      </>
+                    }
+                  </p>
                 </div>}
                 <p className="text-[.8rem] md:text-[1rem] font-[500] mt-4 text-slate-500">{description}</p>
                 {extraButton && <button className="border-2 rounded-full px-3 my-3  hover:bg-[#1d50c3] hover:border-white hover:text-white" onClick={() => navigate(extraButton.link)}>{extraButton.name}</button>}
