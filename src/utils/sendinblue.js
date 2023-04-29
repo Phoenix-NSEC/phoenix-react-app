@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const SB_API_KEY =
-  "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";
-
+  "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";
 // Create a contact in SendinBlue
 export const createContact = async (email, name, contact_number) => {
   let [firstName, lastName] = name.split(" ");
