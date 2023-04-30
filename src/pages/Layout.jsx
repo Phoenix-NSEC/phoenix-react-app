@@ -7,7 +7,6 @@ function Layout() {
   const location = useLocation();
   const currentPath = location.pathname;
   useEffect(()=>{
-    console.log(currentPath)
   if(currentPath==="/")
   {
     navigate("/home")

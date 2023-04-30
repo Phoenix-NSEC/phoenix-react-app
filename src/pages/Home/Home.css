@@ -6,6 +6,7 @@
     padding: 200px 0 120px 0;
     height: 85vh;
 }
+
 .intro-secondary {
     width: 100%;
     position: relative;
@@ -13,4 +14,26 @@
     background-size: cover;
     padding: 150px 0 120px 0;
     height: 45vh;
+}
+
+.glowing-shadow {
+    position: relative;
+}
+
+.glowing-shadow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    box-shadow: 0 0 10px #1d50c3, 0 0 20px #1d50c3, 0 0 30px #1d50c3, 0 0 40px #00c3ff, 0 0 70px #00c3ff, 0 0 80px #00c3ff, 0 0 100px #00c3ff, 0 0 150px #00c3ff;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.glowing-shadow:hover::after {
+    opacity: 1;
 }

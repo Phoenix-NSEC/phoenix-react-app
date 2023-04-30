@@ -12,9 +12,14 @@ import { getDocs, collection } from "firebase/firestore";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CardHome from "../../components/CardHome";
+import PopOver from "../../components/PopOver";
 
 
 function Home() {
+  const [shopPop,setShowPop] = useState(true)
+  const handlePop = () =>{
+    setShowPop(prev=>!prev)
+  }
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -211,6 +216,9 @@ function Home() {
             <p className="text-[1rem] md:text-[3rem] text-center">
               Come Let's Rise
             </p>
+           
+
+            
             <Button
               className="bg-blue-600 mt-[2.5rem] max-w-[300px] mx-auto hover:bg-blue-500"
               px="10"
@@ -222,6 +230,19 @@ function Home() {
                 Read More
               </a>
             </Button>
+            <Button
+              className=" mt-[2.5rem] max-w-[300px] mx-auto hover:bg-blue-500 font-extrabold"
+              px="10"
+              borderRadius="3xl"
+              bg="black"
+              variant="solid"
+            >
+              <a href="https://avenir.phoenixnsec.in/"  className="no-underline text-red-300">
+                {" "}
+                Avenir '23
+              </a>
+            </Button>
+
           </div>
         </div>
         <div className="my-5" id="readmore">
@@ -269,6 +290,12 @@ function Home() {
           </div>
         </div>
       </div>
+
+      <PopOver isOpen={shopPop} triggerClose={handlePop}>
+           <div className={`relative bg-[#1d50c3] glowing-shadow xsm:h-[200px] xsm:w-[100%]  md:h-[600px] md:w-[70%] m-auto`}>
+           <iframe className="h-100 w-100" src="https://www.youtube.com/embed/3VZiSYs7oKo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+           </PopOver>
     </>
   );
 }
