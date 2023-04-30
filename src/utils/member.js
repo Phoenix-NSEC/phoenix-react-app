@@ -61,6 +61,7 @@ export const addMember = async (memberValue, profilePic, transactionPic) => {
               profilePic: profileUrl,
               transactionPic: transactionUrl,
               isVerified: false,
+              isActive:true,
               cardGenerated: false,
             },
             { capital: true },

@@ -17,7 +17,6 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Spinner,
 } from "@chakra-ui/react";
 import phoenixBanner from "../../static/img/phoenixBanner.png";
 import GreenTick from "../../static/images/check-green.gif";
@@ -56,7 +55,7 @@ const MemberRegistration = () => {
     setContactLoading(true);
     getContact();
   }, []);
-  console.log(contact);
+  // console.log(contact);
 
   const deptChoices = [
     {
@@ -294,19 +293,20 @@ const MemberRegistration = () => {
                   <Box
                     display={"flex"}
                     flexDirection={{ base: "column", md: "row" }}
-                    justifyContent="space-between"
+                    justifyContent="space-evenly"
                     alignItems="center"
                     maxW="100%"
+                    gap={4}
                   >
                     <Box>
                       <Text fontSize="md">
-                        Please Pay the fees of ₹200. <br />
+                        Please Pay the fees of ₹200 on this QR code. <br />
                         For any issues contact: <br />
                         <Box
                           my={2}
                           display={"flex"}
                           gap={2}
-                          flexDirection={{ base: "column", md: "row" }}
+                          flexDirection="column"
                         >
                           {contact &&
                             contact.map((c) => {
@@ -329,12 +329,17 @@ const MemberRegistration = () => {
                         </Box>
                       </Text>
                     </Box>
-                    {/* <Box>
-                      <Image
-                        src={contact.QR}
-                        w={"120px"}
-                      />
-                    </Box> */}
+                    {contact && (
+                      <Box>
+                        <Image
+                          src={contact[0]?.QR}
+                          w={"120px"}
+                          h={"120px"}
+                          objectFit={"contain"}
+                          alt="Image can't be loaded"
+                        />
+                      </Box>
+                    )}
                   </Box>
                   <Box p={6} alignSelf="center" maxW="100%" textAlign="center">
                     <Text
@@ -676,6 +681,15 @@ const MemberRegistration = () => {
                 >
                   <Text mb="10px" color="black">
                     Your Picture
+                    <Text
+                      as="b"
+                      mx={1}
+                      fontWeight={500}
+                      fontSize={"sm"}
+                      textColor="#343434"
+                    >
+                      (Upload only images[.jpg, .png, .jpeg])
+                    </Text>
                   </Text>
                   <FormControl
                     isInvalid={
@@ -685,6 +699,7 @@ const MemberRegistration = () => {
                     <Field
                       p="1"
                       as={Input}
+                      accept={"image/jpg, image/jpeg, image/png"}
                       id={"profilePic"}
                       name={"profilePic"}
                       type={"file"}
@@ -709,6 +724,15 @@ const MemberRegistration = () => {
                 >
                   <Text mb="10px" color="black">
                     Transaction Proof Screenshot
+                    <Text
+                      as="b"
+                      mx={1}
+                      fontWeight={500}
+                      fontSize={"sm"}
+                      textColor="#343434"
+                    >
+                      (Upload only images[.jpg, .png, .jpeg])
+                    </Text>
                   </Text>
                   <FormControl
                     isInvalid={
@@ -719,6 +743,7 @@ const MemberRegistration = () => {
                     <Field
                       p="1"
                       as={Input}
+                      accept={"image/jpg, image/jpeg, image/png"}
                       id={"transactionPic"}
                       name={"transactionPic"}
                       type={"file"}

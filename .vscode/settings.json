@@ -1,5 +1,11 @@
 {
     "yaml.schemas": {
         "https://json.schemastore.org/github-workflow.json": "file:///Users/shreyammaity/Desktop/phoenix-react-app/.github/workflows/deploy.yaml"
+    },
+    "workbench.colorCustomizations": {
+        "editorInlayHint.foreground": "#eec2ff5c",
+        "activityBar.background": "#073516",
+        "titleBar.activeBackground": "#0A4B1F",
+        "titleBar.activeForeground": "#F1FDF5"
     }
 }

@@ -32,6 +32,9 @@ function Navbar() {
           <NavLink to="events">
             <li className="text-center">Events</li>
           </NavLink>
+          <NavLink to="gallery">
+            <li className="text-center">Gallery</li>
+          </NavLink>
           <NavLink to="core">
             <li className="text-center">Core Team</li>
           </NavLink>
@@ -41,11 +44,11 @@ function Navbar() {
           <NavLink to="contactus">
             <li className="text-center">Contact Us</li>
           </NavLink>
-          {/* <Link to="register">
+          <Link to="register">
             <li className="text-center bg-red-500  px-4 py-2 text-white hover:bg-red-500/80 font-bold">
               Join Us
             </li>
-          </Link> */}
+          </Link>
         </ul>
       </div>
     </div>
