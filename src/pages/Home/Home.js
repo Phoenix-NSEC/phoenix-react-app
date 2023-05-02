@@ -4,6 +4,7 @@ import img2 from "../../static/images/phoenix-pic2.JPG";
 import img3 from "../../static/images/avenir-21.jpg";
 import IntroGroupImage from "../../static/images/avenir-14.JPG";
 import "./Home.css";
+import "./glitch.css"
 import { Button } from "@chakra-ui/react";
 import ZigBox from "../../components/ZigBox";
 import { useNavigate } from "react-router-dom";
@@ -220,7 +221,7 @@ function Home() {
 
             
             <Button
-              className="bg-blue-600 mt-[2.5rem] max-w-[300px] mx-auto hover:bg-blue-500"
+              className="bg-blue-600 mt-[2.5rem] max-w-[300px] mx-auto hover:text-black hover:bg-blue-500"
               px="10"
               borderRadius="3xl"
               variant="outline"
@@ -231,13 +232,13 @@ function Home() {
               </a>
             </Button>
             <Button
-              className=" mt-[2.5rem] max-w-[300px] mx-auto hover:bg-blue-500 font-extrabold"
+              className=" mt-[2.5rem] max-w-[300px] glitchy-effect mx-auto font-extrabold text-red-300 hover:text-blue-500"
               px="10"
               borderRadius="3xl"
               bg="black"
               variant="solid"
             >
-              <a href="https://avenir.phoenixnsec.in/"  className="no-underline text-red-300">
+              <a href="https://avenir.phoenixnsec.in/" className="no-underline ">
                 {" "}
                 Avenir '23
               </a>
