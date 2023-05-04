@@ -239,7 +239,7 @@ function Home() {
             >
               <a href="https://avenir.phoenixnsec.in/"  className="no-underline text-red-300">
                 {" "}
-                Avenir '23
+                AVENIR '23
               </a>
             </Button>
 
@@ -293,8 +293,7 @@ function Home() {
 
       <PopOver isOpen={shopPop} triggerClose={handlePop}>
            <div className={`relative bg-[#1d50c3] glowing-shadow xsm:h-[200px] xsm:w-[100%]  md:h-[600px] md:w-[70%] m-auto`}>
-           <iframe className="h-100 w-100" src="https://www.youtube.com/embed/3VZiSYs7oKo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+           <iframe className="h-100 w-100" width="560" height="315" src="https://www.youtube.com/embed/3VZiSYs7oKo?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    </div>
            </PopOver>
     </>
   );
