@@ -70,8 +70,8 @@ function Coreteam() {
         </div>
 
         <div className="flex flex-col justify-center items-center mb-5">
-          <div className="flex w-full flex-wrap justify-center gap-2">
-            {memberList.map((element) => {
+          <div className="flex w-full  md:justify-center px-4 gap-2 overflow-x-auto no-scrollbar">
+            {memberList.reverse().map((element) => {
               return (
                 <button
                   key={element.id}
