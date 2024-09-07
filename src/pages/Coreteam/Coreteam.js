@@ -4,19 +4,17 @@ import { db } from "../../firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 
 function Coreteam() {
+  let d = new Date();
   const [memberList, setMemberList] = useState([]);
   const [yearList, setYearList] = useState([]);
   const membersCollectionRef = collection(db, "core-team");
-  const [activeButton, setActiveButton] = useState("");
-
-  let d = new Date();
+  const [activeButton, setActiveButton] = useState();
 
   const onButtonHandle = (id, year) => {
     setActiveButton(year);
     let updatedData = memberList.filter((e) => e.id === id);
     setYearList(updatedData);
   };
-
   const getMemberList = async () => {
     try {
       const data = await getDocs(membersCollectionRef);
@@ -26,23 +24,33 @@ function Coreteam() {
         id: doc.id,
       }));
 
-      let newFilteredData = filteredData.filter(
-          (e) => parseInt(e.year.split("-")[1]) + 1 !== d.getFullYear()
-      );
-
-      newFilteredData.sort((a, b) => {
+      // Sort by the starting year (before the dash)
+      filteredData.sort((a, b) => {
         return parseInt(a.year.split("-")[0]) - parseInt(b.year.split("-")[0]);
       });
 
-      let lastYearData = newFilteredData.filter(
-        (element) =>
-          parseInt(element.year.split("-")[0]) + 1 === d.getFullYear()
+      // Filter data for the year 2024-25 as default
+      let defaultYearData = filteredData.filter(
+        (element) => parseInt(element.year.split("-")[0]) === d.getFullYear()
       );
-      setYearList(lastYearData);
-      setMemberList(newFilteredData);
-      setActiveButton(lastYearData[0].year);
+      console.log(defaultYearData);
 
+      // If there is no data for 2024-25, fallback to the last year
+      if (defaultYearData.length === 0) {
+        defaultYearData = filteredData.filter(
+          (element) =>
+            parseInt(element.year.split("-")[0]) + 1 === d.getFullYear()
+        );
+      }
 
+      setYearList(defaultYearData);
+      setMemberList(filteredData);
+
+      // Set the default active button to 2024-25
+      setActiveButton(defaultYearData[0].year);
+
+      console.log("---->", defaultYearData);
+      console.log("---->", activeButton);
     } catch (error) {
       console.error(error);
     }
@@ -62,7 +70,7 @@ function Coreteam() {
         </div>
 
         <div className="flex flex-col justify-center items-center mb-5">
-          <div className="flex flex-row space-x-4">
+          <div className="flex w-full flex-wrap justify-center gap-2">
             {memberList.map((element) => {
               return (
                 <button
@@ -70,7 +78,6 @@ function Coreteam() {
                   onClick={() => {
                     onButtonHandle(element.id, element.year);
                   }}
-
                   className={
                     element.year === activeButton
                       ? "  border-2 border-blue-700 bg-blue-700 focus:outline-0 text-white font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5"
@@ -85,7 +92,6 @@ function Coreteam() {
           <div className=" px-4 grid md:grid-cols-2 sm:grid-cols-1 gap-x-5 w-45 mx-auto justify-center items-center">
             {yearList.map((element) => {
               return element.members.map((e, index) => {
-
                 return (
                   <Cards
                     name={e.name}
