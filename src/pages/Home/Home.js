@@ -7,7 +7,6 @@ import "./Home.css";
 import "./glitch.css"
 import { Button } from "@chakra-ui/react";
 import ZigBox from "../../components/ZigBox";
-
 import { db } from "../../firebase-config";
 import { getDocs, collection } from "firebase/firestore";
 import Carousel from "react-multi-carousel";
@@ -174,15 +173,15 @@ function Home() {
         `}
       </style>
       <div className="flex flex-col justify-center items-center">
-        <div className="intro flex gap-7 justify-center md:justify-evenly items-center  z-1 flex-col md:flex-row px-5 overflow-hidden">
+        <div className="relative intro  flex justify-center md:justify-evenly items-center z-1 max-md:flex-col  overflow-hidden">
           <Carousel
             responsive={responsive2}
             showDots={false}
             arrows={false}
             containerClass={`w-full`}
-            itemClass={`flex justify-center items-center px-2`}
+            itemClass={`flex justify-center items-center px-0`}
             infinite={true}
-            className="gd-carousel2 w-2/3"
+            className="gd-carousel2 w-2/3 bg-slate-300"
             autoPlay={true}
             focusOnSelect={true}
             autoPlaySpeed={3000}
@@ -192,19 +191,19 @@ function Home() {
               src={IntroGroupImage}
               alt=""
               // className=" md:w-[400px] md:h-[300px] "
-              className=" md:w-[884px] md:h-[400px] rounded-lg "
+              className=" md:w-[884px] w-full  md:h-[400px] rounded-xl"
             />
             <img
               src={IntroGroupImage}
               alt=""
               // className=" md:w-[400px] md:h-[300px] "
-              className=" md:w-[884px] md:h-[400px] rounded-lg "
+              className=" md:w-[884px] w-full md:h-[400px] rounded-xl "
             />
             <img
               src={IntroGroupImage}
               alt=""
               // className=" md:w-[400px] md:h-[300px] "
-              className=" md:w-[884px] md:h-[400px] rounded-lg "
+              className=" md:w-[884px] w-full md:h-[400px] rounded-xl"
             />
           </Carousel>
 
@@ -212,7 +211,7 @@ function Home() {
             <p className="text-[3rem] md:text-[3rem] font-[800] text-center">
               PHOENIX
             </p>
-            <p className="text-[1rem] md:text-[3rem] text-center">
+            <p className="text-[1rem] md:text-[3rem] font-semibold text-center">
               Come Let's Rise
             </p>
 
@@ -270,7 +269,7 @@ function Home() {
               autoPlaySpeed={2000}
             >
               {yearList.map((element) => {
-                if (element.year === "2023-24") {
+                if (element.year === "2024-25") {
                   const cardHomeComponents = [];
 
                   element.members.forEach((member, index) => {

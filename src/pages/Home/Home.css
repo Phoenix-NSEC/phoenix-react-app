@@ -3,7 +3,7 @@
     position: relative;
     background: url("/public/intro-bg.png") center bottom no-repeat;
     background-size: cover;
-    padding: 200px 0 120px 0;
+    /* padding: 200px 0 120px 0; */
     height: 85vh;
 }
 
