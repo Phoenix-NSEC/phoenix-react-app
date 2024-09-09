@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Comingsoon from '../../components/Comingsoon';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase-config';
 import { instaicon } from '../../static/icons/icons';
@@ -41,13 +40,11 @@ function Webteam() {
                 key={member.name}
                 className='text-center text-gray-500 dark:text-gray-400  flex flex-col p-3 items-center justify-center'
               >
-                <div className='h-[12rem] w-[12rem] rounded-full overflow-hidden border-[.01rem] border-[black]'>
                   <img
-                    className=' mb-4   h-fit w-fit '
+                    className='w-44 h-44 object-cover object-center rounded-full mb-4'
                     src={member.avatar}
                     alt={`${member.name}'s avatar`}
                   />
-                </div>
                 <div className='mb-1 text-2xl font-bold tracking-tight text-gray-900'>
                   <a href={member.portfolio}>{member.name}</a>
                 </div>
@@ -58,20 +55,10 @@ function Webteam() {
                       <a
                         href={member.facebook}
                         target='_blank'
+                        rel='noreferrer'
                         className='text-[#39569c] hover:text-gray-900 '
                       >
-                        <svg
-                          className='w-6 h-6'
-                          fill='currentColor'
-                          viewBox='0 0 24 24'
-                          aria-hidden='true'
-                        >
-                          <path
-                            fill-rule='evenodd'
-                            d='M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z'
-                            clip-rule='evenodd'
-                          />
-                        </svg>
+                        <img src={instaicon} alt='instaicons' className='w-6' />
                       </a>
                     </li>
                   )}
@@ -80,6 +67,7 @@ function Webteam() {
                       <a
                         href={member.instagram}
                         target='_blank'
+                        rel='noreferrer'
                         className='text-[#39569c] hover:text-gray-900 '
                       >
                         <img src={instaicon} alt='instaicons' className='w-6' />
@@ -90,6 +78,7 @@ function Webteam() {
                     <a
                       href={member.linkedin}
                       target='_blank'
+                      rel='noreferrer'
                       className='text-[#00acee] hover:text-gray-900 '
                     >
                       <svg
@@ -120,6 +109,7 @@ function Webteam() {
                     <a
                       href={member.github}
                       target='_blank'
+                      rel='noreferrer'
                       className='text-gray-900 hover:text-gray-900  '
                     >
                       <svg

@@ -44,7 +44,7 @@ function Coreteam() {
       }
 
       setYearList(defaultYearData);
-      setMemberList(filteredData);
+      setMemberList(filteredData.reverse());
 
       // Set the default active button to 2024-25
       setActiveButton(defaultYearData[0].year);
@@ -58,6 +58,7 @@ function Coreteam() {
 
   useEffect(() => {
     getMemberList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -71,7 +72,7 @@ function Coreteam() {
 
         <div className="flex flex-col justify-center items-center mb-5">
           <div className="flex w-full  md:justify-center px-4 gap-2 overflow-x-auto no-scrollbar">
-            {memberList.reverse().map((element) => {
+            {memberList.map((element) => {
               return (
                 <button
                   key={element.id}
@@ -80,8 +81,8 @@ function Coreteam() {
                   }}
                   className={
                     element.year === activeButton
-                      ? "  border-2 border-blue-700 bg-blue-700 focus:outline-0 text-white font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5"
-                      : "text-black border-2 border-blue-700  font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5"
+                      ? "  border-2 border-blue-700 bg-blue-700 focus:outline-0 text-white font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5 flex-shrink-0 whitespace-nowrap"
+                      : "text-black border-2 border-blue-700  font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5 flex-shrink-0 whitespace-nowrap"
                   }
                 >
                   {element.year}

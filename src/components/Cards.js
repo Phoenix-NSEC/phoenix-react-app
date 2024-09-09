@@ -5,25 +5,13 @@ const Cards = (props) => {
     boxShadow: ' 5px 5px 5px lightblue'
   }
   return (
-    
-    <div style={divStyles} className={`rounded-xl space-x-4 mt-5 flex ${props.index % 2 ? 'flex-row-reverse' : 'flex-row'} justify-end items-center  md:w-[380px] h-[152px] sm:w-[20px]  border border-blue-600`}>
 
-      <div className={`flex flex-col mr-4 ${props.index % 2 ? 'text-left' : 'text-right'}`}>
-        <div className='w-[150px] md:w-[200px] '>
-          {/* <div className="flex flex-row text-right  ">
-            <h1 className='text-[25px] text-blue-700'>{props.name.charAt(0)}</h1>
-            <h1 className='text-[25px]'>{props.name.slice(1)}</h1>
-          </div> */}
-          <h1 className='md:text-[25px] sm:text-[15px] text-blue-700'>{props.name}</h1>
-
-        </div>
-
-        <p className="mt-2">{props.designation}</p>
+    <div style={divStyles} className={`p-4 rounded-xl mt-5 flex flex-col-reverse md:${props.index % 2 ? 'flex-row-reverse' : 'flex-row'} justify-end items-center gap-4  md:w-[380px] min-h-[152px] sm:w-[20px]  border border-blue-600`}>
+      <div className={`flex flex-col gap-1.5 md:${props.index % 2 ? 'text-left' : 'text-right'}`}>
+        <h1 className='w-[150px] md:w-[200px] md:text-[25px] text-md text-blue-700'>{props.name}</h1>
+        <p className='text-sm'>{props.designation}</p>
       </div>
-
-      <div className="ml-2 mr-2 ">
-        <img src={props.photo} className='rounded-full h-[80px] ' alt="" />
-      </div>
+      <img src={props.photo} alt='profile' className='w-28 h-28 object-cover object-center rounded-full' />
     </div>
   )
 }
