@@ -8,7 +8,7 @@ function Webteam() {
 
   useEffect(() => {
     async function getTeam() {
-      const docRef = doc(db, 'web-team', 'uaeOsAP2hWfJ1DOGRqZT');
+      const docRef = doc(db, 'web-team', 'web_team_2025');
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
