@@ -38,7 +38,7 @@ function Footer() {
             </li>
             <li className="py-1">
               <Link className="hover:text-slate-50" to="/core">
-                Core 2022-23
+                Core 2024-25
               </Link>
             </li>
             <li className="py-1">
@@ -57,8 +57,8 @@ function Footer() {
         <div className="col-lg-4 col-md-4 footer-contact">
           <h4 className="font-[700] text-xl py-2">Contact Us</h4>
           <p>
-            Netaji Subhash Engineering College, Garia, Panchpota, Kolkata, West
-            Bengal, 700152
+            <b>Address:</b> Netaji Subhash Engineering College Technocity, Panchpota, Garia, Kolkata 700152, West Bengal, India
+            <br/>
             <br />
             <strong>Email: info@phoenixnsec.in</strong>
             <br />
