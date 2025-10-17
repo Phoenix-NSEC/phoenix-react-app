@@ -228,7 +228,10 @@ function Home() {
                 Read More
               </a>
             </Button>
-            <Button
+
+{/* Avenir button */}
+
+            {/* <Button
               className=" mt-[2.5rem] max-w-[300px] glitchy-effect mx-auto font-extrabold text-red-300 hover:text-blue-500"
               px="10"
               borderRadius="3xl"
@@ -239,7 +242,7 @@ function Home() {
                 {" "}
                 AVENIR '24
               </a>
-            </Button>
+            </Button> */}
 
           </div>
         </div>
@@ -269,7 +272,7 @@ function Home() {
               autoPlaySpeed={2000}
             >
               {yearList.map((element) => {
-                if (element.year === "2024-25") {
+                if (element.year === "2025-26") {
                   const cardHomeComponents = [];
 
                   element.members.forEach((member, index) => {

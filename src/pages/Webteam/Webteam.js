@@ -28,7 +28,7 @@ function Webteam() {
           <h2 className='mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white'>
             Our team
           </h2>
-          <p className='font-light text-gray-500 sm:text-xl dark:text-gray-400'>
+          <p className='font-light text-black sm:text-xl text-black'>
             Teamwork is the secret that makes common people achieve uncommon
             results
           </p>

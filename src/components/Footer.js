@@ -38,7 +38,7 @@ function Footer() {
             </li>
             <li className="py-1">
               <Link className="hover:text-slate-50" to="/core">
-                Core 2024-25
+                Core 2025-26
               </Link>
             </li>
             <li className="py-1">
