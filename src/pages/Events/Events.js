@@ -33,7 +33,7 @@ function Events() {
 
   const getEventList = async () => {
     try {
-      const eventsRef = collection(db, "events");
+      const eventsRef = collection(db, "updated-events");
       const q = await query(eventsRef, orderBy("date", "desc"));
       const querySnapshot = await getDocs(q);
 
