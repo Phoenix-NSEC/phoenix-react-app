@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import img1 from '../../static/img/RobotEvolution.jpg'
 import img2 from '../../static/img/speaking-e1513074001193.jpeg'
 import img3 from '../../static/img/cybernix.jpg'
-import img4 from '../../static/img/civil.jpg'
+import img4 from '../../static/img/virtuix.jpg'
 import img5 from '../../static/img/illustro.jpg'
 import ZigBox from '../../components/ZigBox'
 import { wingData } from '../../data/wingData'
@@ -41,11 +41,11 @@ const data = [
   },
   {
     image: img4,
-    title: 'Nirman',
-    description: 'Imagine a world without buildings ,bridges, skyscrapers or monuments? Not possible right!. Nirmaan comes with an opportunity for the Builders of tomorrow to show and sharpen their skills under the guidance of best mentors and experience the best Platform to showcase their talents.',
+    title: 'Virtuix',
+    description: 'We, the gaming wing of Phoenix, bring hardcore gaming to life at the fest. Here’s what we do: We design the tournaments – knockout rounds, leagues, or hybrid systems. We manage brackets, lobbies, and schedules to keep the competition intense and fair. We run the floor – from registrations and player slots to live match coordination, making sure everything flows smoothly. We build the community – creating an esports atmosphere where gamers and fans come together to celebrate competitive gaming. In short, we don’t just host tournaments. We create experiences that test skills.',
     extraButton: {
       name: 'Learn More',
-      link: 'nirman'
+      link: 'virtuix'
     },
     isCLub: true
   },
@@ -71,6 +71,7 @@ function Clubs() {
   const handleNavigation = (title) => {
     const title_lower = title.toLowerCase();
     setPreventFirstRender(true)
+
     switch (title_lower) {
       case "cybernix":
         setCurWing(wingData.cybernix)
@@ -78,8 +79,8 @@ function Clubs() {
       case "robonix":
         setCurWing(wingData.robonix)
         break;
-      case "nirman":
-        setCurWing(wingData.nirman)
+      case "virtuix":
+        setCurWing(wingData.virtuix)
         break;
       case "eloquense":
         setCurWing(wingData.eloquense)

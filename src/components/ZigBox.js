@@ -54,6 +54,8 @@ function ZigBox({ title, description, data, handleNavigation }) {
           }
         })}
       </div>
+
+      
     </div>
   );
 }

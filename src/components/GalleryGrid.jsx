@@ -4,6 +4,7 @@ export const GalleryGrid = ({ data }) => {
 
 
     const arr = useMemo(() => {
+     
         const arr = [];
         let start = 0;
         for (let i = 0; i < Math.ceil(data.length / 5); i++) {

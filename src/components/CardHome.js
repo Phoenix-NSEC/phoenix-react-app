@@ -134,7 +134,7 @@ const CardHome = (props) => {
           <h2 className="name text-center">{props.name}</h2>
           <p className="description mt-2 font-semibold">{props.designation.toUpperCase()}</p>
 
-
+{/* 
           <ul className="flex justify-center mt-4 space-x-4">
             {props.media.facebook && (
               <li>
@@ -159,7 +159,7 @@ const CardHome = (props) => {
                 </a>
               </li>
             )}
-          </ul>
+          </ul> */}
 
 
 

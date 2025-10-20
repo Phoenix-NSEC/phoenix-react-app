@@ -8,8 +8,20 @@ import { FaGithub, FaLinkedinIn, FaFacebook } from "react-icons/fa";
 
 const Wing = () => {
   const location = useLocation();
+  const state = location.state || {}; // ✅ fallback to empty object
+  const { name, aboutExtended, coverImage, members = [], gallery = [] } = state;
 
-  const { name, aboutExtended, coverImage, members, gallery } = location.state;
+  // If no data (user reloaded the page), show fallback
+  if (!name) {
+    return (
+      <div className="text-white text-center py-20">
+        <h2 className="text-3xl font-bold">No Wing Data Found</h2>
+        <p>Please go back to the Wings page and select a wing again.</p>
+      </div>
+    );
+  }
+  
+
 
   return (
     <div>
