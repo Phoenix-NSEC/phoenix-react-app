@@ -193,7 +193,7 @@ function Home() {
               // className=" md:w-[400px] md:h-[300px] "
               className=" md:w-[884px] w-full  md:h-[400px] rounded-xl"
             />
-            <img
+            {/* <img
               src={IntroGroupImage}
               alt=""
               // className=" md:w-[400px] md:h-[300px] "
@@ -204,7 +204,7 @@ function Home() {
               alt=""
               // className=" md:w-[400px] md:h-[300px] "
               className=" md:w-[884px] w-full md:h-[400px] rounded-xl"
-            />
+            /> */}
           </Carousel>
 
           <div className="md:w-1/3 text-white flex justify-center flex-col">
