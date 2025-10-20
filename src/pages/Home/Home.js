@@ -174,7 +174,7 @@ function Home() {
       </style>
       <div className="flex flex-col justify-center items-center">
         <div className="relative intro  flex justify-center md:justify-evenly items-center z-1 max-md:flex-col  overflow-hidden">
-          <Carousel
+          {/* <Carousel
             responsive={responsive2}
             showDots={false}
             arrows={false}
@@ -186,7 +186,7 @@ function Home() {
             focusOnSelect={true}
             autoPlaySpeed={3000}
             customTransition={'transform 300ms ease-in-out'}
-          >
+          > */}
             <img
               src={IntroGroupImage}
               alt=""
@@ -205,7 +205,7 @@ function Home() {
               // className=" md:w-[400px] md:h-[300px] "
               className=" md:w-[884px] w-full md:h-[400px] rounded-xl"
             /> */}
-          </Carousel>
+          {/* </Carousel> */}
 
           <div className="md:w-1/3 text-white flex justify-center flex-col">
             <p className="text-[3rem] md:text-[3rem] font-[800] text-center">
