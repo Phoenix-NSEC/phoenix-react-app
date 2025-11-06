@@ -325,8 +325,12 @@ function Home() {
                 <span className="text-cyan-400">PHOENIX</span>
               </h1>
 
-              {/* Tagline */}
-              <p className="text-xl md:text-3xl font-semibold text-gray-200 mb-8 leading-relaxed">Come Let's Rise</p>
+             <div className="mb-8 text-center">
+  <p className="typewriter text-xl md:text-3xl font-semibold text-cyan-300 ">
+    Come Let's Rise
+  </p>
+</div>
+
 
               {/* Subtext */}
               <p className="text-gray-300 text-base md:text-lg mb-12 max-w-2xl mx-auto">
