@@ -18,7 +18,7 @@ function Layout() {
   }, []);
   return (
     <>
-      <div className="flex flex-col text-black font-Montserrat min-h-[100vh] justify-between">
+      <div className="flex flex-col min-h-screen bg-black text-white font-Montserrat justify-between">
         <div className="header">
           <Navbar />
         </div>
@@ -30,8 +30,8 @@ function Layout() {
         </div>
       </div>
       <PopOver isOpen={shopPop} triggerClose={handlePop}>
-        <div className={`relative bg-[#1d50c3] glowing-shadow xsm:h-[200px] xsm:w-[100%]  md:h-[600px] md:w-[70%] m-auto`}>
-          <iframe className="h-100 w-100" width="560" height="315" src="https://www.youtube.com/embed/3VZiSYs7oKo?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    </div>
+        <div className={`relative bg-black/90 border-2 border-cyan-500/30 neon-border-glow xsm:h-[200px] xsm:w-[100%] md:h-[600px] md:w-[70%] m-auto rounded-lg overflow-hidden`}>
+          <iframe className="h-100 w-100" width="560" height="315" src="https://www.youtube.com/embed/3VZiSYs7oKo?autoplay=1&mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>    </div>
       </PopOver>
     </>
   );

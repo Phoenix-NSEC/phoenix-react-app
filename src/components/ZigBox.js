@@ -1,62 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
 
 function ZigBox({ title, description, data, handleNavigation }) {
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   return (
-    <div className="flex flex-col w-full items-center justify-center">
-      <div className="header text-center">
-        {title && <h2 className="text-[2.5rem] font-bold">{title}</h2>}
-        {description && (
-          <p className="text-[1rem] mt-2 font-semibold text-slate-500">
-            {description}
-          </p>
-        )}
-      </div>
-      <div className="zigBody w-full md:w-70 ">
-        {data?.map(({ title, description, image, extraButton, date, wing, isUpcoming, isClub }, index) => {
-          {
+    <section className="relative w-full bg-black py-20 px-4 border-t border-cyan-500/30">
+      <div className="max-w-7xl mx-auto">
+        <div className="header text-center mb-20">
+          {title && (
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-6 text-cyan-400 heading-glow cursor-pointer transition-all duration-300"
+              onMouseEnter={() => setHoveredCard("all")}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {title}
+            </h2>
+          )}
+          {description && (
+            <p className="text-gray-400 text-base md:text-lg">
+              {description}
+            </p>
+          )}
+        </div>
+        <div className="space-y-24">
+          {data?.map(({ title, description, image, extraButton, date, wing, isUpcoming, isClub }, index) => {
             if (!isUpcoming || isClub) {
+              const position = index % 2 === 0 ? "left" : "right";
               return (
                 <div
-                  className={`flex ${index % 2 ? "flex-col-reverse md:flex-row" : "flex-col-reverse md:flex-row-reverse"
-                    } justify-evenly my-5 items-center`}
+                  key={index}
+                  className={`flex flex-col ${position === "right" ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 group`}
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onMouseLeave={() => setHoveredCard(null)}
                 >
-                  <div className="text w-80 md:w-50 content-center mb-5">
-                    <div className="flex flex-row justify-start items-center">
-                      <h2 className="text-[1.2rem] md:text-[1.5rem] font-[700]">{title}</h2>
-                      {wing && <p className="text-[10px] md:text-[14px]  px-[8px] mx-3 text-white bg-[#1d50c3] rounded-full">{wing}</p>}
+                  {/* Image Section */}
+                  <div className="w-full md:w-1/2 flex-shrink-0">
+                    <div className="neon-border-glow rounded-lg overflow-hidden h-80 md:h-96">
+                      <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
                     </div>
-                    {date && <div className="flex flex-row items-center justify-start mt-3 text-gray-700">
-                      <i className="fa-solid fa-calendar-days"></i>
-                      <p className="ml-2 text-[0.8rem] font-medium">
-                        {typeof date === "string" ? date :
-                          <>
-                            {date.toDate().getDate()}.{date.toDate().getMonth() + 1}.{date.toDate().getFullYear()}
-                          </>
-                        }
-                      </p>
-                    </div>}
-                    <p className="text-[.8rem] md:text-[1rem] font-[500] mt-4 text-slate-500">{description}</p>
-                    {extraButton && <button className="border-2 rounded-full px-3 my-3  hover:bg-[#1d50c3] hover:border-white hover:text-white" onClick={() => handleNavigation(title)}>{extraButton.name}</button>}
                   </div>
-                  <div className="image mb-5 md:mb-0">
-                    <img
-                      src={image}
-                      alt={title}
-                      height="200px"
-                      width="300px"
-                      className="bg-blue-600"
-                    />
+
+                  {/* Content Section */}
+                  <div className="w-full md:w-1/2">
+                    {/* Card Title */}
+                    <div className="flex flex-row justify-center items-center mb-6">
+                      <h3 className="text-2xl md:text-3xl font-bold text-cyan-400 transition-colors duration-300 group-hover:text-cyan-300 heading-glow text-center">
+                        {title}
+                      </h3>
+                      {wing && (
+                        <p className="text-xs md:text-sm px-3 mx-3 text-white bg-cyan-500 rounded-full">
+                          {wing}
+                        </p>
+                      )}
+                    </div>
+                    {date && (
+                      <div className="flex flex-row items-center justify-start mb-4 text-gray-400">
+                        <i className="fa-solid fa-calendar-days text-cyan-400"></i>
+                        <p className="ml-2 text-sm font-medium">
+                          {typeof date === "string" ? date :
+                            <>
+                              {date.toDate().getDate()}.{date.toDate().getMonth() + 1}.{date.toDate().getFullYear()}
+                            </>
+                          }
+                        </p>
+                      </div>
+                    )}
+                    <div
+                      className={`transition-all overflow-hidden ${
+                        hoveredCard === "all" || hoveredCard === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                      }`}
+                      style={{
+                        transitionDuration: "2500ms",
+                        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+                      }}
+                    >
+                      <p className="text-gray-300 leading-relaxed text-sm md:text-base font-light">
+                        {description}
+                      </p>
+                    </div>
+                    {extraButton && (
+                      <button
+                        className="mt-4 px-6 py-2 border-2 border-cyan-400 text-cyan-400 rounded-lg font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50"
+                        onClick={() => handleNavigation && handleNavigation(title)}
+                      >
+                        {extraButton.name}
+                      </button>
+                    )}
                   </div>
                 </div>
               );
             }
-          }
-        })}
-      </div>
+            return null;
+          })}
+        </div>
 
-      
-    </div>
+        {/* Highlight section */}
+        <div className="pt-16 mt-16 border-t border-cyan-500/30">
+          <p className="text-cyan-300 hover:text-cyan-100 transition-colors duration-300 cursor-pointer text-center">
+            ▸ Est. January 2006 | NSEC Innovation Hub
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
 
