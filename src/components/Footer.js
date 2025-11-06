@@ -5,7 +5,7 @@ import { BsTelegram,BsFacebook,BsInstagram,BsYoutube } from "react-icons/bs";
 function Footer() {
   return (
     <footer className="relative w-full bg-black/50 border-t border-cyan-500/30 py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="m-6 ">
         <div className="grid md:grid-cols-3 gap-12">
           {/* About */}
           <div>
@@ -111,7 +111,7 @@ function Footer() {
         </div>
 
         {/* Bottom Border and Copyright */}
-        <div className="border-t border-cyan-500/30 mt-12 pt-8 text-center">
+        <div className="border-t border-cyan-500/30 mt-6 pt-5 text-center">
           <p className="text-gray-500 text-sm">
             © 2025 Phoenix Tech Club. All Rights Reserved | Made with <span className="text-cyan-400">◈</span>
           </p>

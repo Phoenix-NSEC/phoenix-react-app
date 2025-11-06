@@ -18,7 +18,7 @@ function Layout() {
   }, []);
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-black text-white font-Montserrat justify-between">
+      <div className="flex flex-col min-h-screen bg-black text-white font-sans justify-between">
         <div className="header">
           <Navbar />
         </div>

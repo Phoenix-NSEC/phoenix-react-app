@@ -98,12 +98,12 @@ function ZigBox({ title, description, data, handleNavigation }) {
           })}
         </div>
 
-        {/* Highlight section */}
+        {/* Highlight section
         <div className="pt-16 mt-16 border-t border-cyan-500/30">
           <p className="text-cyan-300 hover:text-cyan-100 transition-colors duration-300 cursor-pointer text-center">
             ▸ Est. January 2006 | NSEC Innovation Hub
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

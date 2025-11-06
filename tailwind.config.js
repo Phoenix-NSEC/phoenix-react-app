@@ -15,8 +15,9 @@ module.exports = {
         },
         extend: {
             fontFamily: {
-                Montserrat: "'Montserrat', 'sans-serif'",
-                mono: ['"JetBrains Mono"', 'monospace'],
+                
+       sans: ['"JetBrains Mono"', 'monospace'], // default font
+      mono: ['"JetBrains Mono"', 'monospace'],
             },
             colors: {
                 background: '#050505',

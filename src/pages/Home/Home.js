@@ -163,12 +163,30 @@ function Home() {
             .react-multiple-carousel__arrow--right {
                 right: calc(-3% + 1px) !important;
             }
-            .custom-dot-list{
-              position: absolute !important;
-              bottom: -30px !important;
-              display: flex;
-              justify-content: center;
-            }
+           .custom-dot-list {
+  position: absolute !important;
+  bottom: -30px !important;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.custom-dot-list .react-multi-carousel-dot button {
+  background: rgba(0, 255, 255, 0.3) !important;
+  border: 2px solid rgba(0, 255, 255, 0.6) !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-dot-list .react-multi-carousel-dot--active button {
+  background: rgba(0, 255, 255, 1) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8),
+              0 0 20px rgba(0, 255, 255, 0.5) !important;
+  transform: scale(1.3) !important;
+}
+
             
             /* Center card styling for Core Members carousel */
             .react-multi-carousel-item {
@@ -350,7 +368,7 @@ function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-cyan-400 heading-glow">
               OUR CORE MEMBERS
             </h2>
-            <div className="gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 w-[200px] md:w-[969px]">
+            <div className="gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 ">
               <Carousel
                 responsive={responsive}
                 showDots={true}
