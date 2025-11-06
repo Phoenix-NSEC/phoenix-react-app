@@ -4,9 +4,6 @@ module.exports = {
         "./src/**/*.{js,jsx,ts,tsx}",
     ],
     theme: {
-        // colors: {
-        //   'primary': "#1d50c3"
-        // },
         screens: {
             xsm: '350px',
             sm: '638px',
@@ -19,6 +16,29 @@ module.exports = {
         extend: {
             fontFamily: {
                 Montserrat: "'Montserrat', 'sans-serif'",
+                mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+                background: '#050505',
+                foreground: '#ffffff',
+                card: '#0a0a0a',
+                'card-foreground': '#ffffff',
+                primary: '#00ffff',
+                'primary-foreground': '#050505',
+                secondary: '#0066ff',
+                'secondary-foreground': '#ffffff',
+                muted: '#1a1a1a',
+                'muted-foreground': '#a0a0a0',
+                accent: '#00ffff',
+                'accent-foreground': '#050505',
+                destructive: '#ff0055',
+                'destructive-foreground': '#ffffff',
+                border: '#1a1a2e',
+                input: '#0a0a0a',
+                ring: '#00ffff',
+                'neon-blue': '#00ffff',
+                'neon-blue-alt': '#00bfff',
+                'dark-bg': '#050505',
             },
             height: {
                 10: '10%',
@@ -44,8 +64,14 @@ module.exports = {
                 70: '70%',
                 80: '80%',
                 90: '90%'
+            },
+            boxShadow: {
+                'glow': '0 0 20px rgba(0, 255, 255, 0.3)',
+                'glow-lg': '0 0 40px rgba(0, 255, 255, 0.5)',
+            },
+            backgroundImage: {
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
             }
-
         }
     },
     plugins: [],

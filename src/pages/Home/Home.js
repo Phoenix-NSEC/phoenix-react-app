@@ -60,6 +60,7 @@ function Home() {
   let date = new Date();
 
   const [yearList, setYearList] = useState([]);
+  const [centerCardIndex, setCenterCardIndex] = useState(0);
   const membersCollectionRef = collection(db, "core-team");
 
   const getMemberList = async () => {
@@ -88,6 +89,17 @@ function Home() {
   useEffect(() => {
     getMemberList();
   }, []);
+
+  // Initialize center card when members are loaded
+  useEffect(() => {
+    yearList.forEach((element) => {
+      if (element.year === "2025-26" && element.members && element.members.length > 0) {
+        const itemsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 464 ? 2 : 1;
+        const centerOffset = Math.floor(itemsPerView / 2);
+        setCenterCardIndex(centerOffset);
+      }
+    });
+  }, [yearList]);
 
 
   const data = [
@@ -157,6 +169,103 @@ function Home() {
               display: flex;
               justify-content: center;
             }
+            
+            /* Center card styling for Core Members carousel */
+            .react-multi-carousel-item {
+              transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
+            
+            .carousel-item-wrapper {
+              transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), scale 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
+            
+            /* Add neon glow to all visible cards */
+            .react-multi-carousel-item[aria-hidden="false"] .neon-card-glow {
+              box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(0, 255, 255, 0.2) !important;
+              border-color: rgba(0, 255, 255, 0.6) !important;
+              transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            }
+            
+            /* Make center card BIGGER and more visible - for desktop (3 items) */
+            @media (min-width: 1024px) {
+              /* Scale down non-center cards */
+              .react-multi-carousel-item[aria-hidden="false"] .carousel-item-wrapper:not(:has(.center-card)) {
+                transform: scale(0.85) !important;
+                opacity: 0.7 !important;
+              }
+              
+              /* Make center card much larger */
+              .react-multi-carousel-item[aria-hidden="false"] .carousel-item-wrapper:has(.center-card) {
+                transform: scale(1.3) !important;
+                z-index: 10 !important;
+                opacity: 1 !important;
+              }
+              
+              /* Enhanced glow for center card */
+              .center-card.neon-card-glow {
+                box-shadow: 0 0 40px rgba(0, 255, 255, 0.6), 0 0 80px rgba(0, 255, 255, 0.4), 0 0 120px rgba(0, 255, 255, 0.2) !important;
+                border-color: rgba(0, 255, 255, 1) !important;
+                border-width: 3px !important;
+              }
+              
+              /* Regular glow for non-center cards */
+              .react-multi-carousel-item[aria-hidden="false"] .neon-card-glow:not(.center-card) {
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.2) !important;
+                border-color: rgba(0, 255, 255, 0.5) !important;
+              }
+            }
+            
+            /* For tablet (2 items) - make center card larger */
+            @media (min-width: 464px) and (max-width: 1023px) {
+              .react-multi-carousel-item[aria-hidden="false"] .carousel-item-wrapper:not(:has(.center-card)) {
+                transform: scale(0.9) !important;
+                opacity: 0.8 !important;
+              }
+              
+              .react-multi-carousel-item[aria-hidden="false"] .carousel-item-wrapper:has(.center-card) {
+                transform: scale(1.25) !important;
+                z-index: 10 !important;
+              }
+              
+              .center-card.neon-card-glow {
+                box-shadow: 0 0 35px rgba(0, 255, 255, 0.5), 0 0 70px rgba(0, 255, 255, 0.3) !important;
+                border-color: rgba(0, 255, 255, 0.9) !important;
+              }
+              
+              .react-multi-carousel-item[aria-hidden="false"] .neon-card-glow:not(.center-card) {
+                box-shadow: 0 0 15px rgba(0, 255, 255, 0.3), 0 0 30px rgba(0, 255, 255, 0.2) !important;
+                border-color: rgba(0, 255, 255, 0.5) !important;
+              }
+            }
+            
+            /* For mobile (1 item) - make it center with glow */
+            @media (max-width: 463px) {
+              .react-multi-carousel-item[aria-hidden="false"] .carousel-item-wrapper {
+                transform: scale(1.1) !important;
+              }
+              
+              .react-multi-carousel-item[aria-hidden="false"] .neon-card-glow {
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.3) !important;
+                border-color: rgba(0, 255, 255, 0.8) !important;
+              }
+            }
+            
+            /* Fallback for browsers that don't support :has() */
+            @supports not selector(:has(*)) {
+              @media (min-width: 1024px) {
+                .react-multi-carousel-item[aria-hidden="false"]:nth-of-type(2) .carousel-item-wrapper {
+                  transform: scale(1.3) !important;
+                  z-index: 10 !important;
+                  opacity: 1 !important;
+                }
+                
+                .react-multi-carousel-item[aria-hidden="false"]:not(:nth-of-type(2)) .carousel-item-wrapper {
+                  transform: scale(0.85) !important;
+                  opacity: 0.7 !important;
+                }
+              }
+            }
+            
           @media screen and (max-width: 500px){
               .react-multiple-carousel__arrow {
                 min-width: 30px;
@@ -173,80 +282,60 @@ function Home() {
         `}
       </style>
       <div className="flex flex-col justify-center items-center">
-        <div className="relative intro  flex justify-center md:justify-evenly items-center z-1 max-md:flex-col  overflow-hidden">
-          {/* <Carousel
-            responsive={responsive2}
-            showDots={false}
-            arrows={false}
-            containerClass={`w-full`}
-            itemClass={`flex justify-center items-center px-0`}
-            infinite={true}
-            className="gd-carousel2 w-2/3 bg-slate-300"
-            autoPlay={true}
-            focusOnSelect={true}
-            autoPlaySpeed={3000}
-            customTransition={'transform 300ms ease-in-out'}
-          > */}
-            <img
-              src={IntroGroupImage}
-              alt=""
-              // className=" md:w-[400px] md:h-[300px] "
-              className=" md:w-[884px] w-full  md:h-[400px] rounded-xl"
-            />
-            {/* <img
-              src={IntroGroupImage}
-              alt=""
-              // className=" md:w-[400px] md:h-[300px] "
-              className=" md:w-[884px] w-full md:h-[400px] rounded-xl "
-            />
-            <img
-              src={IntroGroupImage}
-              alt=""
-              // className=" md:w-[400px] md:h-[300px] "
-              className=" md:w-[884px] w-full md:h-[400px] rounded-xl"
-            /> */}
-          {/* </Carousel> */}
+        {/* Hero Section */}
+        <div className="relative w-full h-screen pt-20 overflow-hidden">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${IntroGroupImage})`,
+              backgroundAttachment: "fixed",
+            }}
+          >
+            {/* Dark gradient overlay for readability - increased intensity */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75"></div>
 
-          <div className="md:w-1/3 text-white flex justify-center flex-col">
-            <p className="text-[3rem] md:text-[3rem] font-[800] text-center">
-              PHOENIX
-            </p>
-            <p className="text-[1rem] md:text-[3rem] font-semibold text-center">
-              Come Let's Rise
-            </p>
+            {/* Neon glow effect */}
+            <div className="absolute inset-0 bg-gradient-radial from-cyan-500/10 to-transparent opacity-30"></div>
+          </div>
 
+          {/* Hero Content */}
+          <div className="relative h-full flex items-center justify-center transition-all duration-1000 opacity-100">
+            <div className="text-center z-10 px-4">
+              {/* Main Heading with Glow */}
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 neon-text-glow">
+                <span className="text-cyan-400">PHOENIX</span>
+              </h1>
 
+              {/* Tagline */}
+              <p className="text-xl md:text-3xl font-semibold text-gray-200 mb-8 leading-relaxed">Come Let's Rise</p>
 
-            <Button
-              className="bg-blue-600 mt-[2.5rem] max-w-[300px] mx-auto hover:text-black hover:bg-blue-500"
-              px="10"
-              borderRadius="3xl"
-              variant="outline"
-            >
-              <a href="#readmore" className="no-underline">
-                {" "}
-                Read More
+              {/* Subtext */}
+              <p className="text-gray-300 text-base md:text-lg mb-12 max-w-2xl mx-auto">
+                The official tech club of Netaji Subhash Engineering College
+              </p>
+
+              {/* CTA Button */}
+              <a href="#readmore">
+                <button className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 rounded-lg font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50 neon-border-glow">
+                  Read More
+                </button>
               </a>
-            </Button>
+            </div>
 
-{/* Avenir button */}
-
-            {/* <Button
-              className=" mt-[2.5rem] max-w-[300px] glitchy-effect mx-auto font-extrabold text-red-300 hover:text-blue-500"
-              px="10"
-              borderRadius="3xl"
-              bg="black"
-              variant="solid"
-            >
-              <a href="https://www.avenirnsec.live/" className="no-underline ">
-                {" "}
-                AVENIR '24
-              </a>
-            </Button> */}
-
+            {/* Animated scrolling indicator */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+              <div className="animate-bounce text-cyan-400">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="my-5" id="readmore">
+
+        {/* About Section */}
+        <div className="my-5 w-full" id="readmore">
           <ZigBox
             title="Phoenix"
             id="readmore"
@@ -255,48 +344,74 @@ function Home() {
           />
         </div>
 
-        <div className="flex flex-column justify-center items-center  w-full bg-[#bde0fe] h-full border border-red-500">
-          <h1 className="text-[20px] text-blue-900 font-normal text-center mt-5 md:text-[40px] md:font-light">OUR CORE MEMBERS</h1>
-          <div className="gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 w-[200px] md:w-[969px]">
-            <Carousel
-              responsive={responsive}
-              showDots={true}
-              containerClass={`w-95`}
-              renderButtonGroupOutside={true}
-              itemClass={`flex justify-center items-center px-2`}
-              infinite={true}
-              className="gd-carousel"
-              dotListClass="custom-dot-list"
-              autoPlay={true}
-              focusOnSelect={true}
-              autoPlaySpeed={2000}
-            >
-              {yearList.map((element) => {
-                if (element.year === "2025-26") {
-                  const cardHomeComponents = [];
+        {/* Core Members Section */}
+        <div className="relative w-full bg-black py-20 px-4 border-t border-cyan-500/30">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-cyan-400 heading-glow">
+              OUR CORE MEMBERS
+            </h2>
+            <div className="gd-carousel-wrapper mt-5 mb-5 flex justify-center space-x-9 w-[200px] md:w-[969px]">
+              <Carousel
+                responsive={responsive}
+                showDots={true}
+                containerClass={`w-95`}
+                renderButtonGroupOutside={true}
+                itemClass={`flex justify-center items-center px-2 carousel-item-wrapper`}
+                infinite={true}
+                className="gd-carousel"
+                dotListClass="custom-dot-list"
+                autoPlay={true}
+                focusOnSelect={true}
+                autoPlaySpeed={2000}
+                partialVisbile={true}
+                centerMode={false}
+                afterChange={(previousSlide, { currentSlide }) => {
+                  // Calculate center card index based on visible items
+                  // currentSlide is the index of the first visible item
+                  const itemsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 464 ? 2 : 1;
+                  const centerOffset = Math.floor(itemsPerView / 2);
+                  // For 3 items: center is at index 1 (0, 1, 2)
+                  // For 2 items: center is at index 1 (0, 1)
+                  // For 1 item: center is at index 0
+                  const calculatedCenterIndex = currentSlide + centerOffset;
+                  setCenterCardIndex(calculatedCenterIndex);
+                }}
+                beforeChange={() => {
+                  // Reset center card index before change for smooth transition
+                  setCenterCardIndex(-1);
+                }}
+              >
+                {yearList.map((element) => {
+                  if (element.year === "2025-26") {
+                    const cardHomeComponents = [];
 
-                  element.members.forEach((member, index) => {
-                    cardHomeComponents.push(
-                      <CardHome
-                        key={index}
-                        name={member.name}
-                        designation={member.designation}
-                        photo={member.photo}
-                        index={index}
-                        year={element.year}
-                        media={member.socialMedia || {}}
-                      />
-                    );
-                  });
+                    element.members.forEach((member, index) => {
+                      // Calculate if this member index is the center card
+                      // Handle infinite scrolling by using modulo
+                      const memberCount = element.members.length;
+                      const normalizedCenterIndex = centerCardIndex >= 0 ? centerCardIndex % memberCount : -1;
+                      const isCenter = normalizedCenterIndex === index;
+                      cardHomeComponents.push(
+                        <CardHome
+                          key={index}
+                          name={member.name}
+                          designation={member.designation}
+                          photo={member.photo}
+                          index={index}
+                          year={element.year}
+                          media={member.socialMedia || {}}
+                          isCenter={isCenter}
+                        />
+                      );
+                    });
 
-                  return cardHomeComponents;
-                } else {
-                  return null;
-                }
-              })}
-
-
-            </Carousel>
+                    return cardHomeComponents;
+                  } else {
+                    return null;
+                  }
+                })}
+              </Carousel>
+            </div>
           </div>
         </div>
       </div>
