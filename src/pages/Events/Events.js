@@ -160,7 +160,7 @@ function Events() {
         </div>
       </div> */}
       <div className="flex flex-col justify-center items-center">
-        <h2 className="mt-[90px] mb-4 text-[1.5rem] md:text-[2rem] font-[800] p-4 w-full text-center bg-[#bde0fe]">
+        <h2 className="mt-[90px] mb-4 text-[1.5rem] md:text-[2rem] text-cyan-400 font-[800] p-4 w-full text-center ">
           Other events
         </h2>
         <ZigBox data={eventList} />
