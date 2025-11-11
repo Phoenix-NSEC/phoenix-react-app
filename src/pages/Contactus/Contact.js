@@ -102,10 +102,10 @@ const Contact = () => {
                   </h3>
                   <p className="text-cyan-400 text-sm">
                     <a
-                      href="mailto:info@phoenixnsec.in"
+                      href="mailto:mail.phoenixnsec@gmail.com"
                       className="border-b border-dotted border-cyan-500/50 hover:text-white hover:border-cyan-400 transition-all duration-300 break-all"
                     >
-                      info@phoenixnsec.in
+                     mail.phoenixnsec@gmail.com
                     </a>
                   </p>
                 </div>

@@ -55,7 +55,7 @@ function Footer() {
             West Bengal, India
           </p>
           <p>
-            <span className="text-cyan-300">Email:</span> info@phoenixnsec.in
+            <span className="text-cyan-300">Email:</span> mail.phoenixnsec@gmail.com
           </p>
         </div>
         <div className="mt-4 flex gap-3">
