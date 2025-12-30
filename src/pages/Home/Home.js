@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import img1 from "../../static/images/home1.jpg";
-import img2 from "../../static/images/phoenix-pic2.JPG";
-import img3 from "../../static/images/avenir-21.jpg";
-import IntroGroupImage from "../../static/images/avenir-14.JPG";
+import img1 from "../../static/images/who_are_we.jpeg";
+import img2 from "../../static/images/offer.jpeg";
+import img3 from "../../static/images/what_else.jpeg";
+import IntroGroupImage from "../../static/images/landing_page.jpeg";
 import "./Home.css";
-import "./glitch.css"
+import "./glitch.css";
 import { Button } from "@chakra-ui/react";
 import ZigBox from "../../components/ZigBox";
 import { db } from "../../firebase-config";
@@ -13,10 +13,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CardHome from "../../components/CardHome";
 
-
-
 function Home() {
-
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -67,7 +64,6 @@ function Home() {
     try {
       const data = await getDocs(membersCollectionRef);
 
-
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
@@ -76,11 +72,7 @@ function Home() {
         (e) => parseInt(e.year.split("-")[1]) !== date.getFullYear()
       );
 
-
-
       setYearList(newFilteredData);
-
-
     } catch (error) {
       console.error(error);
     }
@@ -93,14 +85,18 @@ function Home() {
   // Initialize center card when members are loaded
   useEffect(() => {
     yearList.forEach((element) => {
-      if (element.year === "2025-26" && element.members && element.members.length > 0) {
-        const itemsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 464 ? 2 : 1;
+      if (
+        element.year === "2025-26" &&
+        element.members &&
+        element.members.length > 0
+      ) {
+        const itemsPerView =
+          window.innerWidth >= 1024 ? 3 : window.innerWidth >= 464 ? 2 : 1;
         const centerOffset = Math.floor(itemsPerView / 2);
         setCenterCardIndex(centerOffset);
       }
     });
   }, [yearList]);
-
 
   const data = [
     {
@@ -296,6 +292,22 @@ function Home() {
             .react-multiple-carousel__arrow--right {
                 right: calc(-16% + 1px) !important;
             }
+            
+            .popup-bounce {
+              animation: bounce 2s infinite;
+            }
+            
+            @keyframes bounce {
+              0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+              }
+              40% {
+                transform: translateY(-10px);
+              }
+              60% {
+                transform: translateY(-5px);
+              }
+            }
           
         `}
       </style>
@@ -325,12 +337,11 @@ function Home() {
                 <span className="text-cyan-400">PHOENIX</span>
               </h1>
 
-             <div className="mb-8 text-center">
-  <p className="typewriter text-xl md:text-3xl font-semibold text-cyan-300 ">
-    Come Let's Rise
-  </p>
-</div>
-
+              <div className="mb-8 text-center">
+                <p className="typewriter text-xl md:text-3xl font-semibold text-cyan-300 ">
+                  Come Let's Rise
+                </p>
+              </div>
 
               {/* Subtext */}
               <p className="text-gray-300 text-base md:text-lg mb-12 max-w-2xl mx-auto">
@@ -348,8 +359,18 @@ function Home() {
             {/* Animated scrolling indicator */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
               <div className="animate-bounce text-cyan-400">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                  />
                 </svg>
               </div>
             </div>
@@ -390,7 +411,12 @@ function Home() {
                 afterChange={(previousSlide, { currentSlide }) => {
                   // Calculate center card index based on visible items
                   // currentSlide is the index of the first visible item
-                  const itemsPerView = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 464 ? 2 : 1;
+                  const itemsPerView =
+                    window.innerWidth >= 1024
+                      ? 3
+                      : window.innerWidth >= 464
+                      ? 2
+                      : 1;
                   const centerOffset = Math.floor(itemsPerView / 2);
                   // For 3 items: center is at index 1 (0, 1, 2)
                   // For 2 items: center is at index 1 (0, 1)
@@ -411,7 +437,10 @@ function Home() {
                       // Calculate if this member index is the center card
                       // Handle infinite scrolling by using modulo
                       const memberCount = element.members.length;
-                      const normalizedCenterIndex = centerCardIndex >= 0 ? centerCardIndex % memberCount : -1;
+                      const normalizedCenterIndex =
+                        centerCardIndex >= 0
+                          ? centerCardIndex % memberCount
+                          : -1;
                       const isCenter = normalizedCenterIndex === index;
                       cardHomeComponents.push(
                         <CardHome
@@ -438,7 +467,10 @@ function Home() {
         </div>
       </div>
 
-
+      {/* Popup Notification */}
+      <div className="fixed bottom-4 right-4 bg-black text-cyan-400 p-4 rounded-lg border border-cyan-300 shadow-lg shadow-cyan-300 z-50 popup-bounce">
+        Avenir'26 is coming soon 🔥
+      </div>
     </>
   );
 }
