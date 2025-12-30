@@ -63,38 +63,45 @@ function Coreteam() {
 
   return (
     <>
-      <div>
-        <div className="intro-secondary flex gap-12 justify-start z-1 flex-col md:flex-row px-5 ">
-          <div className="w-full md:w-40 text-white">
-            <p className="text-[2rem] md:text-[3rem] font-[800]">Core Team</p>
+      <div className="relative w-full bg-black py-20 px-4 border-t border-cyan-500/30">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Title */}
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-cyan-400 heading-glow">
+              Core Team
+            </h2>
           </div>
-        </div>
 
-        <div className="flex flex-col justify-center items-center mb-5">
-          <div className="flex w-full  md:justify-center px-4 gap-2 overflow-x-auto no-scrollbar">
-            {memberList.map((element) => {
-              return (
-                <button
-                  key={element.id}
-                  onClick={() => {
-                    onButtonHandle(element.id, element.year);
-                  }}
-                  className={
-                    element.year === activeButton
-                      ? "  border-2 border-blue-700 bg-blue-700 focus:outline-0 text-white font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5 flex-shrink-0 whitespace-nowrap"
-                      : "text-black border-2 border-blue-700  font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5 flex-shrink-0 whitespace-nowrap"
-                  }
-                >
-                  {element.year}
-                </button>
-              );
-            })}
+          {/* Year Filter Buttons */}
+          <div className="flex flex-col justify-center items-center mb-12">
+            <div className="flex w-full md:justify-center px-4 gap-2 overflow-x-auto no-scrollbar">
+              {memberList.map((element) => {
+                return (
+                  <button
+                    key={element.id}
+                    onClick={() => {
+                      onButtonHandle(element.id, element.year);
+                    }}
+                    className={
+                      element.year === activeButton
+                        ? "border-2 border-cyan-400 bg-cyan-400 text-black focus:outline-0 font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5 flex-shrink-0 whitespace-nowrap hover:bg-cyan-300 hover:border-cyan-300 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50"
+                        : "text-gray-300 border-2 border-cyan-400/50 font-bold rounded-lg px-4 py-2 uppercase text-sm mt-5 flex-shrink-0 whitespace-nowrap hover:bg-cyan-400/20 hover:border-cyan-400 transition-all duration-300"
+                    }
+                  >
+                    {element.year}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div className=" px-4 grid md:grid-cols-2 sm:grid-cols-1 gap-x-5 w-45 mx-auto justify-center items-center">
+
+          {/* Members Grid */}
+          <div className="px-4 grid md:grid-cols-2 sm:grid-cols-1 gap-8 w-full max-w-5xl mx-auto justify-center items-center">
             {yearList.map((element) => {
               return element.members.map((e, index) => {
                 return (
                   <Cards
+                    key={index}
                     name={e.name}
                     designation={e.designation}
                     photo={e.photo}

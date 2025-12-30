@@ -12,3 +12,81 @@
     scrollbar-width: none;  /* Firefox */
 }
 
+/* V0 Design System - Neon Cyber-Tech Styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+     @apply font-sans;
+  }
+}
+
+/* Neon Glow Effects */
+@keyframes neon-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.5);
+  }
+}
+
+@keyframes border-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), inset 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.neon-text-glow {
+  animation: neon-glow 3s ease-in-out infinite;
+}
+
+.neon-border-glow {
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.heading-glow:hover {
+  animation: shimmer 0.6s ease-in-out;
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Neon card glow for Core Members carousel */
+.neon-card-glow {
+  transition: box-shadow 0.5s ease, border-color 0.5s ease;
+}
+

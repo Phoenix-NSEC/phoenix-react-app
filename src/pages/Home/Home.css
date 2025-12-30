@@ -1,20 +1,25 @@
 .intro {
-    width: 100%;
-    position: relative;
-    background: url("/public/intro-bg.png") center bottom no-repeat;
-    background-size: cover;
-    /* padding: 200px 0 120px 0; */
-    height: 85vh;
+  width: 100%;
+  height: 85vh;
+  position: relative;
+  background: url("/public/intro-bg.jpg") center center no-repeat;
+  background-size: cover;
+    display: flex;
+  align-items: flex-end; 
+  
 }
 
 .intro-secondary {
-    width: 100%;
-    position: relative;
-    background: url("/public/intro-bg.png") center bottom no-repeat;
-    background-size: cover;
-    padding: 150px 0 120px 0;
-    height: 45vh;
+  width: 100%;
+  height: 45vh;
+  position: relative;
+  background: url("/public/intro-bg.jpg") center center no-repeat;
+  background-size: cover;
+    display: flex;
+  align-items: flex-end; 
 }
+
+
 
 .glowing-shadow {
     position: relative;
@@ -37,3 +42,22 @@
 .glowing-shadow:hover::after {
     opacity: 1;
 }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 44%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(0, 255, 255, 0.75);
+  width: 0;
+  animation: typing 1.6s steps(15, end) forwards, blink 0.7s step-end infinite;
+}
+
+
