@@ -20,8 +20,6 @@ const Wing = () => {
       </div>
     );
   }
-  
-
 
   return (
     <div>
@@ -105,10 +103,16 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
             .our-team {
             padding: 30px 0 60px;
             margin-bottom: 20px;
-            background-color: #f7f5ec;
+            background-color: #000000;
             text-align: center;
             overflow: hidden;
             position: relative;
+            border-radius: 0.5rem;
+            transition: box-shadow 0.3s ease;
+            }
+
+            .our-team:hover {
+            box-shadow: 0 0 20px #00ffff;
             }
 
             .our-team .picture {
@@ -125,7 +129,7 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
             width: 100%;
             height: 0;
             border-radius: 50%;
-            background-color: #1369ce;
+            background-color: #00ffff;
             position: absolute;
             bottom: 135%;
             right: 0;
@@ -144,7 +148,7 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background-color: #1369ce;
+            background-color: #00ffff;
             position: absolute;
             top: 0;
             left: 0;
@@ -161,7 +165,7 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
             }
 
             .our-team:hover .picture img {
-            box-shadow: 0 0 0 14px #f7f5ec;
+            box-shadow: 0 0 0 14px #000000;
             transform: scale(0.7);
             }
 
@@ -171,7 +175,8 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
             align-items: center;
             gap: 1rem;
             width: 100%;
-            background-color: #1369ce;
+            background-color: #000000;
+            border: 2px solid #00ffff;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -192,45 +197,47 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
             }
 
             .our-team .social li a:hover {
-            color: #1369ce;
-            background-color: #f7f5ec;
+            color: #000000;
+            background-color: #00ffff;
             }
         `}
       </style>
 
-      <div className="our-team rounded-lg w-[15rem] flex-shrink-0 border-t-2 border-l-2 border-t-sky-300 border-l-sky-300 shadow-lg shadow-blue-300">
+      <div className="our-team rounded-lg w-[15rem] flex-shrink-0 border-2 border-cyan-300 shadow-lg shadow-cyan-300">
         <div className="picture">
-          <img
-            className="img-fluid"
-            alt="img"
-            src={profileImgUrl}
-          />
+          <img className="img-fluid" alt="img" src={profileImgUrl} />
         </div>
-        <div className="team-content flex flex-col gap-1">
-          <h3 className="name text-2xl font-bold">{name}</h3>
-          <h4 className="title text-[#4e5052]">{designation}</h4>
-        </div>
+        <h3 className="name text-2xl font-bold text-cyan-400">{name}</h3>
+        <h4 className="title text-cyan-300">{designation}</h4>
         <ul className="social">
-          {socials?.insta && <li>
-            <a href={socials.insta} aria-hidden="true">
-              <AiFillInstagram size={"1.2rem"} />
-            </a>
-          </li>}
-          {socials?.facebook && <li>
-            <a href={socials.facebook} aria-hidden="true">
-              <FaFacebook size={"1.2rem"} />
-            </a>
-          </li>}
-          {socials?.github && <li>
-            <a href={socials.github} aria-hidden="true">
-              <FaGithub size={"1.2rem"} />
-            </a>
-          </li>}
-          {socials?.linkedin && <li>
-            <a href={socials.linkedin} aria-hidden="true">
-              <FaLinkedinIn size={"1.2rem"} />
-            </a>
-          </li>}
+          {socials?.insta && (
+            <li>
+              <a href={socials.insta} aria-hidden="true">
+                <AiFillInstagram size={"1.2rem"} />
+              </a>
+            </li>
+          )}
+          {socials?.facebook && (
+            <li>
+              <a href={socials.facebook} aria-hidden="true">
+                <FaFacebook size={"1.2rem"} />
+              </a>
+            </li>
+          )}
+          {socials?.github && (
+            <li>
+              <a href={socials.github} aria-hidden="true">
+                <FaGithub size={"1.2rem"} />
+              </a>
+            </li>
+          )}
+          {socials?.linkedin && (
+            <li>
+              <a href={socials.linkedin} aria-hidden="true">
+                <FaLinkedinIn size={"1.2rem"} />
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </>
