@@ -196,7 +196,8 @@ export const wingData = {
       {
         name: "Krish Kumar ",
         designation: "Wing coordinator",
-        // profileImgUrl: " ",
+        profileImgUrl: 
+        "https://res.cloudinary.com/dlbiliyzy/image/upload/v1771868901/Wing/WhatsApp_Image_2026-02-22_at_21.04.04_tjh7er.jpg",
         socials: {
           insta:
             "https://www.instagram.com/itz.krish.kk?igsh=MXJ1YzRoNHUzdXcwdg==",

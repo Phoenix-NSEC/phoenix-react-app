@@ -69,7 +69,7 @@ function Home() {
         id: doc.id,
       }));
       let newFilteredData = filteredData.filter(
-        (e) => parseInt(e.year.split("-")[1]) !== date.getFullYear()
+        (e) => parseInt(e.year.split("-")[1]) !== date.getFullYear(),
       );
 
       setYearList(newFilteredData);
@@ -348,12 +348,19 @@ function Home() {
                 The official tech club of Netaji Subhash Engineering College
               </p>
 
-              {/* CTA Button */}
-              <a href="#readmore">
-                <button className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 rounded-lg font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50 neon-border-glow">
-                  Read More
-                </button>
-              </a>
+              {/* CTA Buttons */}
+              <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#readmore">
+                  <button className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 rounded-lg font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50 neon-border-glow">
+                    Read More
+                  </button>
+                </a>
+                <a target="_blank"  href="https://avenir.phoenixnsec.in">
+                  <button className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 rounded-lg font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50 neon-border-glow">
+                    Avenir'26
+                  </button>
+                </a>
+              </div>
             </div>
 
             {/* Animated scrolling indicator */}
@@ -415,8 +422,8 @@ function Home() {
                     window.innerWidth >= 1024
                       ? 3
                       : window.innerWidth >= 464
-                      ? 2
-                      : 1;
+                        ? 2
+                        : 1;
                   const centerOffset = Math.floor(itemsPerView / 2);
                   // For 3 items: center is at index 1 (0, 1, 2)
                   // For 2 items: center is at index 1 (0, 1)
@@ -452,7 +459,7 @@ function Home() {
                           year={element.year}
                           media={member.socialMedia || {}}
                           isCenter={isCenter}
-                        />
+                        />,
                       );
                     });
 
