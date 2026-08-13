@@ -8,7 +8,7 @@ function Webteam() {
 
   useEffect(() => {
     async function getTeam() {
-      const docRef = doc(db, "web-team", "web_team_2025");
+      const docRef = doc(db, "web-team", "web_team_2026");
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -71,9 +71,9 @@ function Webteam() {
                       href={member.facebook}
                       target="_blank"
                       rel="noreferrer"
-                      className="hover:brightness-125"
+                      className="text-cyan-400 hover:text-cyan-300 transition-colors"
                     >
-                      <img src={instaicon} alt="facebook" className="w-6" />
+                      <i className="fa-brands fa-facebook text-xl"></i>
                     </a>
                   </li>
                 )}
@@ -89,26 +89,30 @@ function Webteam() {
                     </a>
                   </li>
                 )}
-                <li>
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                  >
-                    <i className="fa-brands fa-linkedin text-xl"></i>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={member.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-cyan-400 hover:text-cyan-300 transition-colors"
-                  >
-                    <i className="fa-brands fa-github text-xl"></i>
-                  </a>
-                </li>
+                {member?.linkedin && (
+                  <li>
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                    >
+                      <i className="fa-brands fa-linkedin text-xl"></i>
+                    </a>
+                  </li>
+                )}
+                {member?.github && (
+                  <li>
+                    <a
+                      href={member.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                    >
+                      <i className="fa-brands fa-github text-xl"></i>
+                    </a>
+                  </li>
+                )}
               </ul>
             </div>
           ))}

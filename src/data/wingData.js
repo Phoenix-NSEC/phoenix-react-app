@@ -5,6 +5,7 @@ import cybernixImg from "../static/img/cybernix.jpg";
 // import nirmanImg from '../static/img/civil.jpg'
 import illustroImg from "../static/img/illustro.jpg";
 import virtuixImg from "../static/img/virtuix.jpg";
+import flagshipImg from "../static/img/flagship_wing.jpeg";
 
 //gallery image imports
 //robonix
@@ -45,57 +46,91 @@ export const wingData = {
       "Cybernix Club serves as a dynamic hub for coding and cybersecurity enthusiasts, offering a platform where members can engage in learning, collaboration, and innovation within the cybersecurity and technology spheres. Through workshops, seminars, real-time projects and hands-on activities, participants hone their skills and stay updated on the latest trends and developments in the ever-evolving cyber landscape. The club fosters a supportive community where members share insights, exchange ideas, and work together on projects to tackle real-world cybersecurity challenges. With a focus on fostering curiosity, creativity, and excellence, Cybernix Club empowers its members to thrive in the fast-paced and critical field of cybersecurity.",
     members: [
       {
-        name: "Sukalyan Roy",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958339/Wing/xvs6asbbvel42clmsith.jpg",
-        // profileImgUrl: " ",
+        name: 'Ankit Talukder',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624999/Wing/ogposffn8zp41oz9njbe.png',
         socials: {
-          insta:
-            "https://www.instagram.com/adverb_adjective?igsh=ZWp5c3FvZnB1dzFh",
-          // facebook: null,
-          // github: " ",
-          // linkedin: " ",
+          insta: 'https://www.instagram.com/sadubaba_2061',
+          linkedin: 'https://www.linkedin.com/in/ankit-talukder-631a62220/',
         },
       },
       {
-        name: "Sebanti Dasgupta",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958198/Wing/rltocgasaik2i7po1rgg.jpg",
-        // profileImgUrl: " ",
+        name: 'Supriti Mishra',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786625005/Wing/ievjhbabmeix7boaxf3c.jpg',
         socials: {
-          insta: "https://www.instagram.com/sdasgupta39?igsh=ZDZ6eWNpNjEwMDNn",
-          // facebook: null,
-          // github: " ",
-          // linkedin: " ",
+          insta: 'https://www.instagram.com/_https.supriti_?igsh=c3U3ZmY4bDhzZGI4',
+          linkedin: 'https://www.linkedin.com/in/supriti-mishra-6501b5313?utm_source=share_via&utm_content=profile&utm_medium=member_android',
         },
       },
       {
-        name: "Anindita Dey",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958200/Wing/um8whfetignt9foriqxu.jpg",
-        // profileImgUrl: " ",
+        name: 'Moniratna Roy',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624876/Wing/bozwldb42fvfarvmgutq.png',
         socials: {
-          insta:
-            "https://www.instagram.com/__pastel_hues__?igsh=MXgzNXFzbjZkbmk2NQ==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/defnotmaniratna',
+          linkedin: 'https://www.linkedin.com/in/maniratna-roy-590064231?utm_source=share_via&utm_content=profile&utm_medium=member_android',
         },
       },
       {
-        name: "Gourab Das",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958202/Wing/nelf7rzgh9yo6m8o113n.jpg",
-        // profileImgUrl: " ",
+        name: 'Soumita Chowdhury',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624879/Wing/g7elqmohump84edre14q.jpg',
         socials: {
-          insta: "https://www.instagram.com/mrdot_it?igsh=MXgxdzBteDg0YWR1bQ==",
-          // facebook: null,
-          // github: " ",
-          // linkedin: " ",
+          insta: 'https://www.instagram.com/soumita.err?igsh=MWN0bTFqZmhpNTVnZg==',
+          linkedin: 'https://www.linkedin.com/in/soumita-chowdhury-998285382?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+        },
+      },
+      {
+        name: 'Rupam Ghosh',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624915/Wing/ikkjfdmz117l1cgainy4.png',
+        socials: {
+          insta: 'https://www.instagram.com/mehulodaa',
+          linkedin: 'https://www.linkedin.com/in/hulo',
+        },
+      },
+      {
+        name: 'Debpriyo Ghosal',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624973/Wing/tdephyvzu5dooaalvz4c.png',
+        socials: {
+          insta: 'https://www.instagram.com/debpriyo.exe?igsh=dHB6NW1ncndzb2J0',
+        },
+      },
+      {
+        name: 'Saurya Pratik Mukherji',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624990/Wing/uldbw2yb2inktejtqrot.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/sauryapratikmukherji1234',
+          linkedin: 'https://www.linkedin.com/in/saurya-pratik-mukherji-6a9128371?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+        },
+      },
+      {
+        name: 'Satyaki Das',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624995/Wing/eqgl19y5vyw0q4gvxj4k.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/satyaki_das_',
+          linkedin: 'https://www.linkedin.com/in/satyaki-das7',
+        },
+      },
+      {
+        name: 'Rudra Narayan Chatterjee',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786625002/Wing/storv1crdfw99b4hn5qa.png',
+        socials: {
+          insta: 'https://www.instagram.com/an0th3r_rudra_2.o_ll',
+        },
+      },
+      {
+        name: 'Debargha Sarkar',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786625008/Wing/f1uzzgxayraf2lgarvai.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/cuck_coder?igsh=MWEwZXN1bDYyY2xqYg==',
+          linkedin: 'https://www.linkedin.com/in/debargha-sarkar-72575937a?utm_source=share_via&utm_content=profile&utm_medium=member_android',
         },
       },
     ],
@@ -128,96 +163,51 @@ export const wingData = {
       "Eloquence Club is a dynamic gathering of individuals passionate about mastering the art of communication. Through workshops, debates, and speeches, members refine their oratory skills, from persuasive rhetoric to captivating storytelling. The club fosters an environment of mutual support and constructive feedback, encouraging members to overcome stage fright and hone their confidence. With diverse topics and formats, Eloquence Club cultivates versatility in expression, empowering members to articulate ideas with clarity and impact. Whether polishing professional presentations or perfecting personal narratives, participants find a welcoming space to sharpen their eloquence and connect with like-minded communicators on a journey of continuous improvement.The Robonix Club is a student community dedicated to advancing skills and knowledge in utilizing modern technology for scientific endeavors. The club focuses on automation, artificial intelligence, and robotics. It provides a platform for students to explore these fields, turning innovative ideas into reality. The club organizes workshops, events, and technical sessions to enhance students’ understanding and practical experience in robotics, mechatronics, and related areas, fostering creativity and passion for technological advancements.",
     members: [
       {
-        name: "Ritam Bhattacharya",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958204/Wing/gd39x5jm867dkwmwqfaa.jpg",
-        // profileImgUrl: " ",
+        name: 'Meghmallar Hazra',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624981/Wing/japrj3b9usxybuf0sv2c.jpg',
         socials: {
-          insta: "https://www.instagram.com/ritam.333?igsh=bjVua2hld3lwa2Fi",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/h0joborolo?igsh=Ymk4amRzdGx4NnR3',
         },
       },
       {
-        name: "Arpan Biswas",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958211/Wing/liqbu7oi94rs3ayz62tu.jpg",
-        // profileImgUrl: " ",
+        name: 'Manaswita Bhattacharya',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624893/Wing/mmuwtlpspj5sowi9jvf2.jpg',
         socials: {
-          insta: null,
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/ocyeanic.minn?igsh=MWF1d2t6ZHZxczA2Zg==',
         },
       },
       {
-        name: "Ayushman Dutta",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958226/Wing/uvhgcapurarucrktmhlu.jpg",
-        // profileImgUrl: " ",
+        name: 'Sarnick Patra',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624957/Wing/li9cggqcicj1ct38hqya.heic',
         socials: {
-          insta: "https://www.instagram.com/4yushm4n?igsh=MW44amdpdXJmd2JxcQ==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/sarnick_patra?utm_source=qr&igsh=MXRhYjA2enR2Y2hiaw==',
         },
       },
       {
-        name: "Ivana Baidya",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958230/Wing/glvqsmvvok9jwstismc9.jpg",
-        // profileImgUrl: " ",
+        name: 'Md Shadman Shahnawaz',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624961/Wing/imjos9cvhqj4iuc7odak.webp',
         socials: {
-          insta: "https://www.instagram.com/ivanaa_na?igsh=eG52MGtyMzFzMWt5",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/iam.shad_ow?igsh=cjZ5MHJjZXN0dWRk',
         },
       },
       {
-        name: "Meghmallar Hazra",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958235/Wing/jhtmw9sk4983iu1d3eob.jpg",
-        // profileImgUrl: " ",
+        name: 'Joymita Ghar',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624984/Wing/abc9mn7z4qhkyn46omgv.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/h0joborolo?igsh=MTk2a3k5cXFiMmdvMA==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/rai_.2007?igsh=MXFxNXBqYnNremlodA==',
         },
       },
       {
-        name: "Krish Kumar ",
-        designation: "Wing coordinator",
-        profileImgUrl: 
-        "https://res.cloudinary.com/dlbiliyzy/image/upload/v1771868901/Wing/WhatsApp_Image_2026-02-22_at_21.04.04_tjh7er.jpg",
+        name: 'Saptika Saha',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624987/Wing/e65m3uzjvkmvwmkjofxm.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/itz.krish.kk?igsh=MXJ1YzRoNHUzdXcwdg==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
-        },
-      },
-      {
-        name: "Swapnil Guha",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958251/Wing/g3lpov1vltjw5rn2mvcp.jpg",
-        // profileImgUrl: " ",
-        socials: {
-          insta:
-            "https://www.instagram.com/swg.okbutnotsook?igsh=MWhpd29jM2poYjRiOA==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/sap_ain_alltht?igsh=MWY2MjAwdnNpaGF1Mw==',
         },
       },
     ],
@@ -247,112 +237,50 @@ export const wingData = {
 
     members: [
       {
-        name: "Himaghna Ghosh",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958273/Wing/ko47rdigggxktx2rmmmj.jpg",
-        // profileImgUrl: " ",
+        name: 'Soujatya Banerjee',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624886/Wing/r2mga7wnscexpr8ta30u.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/himaghna_ghosh_official?igsh=dHhnd2EweHdhODZ2",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/banerjee.exe?igsh=aWUyaDJwcmttNjVz',
         },
       },
       {
-        name: "Debjit",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958313/Wing/fvkcnt05llzmpzm75lwm.jpg",
-        // profileImgUrl: " ",
+        name: 'Suvojit Ghosh',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624922/Wing/oqder96fj9cb24zm6kgr.webp',
         socials: {
-          insta: null,
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/____s_u_v_o_______?igsh=MWsxMjB1Z2hraG5qZA==',
         },
       },
       {
-        name: "Arya Poddar",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958329/Wing/grjavreqj76pe7wnyngt.jpg",
-        // profileImgUrl: " ",
+        name: 'Soham Ghosh',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624968/Wing/l6wf1php9vydhtzihwd0.jpg',
         socials: {
-          insta: null,
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
         },
       },
       {
-        name: "Souharda Banerjee",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958335/Wing/fcfq8xiqjmez9oyplqen.jpg",
-        // profileImgUrl: " ",
+        name: 'Priyangshu Roy Chowdhury',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624882/Wing/bjszjyafhakjjz6k2pyc.jpg',
         socials: {
-          insta: null,
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/priyangshu_rc/',
         },
       },
       {
-        name: "Soujatya Banerjee",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958355/Wing/kpa1due6nfvjzchdxw88.jpg",
-        // profileImgUrl: " ",
+        name: 'Sk. Aqib',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624901/Wing/hnahky0m5pu4t69pcrhh.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/ifeeldrake?igsh=MTRycWU5MngxNnFqYg==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/Not using (pvt that why i dont use too much )',
         },
       },
       {
-        name: "Srayin Senapati",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958359/Wing/unrwoszjvlfkgt1juz2r.png",
-        // profileImgUrl: " ",
+        name: 'Deeptanshu Nag',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624977/Wing/jt2rdl8m4ddrbtplmquq.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/srayin_senapati?igsh=b2RudGFiaTJjeW9r",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
-        },
-      },
-      {
-        name: "Swapnil Bhowal",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958366/Wing/ymgpbwhwbfyrgna3icdm.jpg",
-        // profileImgUrl: " ",
-        socials: {
-          insta:
-            "https://www.instagram.com/co2xdangerop?igsh=MWJyeTZ1aGJ5dDdueQ==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
-        },
-      },
-      {
-        name: "Rajendra Kumar",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958372/Wing/utztqvqkgm6to82kqfjq.jpg",
-        // profileImgUrl: " ",
-        socials: {
-          insta:
-            "https://www.instagram.com/_rajendra_kumar_07?igsh=MXBmMng1bGYyZXB2eA==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/vicinal_dihallide?igsh=MXJiZDI0NnlxMDRyaA==',
         },
       },
     ],
@@ -381,73 +309,35 @@ export const wingData = {
       "The Robonix Club is a student community dedicated to advancing skills and knowledge in utilizing modern technology for scientific endeavors. The club focuses on automation, artificial intelligence, and robotics. It provides a platform for students to explore these fields, turning innovative ideas into reality. The club organizes workshops, events, and technical sessions to enhance students’ understanding and practical experience in robotics, mechatronics, and related areas, fostering creativity and passion for technological advancements.",
     members: [
       {
-        name: "Anushka Tarafdar",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958383/Wing/idsmkfxajz7qmevedwhi.jpg",
-        // profileImgUrl: " ",
+        name: 'Debarghya Mandal',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624906/Wing/guy6esjxq8vfpllzlge7.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/anushka_tarafdar?igsh=cXl3eDV5Z2doMWlt",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/_xnor.xe_?igsh=MWVhMWVleTJjeTFnNA==',
         },
       },
       {
-        name: "Soumyarup Chakraborty",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958388/Wing/brlqiumipbhe3bml5ame.jpg",
-        // profileImgUrl: " ",
+        name: 'Sumit Dey',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624897/Wing/ahbo9teznp7ooq3oq6yt.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/soumyarup_chakraborty?igsh=YmxnMnBpdTBvdG40",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/sumitt_official__?igsh=MTc1cm9vMXo5bjE1eQ==',
         },
       },
       {
-        name: "Sayandip Mondal",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958392/Wing/ra3achurpciwks1h71lu.jpg",
-        // profileImgUrl: " ",
+        name: 'Pragyan Paramita Dutta',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624936/Wing/io2lkmzyk37nqcizt2o1.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/sayan_m_777?igsh=MTNzeWIyMWUxMWdkcw==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/prynimsy/',
         },
       },
       {
-        name: "Arijit Ghosh",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958438/Wing/oxzj3sftpl7npjqu700p.jpg",
-        // profileImgUrl: " ",
+        name: 'Dibyansh Dubey',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624943/Wing/pd0x5en5xabfatehulya.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/arijit_ghosh_acg?igsh=MTBxc2NnZ2pyNnZxYQ==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
-        },
-      },
-      {
-        name: "Sumit Dey",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958441/Wing/ym8yx2ee2tk17xxipdnc.jpg",
-        // profileImgUrl: " ",
-        socials: {
-          insta:
-            "https://www.instagram.com/sumitt_official__?igsh=MTQ1dTkwZmFhY3V4MA==",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/dibyansh_dubey_/',
         },
       },
     ],
@@ -484,85 +374,59 @@ export const wingData = {
       "Illustro is a vibrant community of photography enthusiasts dedicated to capturing moments and exploring the artistry of visual storytelling. From amateur hobbyists to seasoned professionals, members share techniques, critique each other's work, and organize exhibitions to showcase their talents. Regular workshops and guest lectures by industry experts foster skill development and creativity. Through outings and photo walks, members discover new perspectives and subjects, enriching their photographic journeys. With a supportive atmosphere and a passion for imagery, Illustro serves as a hub for fostering talent and camaraderie among photographers of all levels.",
     members: [
       {
-        name: "Anusuya Pan",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958445/Wing/odd1vobr4svdx4is5bt1.jpg",
-        // profileImgUrl: " ",
+        name: 'Sneha Sharma',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624929/Wing/r7uarcuduhz6maupklp2.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/misssbrightsidee?igsh=Z2t1b2h6cHdlZzZ2",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/snehuuuu_1313?igsh=NmV4am84YWFpbG1q',
         },
       },
       {
-        name: "Tania Choudhury",
-        designation: "Wing Lead",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958450/Wing/yur5ck0te1ajmvdcnd7q.jpg",
-        // profileImgUrl: " ",
+        name: 'Nilesh Karmakar',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624946/Wing/kd70b9uzhlbenicdtg5u.jpg',
         socials: {
-          insta: "https://www.instagram.com/a_i_n_a_t?igsh=dXpnaTAzcDk1YXFx",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/nilesh_karmakar1?igsh=ZHB4N29iNmRkZWZl',
         },
       },
       {
-        name: "Amaratya Ray",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958453/Wing/ranxohiiwhvapsci4vad.jpg",
-        // profileImgUrl: " ",
+        name: 'Arkadeep Ghorai',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624890/Wing/fvijnzpcd4c7lejqxgys.png',
         socials: {
-          insta:
-            "https://www.instagram.com/amartyarayy__?igsh=aHNkZnFvbDRtdGth",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/arka_ag.07?igsh=MXVwcXQxM203NG95ZA==',
         },
       },
       {
-        name: "Srijit Sahoo",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958454/Wing/xddbwajxnsdypxiyhssc.jpg",
-        // profileImgUrl: " ",
+        name: 'Ayush Phiyak',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624910/Wing/sdilkivdqcbmbx4uquyk.jpg',
         socials: {
-          insta: "https://www.instagram.com/silly_jit?igsh=OWNyN2x1b2ptcmY0",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/ayushphiyak/',
         },
       },
       {
-        name: "Sneha Sharma",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958456/Wing/as5er0ijkxaiqkm3nlhn.jpg",
-        // profileImgUrl: " ",
+        name: 'Ipsita Sarkar',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624925/Wing/fu1m7yrv8to6w43vulyi.heic',
         socials: {
-          insta:
-            "https://www.instagram.com/snehuuuu_1313?igsh=NDVscjIxMzhwcmhh",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/_atispi?igsh=MW80cml6cnp6dTBi',
         },
       },
       {
-        name: "Nilesh Karmakar",
-        designation: "Wing coordinator",
-        profileImgUrl:
-          "https://res.cloudinary.com/dlbiliyzy/image/upload/f_auto,q_auto,w_auto/v1760958460/Wing/ypbf1ohpjzbbrlbseqn5.jpg",
-        // profileImgUrl: " ",
+        name: 'Aviroop Dan',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624949/Wing/ycmmozpch4d97isnxoog.jpg',
         socials: {
-          insta:
-            "https://www.instagram.com/nilesh_karmakar1?igsh=OWcyNTlwb3Njdzg=",
-          // facebook: null,
-          // github: null,
-          // linkedin: null,
+          insta: 'https://www.instagram.com/radically_conservative?igsh=MXQwYzI5NzhweDZmMw==',
+        },
+      },
+      {
+        name: 'Sucheta Mondal',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624953/Wing/zoqbonxsplkq89fmgwtw.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/suchetamonbol?igsh=NTJkNGlmZGdvaHNu',
         },
       },
     ],
@@ -577,6 +441,49 @@ export const wingData = {
         caption: "specrum",
       },
     ],
+  },
+  flagship: {
+    name: "flagship",
+    coverImage: flagshipImg,
+    aboutBrief:
+      "The Flagship Wing is a dynamic community driven by creativity, strategy, leadership, and the pursuit of extraordinary experiences.",
+    aboutExtended:
+      "The Flagship Wing is a dynamic community driven by creativity, strategy, leadership, and the pursuit of extraordinary experiences. The wing focuses on conceptualizing and executing innovative events that challenge participants through management simulations, strategic competitions, immersive games, and problem-solving challenges. Flagship provides a platform to transform ideas into engaging experiences, encouraging experimentation, collaboration, and the development of leadership, decision-making, communication, and event-management skills. We aim to create events that are not merely conducted, but remembered. As one of the club’s newer wings, Flagship has the unique opportunity to build its identity from the ground up. Through ambitious ideas and meaningful collaborations, we strive to create a lasting legacy within the club.",
+    members: [
+      {
+        name: 'Krish Kumar',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624939/Wing/suyqraf25l2huqrhfgpo.webp',
+        socials: {
+          insta: 'https://www.instagram.com/itz.krish.kk?igsh=MXVoajhxZDhma2Z5ZQ==',
+        },
+      },
+      {
+        name: 'Ayushman Dutta',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624965/Wing/dddkripkq9yagashkqla.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/4yushm4n?igsh=bXdpbnhhb2Zma2V5',
+        },
+      },
+      {
+        name: 'Snehal Mitra',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624918/Wing/qpxwvjrfjmtmghausjix.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/snehal_speaketh.__?igsh=MXVjcDdobzJybWRvaw==',
+        },
+      },
+      {
+        name: 'Mohana Chatterjee',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624932/Wing/zvhmbmgtjkjvajpqognu.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/mohana.chatterjee27?igsh=MXVwN2Vxa2l0YjFydw==',
+        },
+      },
+    ],
+    gallery: [],
   },
 
 };

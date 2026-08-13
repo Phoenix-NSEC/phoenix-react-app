@@ -98,7 +98,7 @@ function Footer() {
     {/* Bottom Border and Copyright */}
     <div className="border-t border-cyan-500/30 mt-6 pt-3 text-center">
       <p className="text-gray-500 text-xs">
-        © 2025 Phoenix Tech Club. All Rights Reserved
+        © 2026 Phoenix Tech Club. All Rights Reserved
       </p>
     </div>
   </div>

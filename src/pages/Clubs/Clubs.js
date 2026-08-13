@@ -4,6 +4,7 @@ import img2 from '../../static/img/speaking-e1513074001193.jpeg'
 import img3 from '../../static/img/cybernix.jpg'
 import img4 from '../../static/img/virtuix.jpg'
 import img5 from '../../static/img/illustro.jpg'
+import img6 from '../../static/img/flagship_wing.jpeg'
 import ZigBox from '../../components/ZigBox'
 import { wingData } from '../../data/wingData'
 import { useNavigate } from 'react-router-dom'
@@ -58,6 +59,16 @@ const data = [
       link: 'illustro'
     },
     isCLub: true
+  },
+  {
+    image: img6,
+    title: 'Flagship',
+    description: 'The Flagship Wing is a dynamic community driven by creativity, strategy, leadership, and the pursuit of extraordinary experiences. The wing focuses on conceptualizing and executing innovative events that challenge participants through management simulations, strategic competitions, immersive games, and problem-solving challenges. Flagship provides a platform to transform ideas into engaging experiences, encouraging experimentation, collaboration, and the development of leadership, decision-making, communication, and event-management skills. We aim to create events that are not merely conducted, but remembered. As one of the club’s newer wings, Flagship has the unique opportunity to build its identity from the ground up. Through ambitious ideas and meaningful collaborations, we strive to create a lasting legacy within the club.',
+    extraButton: {
+      name: 'Learn More',
+      link: 'flagship'
+    },
+    isCLub: true
   }
 
 ]
@@ -87,6 +98,9 @@ function Clubs() {
         break;
       case "illustro":
         setCurWing(wingData.illustro)
+        break;
+      case "flagship":
+        setCurWing(wingData.flagship)
         break;
 
       default:
