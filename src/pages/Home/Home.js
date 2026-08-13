@@ -62,19 +62,22 @@ function Home() {
 
   const getMemberList = async () => {
     try {
+      console.log("Home.js: Fetching members from Firestore...");
       const data = await getDocs(membersCollectionRef);
 
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
+      console.log("Home.js: Raw members fetched:", filteredData);
       let newFilteredData = filteredData.filter(
         (e) => parseInt(e.year.split("-")[1]) !== date.getFullYear(),
       );
+      console.log("Home.js: Filtered members list:", newFilteredData);
 
       setYearList(newFilteredData);
     } catch (error) {
-      console.error(error);
+      console.error("Home.js: Error fetching members:", error);
     }
   };
 
@@ -86,7 +89,7 @@ function Home() {
   useEffect(() => {
     yearList.forEach((element) => {
       if (
-        element.year === "2025-26" &&
+        element.year === "2026-27" &&
         element.members &&
         element.members.length > 0
       ) {
@@ -355,11 +358,11 @@ function Home() {
                     Read More
                   </button>
                 </a>
-                <a target="_blank"  href="https://avenir.phoenixnsec.in">
+                {/* <a target="_blank"  href="https://avenir.phoenixnsec.in">
                   <button className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 rounded-lg font-bold hover:bg-cyan-400 hover:text-black transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/50 neon-border-glow">
-                    Avenir'26
+                    Avenir'27
                   </button>
-                </a>
+                </a> */}
               </div>
             </div>
 
@@ -416,8 +419,6 @@ function Home() {
                 partialVisbile={true}
                 centerMode={false}
                 afterChange={(previousSlide, { currentSlide }) => {
-                  // Calculate center card index based on visible items
-                  // currentSlide is the index of the first visible item
                   const itemsPerView =
                     window.innerWidth >= 1024
                       ? 3
@@ -425,10 +426,14 @@ function Home() {
                         ? 2
                         : 1;
                   const centerOffset = Math.floor(itemsPerView / 2);
-                  // For 3 items: center is at index 1 (0, 1, 2)
-                  // For 2 items: center is at index 1 (0, 1)
-                  // For 1 item: center is at index 0
-                  const calculatedCenterIndex = currentSlide + centerOffset;
+                  
+                  // In infinite mode, react-multi-carousel clones itemsPerView items on each side.
+                  // The original index of the centered card is calculated by subtracting itemsPerView
+                  // and applying modulo arithmetic.
+                  const element2026 = yearList.find(e => e.year === "2026-27");
+                  const memberCount = element2026?.members?.length || 1;
+                  const calculatedCenterIndex = ((currentSlide + centerOffset - itemsPerView) % memberCount + memberCount) % memberCount;
+                  
                   setCenterCardIndex(calculatedCenterIndex);
                 }}
                 beforeChange={() => {
@@ -436,20 +441,12 @@ function Home() {
                   setCenterCardIndex(-1);
                 }}
               >
-                {yearList.map((element) => {
-                  if (element.year === "2025-26") {
-                    const cardHomeComponents = [];
-
-                    element.members.forEach((member, index) => {
-                      // Calculate if this member index is the center card
-                      // Handle infinite scrolling by using modulo
-                      const memberCount = element.members.length;
-                      const normalizedCenterIndex =
-                        centerCardIndex >= 0
-                          ? centerCardIndex % memberCount
-                          : -1;
-                      const isCenter = normalizedCenterIndex === index;
-                      cardHomeComponents.push(
+                {yearList
+                  .filter((element) => element.year === "2026-27")
+                  .flatMap((element) =>
+                    element.members.map((member, index) => {
+                      const isCenter = centerCardIndex === index;
+                      return (
                         <CardHome
                           key={index}
                           name={member.name}
@@ -459,15 +456,10 @@ function Home() {
                           year={element.year}
                           media={member.socialMedia || {}}
                           isCenter={isCenter}
-                        />,
+                        />
                       );
-                    });
-
-                    return cardHomeComponents;
-                  } else {
-                    return null;
-                  }
-                })}
+                    })
+                  )}
               </Carousel>
             </div>
           </div>
@@ -475,9 +467,9 @@ function Home() {
       </div>
 
       {/* Popup Notification */}
-      <div className="fixed bottom-4 right-4 bg-black text-cyan-400 p-4 rounded-lg border border-cyan-300 shadow-lg shadow-cyan-300 z-50 popup-bounce">
-        Avenir'26 is coming soon 🔥
-      </div>
+      {/* <div className="fixed bottom-4 right-4 bg-black text-cyan-400 p-4 rounded-lg border border-cyan-300 shadow-lg shadow-cyan-300 z-50 popup-bounce">
+        Avenir'27 is coming soon 🔥
+      </div> */}
     </>
   );
 }

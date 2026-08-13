@@ -1,17 +1,53 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import { GalleryGrid } from "../../components/GalleryGrid";
+import { db } from "../../firebase-config";
+import { doc, getDoc } from "firebase/firestore";
+import { wingData } from "../../data/wingData";
 
 //icons
 import { AiFillInstagram } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaFacebook } from "react-icons/fa";
 
 const Wing = () => {
   const location = useLocation();
   const state = location.state || {}; // ✅ fallback to empty object
-  const { name, aboutExtended, coverImage, members = [], gallery = [] } = state;
+  const { wingName } = useParams();
+  
+  const normalizedWingName = wingName === "eloquence" ? "eloquense" : wingName?.toLowerCase();
+  const staticWingData = wingData[normalizedWingName] || {};
+  
+  const [members, setMembers] = useState(state.members || staticWingData.members || []);
+  const [loading, setLoading] = useState(false);
 
-  // If no data (user reloaded the page), show fallback
+  useEffect(() => {
+    const fetchMembers = async () => {
+      if (!normalizedWingName) return;
+      setLoading(true);
+      try {
+        const docRef = doc(db, "wings", normalizedWingName);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists() && docSnap.data().members) {
+          setMembers(docSnap.data().members);
+        }
+      } catch (error) {
+        console.error("Error fetching wing members from Firestore:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (!state.members) {
+      fetchMembers();
+    }
+  }, [normalizedWingName, state.members]);
+
+  const name = staticWingData.name || normalizedWingName;
+  const aboutExtended = staticWingData.aboutExtended;
+  const coverImage = staticWingData.coverImage;
+  const gallery = staticWingData.gallery || [];
+
+  // If no data, show fallback
   if (!name) {
     return (
       <div className="text-white text-center py-20">
@@ -212,29 +248,22 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
         <ul className="social">
           {socials?.insta && (
             <li>
-              <a href={socials.insta} aria-hidden="true">
+              <a href={socials.insta} target="_blank" rel="noreferrer" aria-hidden="true">
                 <AiFillInstagram size={"1.2rem"} />
               </a>
             </li>
           )}
           {socials?.facebook && (
             <li>
-              <a href={socials.facebook} aria-hidden="true">
+              <a href={socials.facebook} target="_blank" rel="noreferrer" aria-hidden="true">
                 <FaFacebook size={"1.2rem"} />
               </a>
             </li>
           )}
           {socials?.github && (
             <li>
-              <a href={socials.github} aria-hidden="true">
+              <a href={socials.github} target="_blank" rel="noreferrer" aria-hidden="true">
                 <FaGithub size={"1.2rem"} />
-              </a>
-            </li>
-          )}
-          {socials?.linkedin && (
-            <li>
-              <a href={socials.linkedin} aria-hidden="true">
-                <FaLinkedinIn size={"1.2rem"} />
               </a>
             </li>
           )}

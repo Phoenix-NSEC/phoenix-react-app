@@ -17,32 +17,49 @@ function Coreteam() {
   };
   const getMemberList = async () => {
     try {
+      console.log("Coreteam.js: Fetching members from Firestore...");
       const data = await getDocs(membersCollectionRef);
 
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
       }));
+      console.log("Coreteam.js: Raw members fetched:", filteredData);
+
+      // Append 2026-27 placeholder if not already uploaded in Firestore
+      const has2026_27 = filteredData.some((e) => e.year === "2026-27");
+      if (!has2026_27) {
+        filteredData.push({
+          id: "placeholder-2026-27",
+          year: "2026-27",
+          members: []
+        });
+      }
 
       // Sort by the starting year (before the dash)
       filteredData.sort((a, b) => {
         return parseInt(a.year.split("-")[0]) - parseInt(b.year.split("-")[0]);
       });
 
-      // Filter data for the year 2024-25 as default
+      // Filter data for the default year (ignoring empty placeholder)
       let defaultYearData = filteredData.filter(
-        (element) => parseInt(element.year.split("-")[0]) === d.getFullYear()
+        (element) => parseInt(element.year.split("-")[0]) === d.getFullYear() && element.members && element.members.length > 0
       );
-      console.log(defaultYearData);
+      console.log("Coreteam.js: Default active year data:", defaultYearData);
 
-      // If there is no data for 2024-25, fallback to the last year
+      // Fallback: if no active year has data, select the latest year with members, otherwise fallback to the last element
       if (defaultYearData.length === 0) {
-        defaultYearData = filteredData.filter(
-          (element) =>
-            parseInt(element.year.split("-")[0]) + 1 === d.getFullYear()
+        const yearsWithMembers = filteredData.filter(
+          (element) => element.members && element.members.length > 0
         );
+        if (yearsWithMembers.length > 0) {
+          defaultYearData = [yearsWithMembers[yearsWithMembers.length - 1]];
+        } else if (filteredData.length > 0) {
+          defaultYearData = [filteredData[filteredData.length - 1]];
+        }
       }
 
+      console.log("Coreteam.js: Final yearList set:", defaultYearData);
       setYearList(defaultYearData);
       setMemberList(filteredData.reverse());
 
