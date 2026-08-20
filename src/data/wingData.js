@@ -171,6 +171,14 @@ export const wingData = {
         },
       },
       {
+        name: 'Swapnil Guha',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159235/Wing/twdfmvex3m9mv2goqdst.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/swg.okbutnotsook',
+        },
+      },
+      {
         name: 'Manaswita Bhattacharya',
         designation: 'Wing coordinator',
         profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624893/Wing/mmuwtlpspj5sowi9jvf2.jpg',
@@ -260,6 +268,14 @@ export const wingData = {
         },
       },
       {
+        name: 'Srayin Senapati',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159241/Wing/xzbczdb2s8x4wqx9npf0.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/srayin_senapati?igsh=MWJiMzIwNDltYXVnZQ==',
+        },
+      },
+      {
         name: 'Priyangshu Roy Chowdhury',
         designation: 'Wing coordinator',
         profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624882/Wing/bjszjyafhakjjz6k2pyc.jpg',
@@ -281,6 +297,14 @@ export const wingData = {
         profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624977/Wing/jt2rdl8m4ddrbtplmquq.jpg',
         socials: {
           insta: 'https://www.instagram.com/vicinal_dihallide?igsh=MXJiZDI0NnlxMDRyaA==',
+        },
+      },
+      {
+        name: 'Surajit Ghosh',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159245/Wing/bwwobjnifditgtgnbwou.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/benzene_chloride_?igsh=MTU4YjJjOXh6NTFweA==',
         },
       },
     ],
@@ -314,6 +338,14 @@ export const wingData = {
         profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624906/Wing/guy6esjxq8vfpllzlge7.jpg',
         socials: {
           insta: 'https://www.instagram.com/_xnor.xe_?igsh=MWVhMWVleTJjeTFnNA==',
+        },
+      },
+      {
+        name: 'ARIJIT GHOSH',
+        designation: 'Wing Lead',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159226/Wing/zad0vix04ubqsgdo7rur.png',
+        socials: {
+          insta: 'https://www.instagram.com/arijit_ghosh_acg?igsh=N3JlN3IwbHpweHYz',
         },
       },
       {
@@ -408,7 +440,7 @@ export const wingData = {
       {
         name: 'Ipsita Sarkar',
         designation: 'Wing coordinator',
-        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624925/Wing/fu1m7yrv8to6w43vulyi.heic',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159250/Wing/cfehq4gug1dhue3otxpp.heic',
         socials: {
           insta: 'https://www.instagram.com/_atispi?igsh=MW80cml6cnp6dTBi',
         },
@@ -480,6 +512,30 @@ export const wingData = {
         profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1786624932/Wing/zvhmbmgtjkjvajpqognu.jpg',
         socials: {
           insta: 'https://www.instagram.com/mohana.chatterjee27?igsh=MXVwN2Vxa2l0YjFydw==',
+        },
+      },
+      {
+        name: 'Risabh Maharsia',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159253/Wing/ebzi08ey227k1ihmhd0o.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/risabhmaharsia?igsh=a2lpNDNyMTA4ZXpq',
+        },
+      },
+      {
+        name: 'Soumi Bhattacharya',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159257/Wing/agzmmayuiiee3m1dfxf3.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/__.soumi____?igsh=YmFna2x0OGt3NnMw',
+        },
+      },
+      {
+        name: 'Shifa Mushtaque',
+        designation: 'Wing coordinator',
+        profileImgUrl: 'https://res.cloudinary.com/dlbiliyzy/image/upload/v1787159260/Wing/hwy6tih0fvox29gzuupf.jpg',
+        socials: {
+          insta: 'https://www.instagram.com/_.shifaaafr._?igsh=bnZtM3IzZnFzb2Mw',
         },
       },
     ],
