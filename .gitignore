@@ -46,6 +46,8 @@ credentials/
 *.csv
 /data/
 **/data/
+!src/data/
+!src/data/**
 
 # Python & Automation scripts caches/credentials
 __pycache__/
