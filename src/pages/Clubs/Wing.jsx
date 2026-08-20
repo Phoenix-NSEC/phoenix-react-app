@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { GalleryGrid } from "../../components/GalleryGrid";
 import { db } from "../../firebase-config";
 import { doc, getDoc } from "firebase/firestore";
@@ -7,18 +7,16 @@ import { wingData } from "../../data/wingData";
 
 //icons
 import { AiFillInstagram } from "react-icons/ai";
-import { FaGithub, FaFacebook } from "react-icons/fa";
+import { FaGithub, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const Wing = () => {
-  const location = useLocation();
-  const state = location.state || {}; // ✅ fallback to empty object
   const { wingName } = useParams();
   
   const normalizedWingName = wingName === "eloquence" ? "eloquense" : wingName?.toLowerCase();
   const staticWingData = wingData[normalizedWingName] || {};
   
-  const [members, setMembers] = useState(state.members || staticWingData.members || []);
-  const [loading, setLoading] = useState(false);
+  const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchMembers = async () => {
@@ -29,6 +27,8 @@ const Wing = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists() && docSnap.data().members) {
           setMembers(docSnap.data().members);
+        } else {
+          setMembers([]);
         }
       } catch (error) {
         console.error("Error fetching wing members from Firestore:", error);
@@ -37,10 +37,8 @@ const Wing = () => {
       }
     };
 
-    if (!state.members) {
-      fetchMembers();
-    }
-  }, [normalizedWingName, state.members]);
+    fetchMembers();
+  }, [normalizedWingName]);
 
   const name = staticWingData.name || normalizedWingName;
   const aboutExtended = staticWingData.aboutExtended;
@@ -70,10 +68,9 @@ const Wing = () => {
       {/* cover image */}
       <div className="mt-4 md:px-60">
         <div className="w-full h-56 relative group overflow-hidden flex rounded-lg">
-          {" "}
           <img
             src={coverImage}
-            alt="img"
+            alt={`${name} cover`}
             className="absolute w-full h-full inset-0 object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
@@ -93,31 +90,25 @@ const Wing = () => {
             Wing Members
           </h2>
 
-          {/* ---for hierarchy --- */}
-          {/* <div className='wing-lead flex justify-center'>
-                        <MemberCard
-                            name={members[0].name}
-                            designation={members[0].designation}
-                            socials={members[0].socials}
-                        />
-                    </div> */}
-          {/* --- hierarchy --- */}
-
-          <div className="flex gap-6 flex-wrap justify-center">
-            {members.slice(0).map((item, index) => {
-              return (
-                <>
-                  <MemberCard
-                    key={index}
-                    name={item.name}
-                    profileImgUrl={item.profileImgUrl}
-                    designation={item.designation}
-                    socials={item.socials}
-                  />
-                </>
-              );
-            })}
-          </div>
+          {loading ? (
+            <div className="flex justify-center items-center py-12">
+              <p className="text-cyan-400 font-semibold animate-pulse text-lg">Loading wing members...</p>
+            </div>
+          ) : members.length > 0 ? (
+            <div className="flex gap-6 flex-wrap justify-center">
+              {members.map((item, index) => (
+                <MemberCard
+                  key={index}
+                  name={item.name}
+                  profileImgUrl={item.profileImgUrl}
+                  designation={item.designation}
+                  socials={item.socials}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-400 text-center py-6">No members found for this wing in Firestore.</p>
+          )}
         </div>
 
         {/* gallery */}
@@ -131,7 +122,6 @@ const Wing = () => {
 };
 
 const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
-  console.log(profileImgUrl);
   return (
     <>
       <style>
@@ -241,28 +231,43 @@ const MemberCard = ({ name, designation, profileImgUrl, socials }) => {
 
       <div className="our-team rounded-lg w-[15rem] flex-shrink-0 border-2 border-cyan-300 shadow-lg shadow-cyan-300">
         <div className="picture">
-          <img className="img-fluid" alt="img" src={profileImgUrl} />
+          <img
+            className="img-fluid"
+            alt={name || "Member"}
+            src={profileImgUrl || "https://via.placeholder.com/150"}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = "https://via.placeholder.com/150";
+            }}
+          />
         </div>
         <h3 className="name text-2xl font-bold text-cyan-400">{name}</h3>
         <h4 className="title text-cyan-300">{designation}</h4>
         <ul className="social">
           {socials?.insta && (
             <li>
-              <a href={socials.insta} target="_blank" rel="noreferrer" aria-hidden="true">
+              <a href={socials.insta} target="_blank" rel="noreferrer" aria-label="Instagram">
                 <AiFillInstagram size={"1.2rem"} />
+              </a>
+            </li>
+          )}
+          {(socials?.linkedin || socials?.linkedIn) && (
+            <li>
+              <a href={socials.linkedin || socials.linkedIn} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <FaLinkedin size={"1.2rem"} />
               </a>
             </li>
           )}
           {socials?.facebook && (
             <li>
-              <a href={socials.facebook} target="_blank" rel="noreferrer" aria-hidden="true">
+              <a href={socials.facebook} target="_blank" rel="noreferrer" aria-label="Facebook">
                 <FaFacebook size={"1.2rem"} />
               </a>
             </li>
           )}
           {socials?.github && (
             <li>
-              <a href={socials.github} target="_blank" rel="noreferrer" aria-hidden="true">
+              <a href={socials.github} target="_blank" rel="noreferrer" aria-label="GitHub">
                 <FaGithub size={"1.2rem"} />
               </a>
             </li>

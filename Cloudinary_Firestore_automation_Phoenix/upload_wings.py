@@ -4,7 +4,6 @@ import cloudinary.uploader
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
-import re
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -29,8 +28,6 @@ if not firebase_admin._apps:
 
 db = firestore.client()
 
-# Target JS file
-WING_DATA_JS_PATH = Path(__file__).parent.parent / "src" / "data" / "wingData.js"
 IMAGES_DIR = Path(__file__).parent / "data" / "images"
 
 def is_empty_value(val):
@@ -80,64 +77,6 @@ def upload_image_to_cloudinary(image_name):
         print(f"Error uploading image {image_name}: {str(e)}")
         return None
 
-def find_matching_bracket(text, start_index):
-    """Finds matching closing bracket ']' starting from the index of the opening bracket '['"""
-    bracket_count = 0
-    in_string = False
-    string_char = None
-    escaped = False
-    
-    for i in range(start_index, len(text)):
-        char = text[i]
-        
-        if escaped:
-            escaped = False
-            continue
-        if char == '\\':
-            escaped = True
-            continue
-            
-        if char in ['"', "'", '`']:
-            if not in_string:
-                in_string = True
-                string_char = char
-            elif string_char == char:
-                in_string = False
-        
-        if not in_string:
-            if char == '[':
-                bracket_count += 1
-            elif char == ']':
-                bracket_count -= 1
-                if bracket_count == 0:
-                    return i
-    return -1
-
-def generate_members_js(members_list):
-    """Generate formatting for members array in JS"""
-    js_lines = ["[\n"]
-    for member in members_list:
-        js_lines.append("      {\n")
-        js_lines.append(f"        name: {repr(member['name'])},\n")
-        js_lines.append(f"        designation: {repr(member['designation'])},\n")
-        
-        # Wrap photo URL
-        if member['profileImgUrl']:
-            js_lines.append(f"        profileImgUrl: {repr(member['profileImgUrl'])},\n")
-        else:
-            js_lines.append("        profileImgUrl: \"\",\n")
-            
-        # Socials
-        js_lines.append("        socials: {\n")
-        for key, val in member['socials'].items():
-            if val:
-                js_lines.append(f"          {key}: {repr(val)},\n")
-        js_lines.append("        },\n")
-        js_lines.append("      },\n")
-        
-    js_lines.append("    ]")
-    return "".join(js_lines)
-
 def main():
     # Look for wings_data.xlsx or wings_data.csv
     xlsx_path = Path(__file__).parent / "data" / "wing_members_data.xlsx"
@@ -157,7 +96,6 @@ def main():
         return
 
     # Normalize wing names to standard lowercase keys
-    # Map synonyms if user types differently
     wing_mapping = {
         'robonics': 'robonix',
         'robonix': 'robonix',
@@ -211,58 +149,20 @@ def main():
         print("No valid wing members data found in file.")
         return
 
-    # Now read wingData.js and update it
-    if not WING_DATA_JS_PATH.exists():
-        print(f"Error: Target file {WING_DATA_JS_PATH} not found.")
-        return
-
-    with open(WING_DATA_JS_PATH, 'r', encoding='utf-8') as f:
-        js_content = f.read()
-
-    # For each wing we have new members for, replace the members array
-    for wing_key, members in wings_members.items():
-        print(f"Updating wing '{wing_key}' with {len(members)} members in wingData.js...")
-        
-        # Regex to locate: wing_key: { ... members: [
-        # We search for wing_key followed by opening brace, and then "members: ["
-        pattern = rf"{wing_key}\s*:\s*\{{[^}}]*?members\s*:\s*\["
-        match = re.search(pattern, js_content, re.DOTALL)
-        
-        if not match:
-            print(f"Warning: Could not find members array for wing '{wing_key}' in wingData.js. Skipping.")
-            continue
-            
-        # Find index of '[' which is match.end() - 1
-        open_bracket_idx = match.end() - 1
-        close_bracket_idx = find_matching_bracket(js_content, open_bracket_idx)
-        
-        if close_bracket_idx == -1:
-            print(f"Error: Unbalanced brackets in wingData.js for '{wing_key}' members array.")
-            continue
-            
-        new_members_js = generate_members_js(members)
-        
-        # Replace the old array with the new one
-        js_content = js_content[:open_bracket_idx] + new_members_js + js_content[close_bracket_idx + 1:]
-
-    # Write the updated content back
-    with open(WING_DATA_JS_PATH, 'w', encoding='utf-8') as f:
-        f.write(js_content)
-
     print("\n--- Uploading wings to Firebase Firestore ---")
     for wing_key, members in wings_members.items():
-        print(f"Uploading '{wing_key}' members list to Firestore...")
+        print(f"Uploading '{wing_key}' ({len(members)} members) to Firestore...")
         try:
             doc_ref = db.collection('wings').document(wing_key)
             doc_ref.set({
                 'name': wing_key,
                 'members': members
-            })
+            }, merge=True)
             print(f"  [OK] Uploaded '{wing_key}' successfully to collection 'wings'")
         except Exception as e:
             print(f"  [ERROR] Failed to upload '{wing_key}' to Firestore: {str(e)}")
 
-    print(f"\n[SUCCESS] Successfully updated wings in wingData.js and Firestore!")
+    print(f"\n[SUCCESS] Successfully updated wings in Firestore!")
 
 if __name__ == "__main__":
     main()

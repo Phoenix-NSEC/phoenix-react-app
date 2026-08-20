@@ -394,38 +394,8 @@ def main():
         shutil.rmtree(TEMP_DIR)
         print("Temp folder deleted.")
 
-    # 5. Read wingData.js and replace the members list
-    if not WING_DATA_JS_PATH.exists():
-        print(f"Error: Target file '{WING_DATA_JS_PATH}' not found.")
-        return
-
-    with open(WING_DATA_JS_PATH, 'r', encoding='utf-8') as f:
-        js_content = f.read()
-
-    # Update each wing in wingData.js
-    for wing_key, members in wings_members.items():
-        print(f"Writing wing '{wing_key}' ({len(members)} members) to wingData.js...")
-        
-        pattern = rf"{wing_key}\s*:\s*\{{[^}}]*?members\s*:\s*\["
-        match = re.search(pattern, js_content, re.DOTALL)
-        
-        if not match:
-            print(f"Warning: Could not find members array for wing '{wing_key}' in wingData.js. Skipping.")
-            continue
-            
-        open_bracket_idx = match.end() - 1
-        close_bracket_idx = find_matching_bracket(js_content, open_bracket_idx)
-        
-        if close_bracket_idx == -1:
-            print(f"Error: Unbalanced brackets in wingData.js for '{wing_key}' members array.")
-            continue
-            
-        new_members_js = generate_members_js(members)
-        js_content = js_content[:open_bracket_idx] + new_members_js + js_content[close_bracket_idx + 1:]
-
-    # Write the updated content back
-    with open(WING_DATA_JS_PATH, 'w', encoding='utf-8') as f:
-        f.write(js_content)
+    # 5. Local wingData.js update is deprecated in favor of Firestore
+    print("\n[INFO] Skipping local wingData.js update (members are dynamically fetched from Firestore).")
 
     print("\n--- Uploading wings to Firebase Firestore ---")
     for wing_key, members in wings_members.items():
