@@ -29,7 +29,7 @@ function Footer() {
             ["Wings", "/wings"],
             ["Events", "/events"],
             ["Gallery", "/gallery"],
-            ["Core 2025-26", "/core"],
+            ["Core 2026-27", "/core"],
             ["Web Team", "/webteam"],
             ["Contact Us", "/contactus"],
           ].map(([label, link]) => (

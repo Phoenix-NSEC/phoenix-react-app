@@ -17,6 +17,11 @@
   * {
     @apply border-border;
   }
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: #050505;
+  }
   body {
     @apply bg-background text-foreground;
      @apply font-sans;
