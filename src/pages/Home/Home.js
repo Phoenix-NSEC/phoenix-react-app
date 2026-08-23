@@ -289,11 +289,11 @@ function Home() {
                 min-height: 30px;
             }
             .react-multiple-carousel__arrow--left {
-              left: calc(-16% + 1px) !important;
+              left: 10px !important;
             }
         
             .react-multiple-carousel__arrow--right {
-                right: calc(-16% + 1px) !important;
+                right: 10px !important;
             }
             
             .popup-bounce {
