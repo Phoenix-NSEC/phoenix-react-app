@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDaG2veIyxIjHAnK-ykPMwGcWBx6oYTcoI",
-  authDomain: "phoenix-demo-dc32a.firebaseapp.com",
-  projectId: "phoenix-demo-dc32a",
-  storageBucket: "phoenix-demo-dc32a.firebasestorage.app",
-  messagingSenderId: "225215329935",
-  appId: "1:225215329935:web:c76b65a93e246600df62fa",
-  measurementId: "G-F7SSR38QBE"
+  apiKey: "AIzaSyBw4mgLgM6im3_xsLe7DTa9P7ONm9GjnjU",
+  authDomain: "phoenix-c88b9.firebaseapp.com",
+  projectId: "phoenix-c88b9",
+  storageBucket: "phoenix-c88b9.appspot.com",
+  messagingSenderId: "974004018957",
+  appId: "1:974004018957:web:3dc10a68c0cb02d93b5a44",
+  measurementId: "G-BJJC5VLRSV"
 };
 
 const app = initializeApp(firebaseConfig);
